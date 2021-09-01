@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="第一章 Linux起源unix，C语言，TCP-IP 可以看作三胞胎，他们结合在一起相互诞生，其他具体自行可以看：计算机组成原理，计算机网络，以及C语言。可以结合在一起来学习，效果更佳。 第二章 系统分区Linux与Windows一样，它的主分区和拓展分区加起来不能超过四个，而且拓展分区最多一个且不能放入数据文件以及它不能格式化，拓展分区里放的逻辑分区可以放数据和格式化。Linux 硬件全为文件">
+  <meta name="description" content="1title:Linux学习笔记  对于大数据开发来讲，很多相关的软件和框架都是运行在Linux操作系统之上的，因此Linux是我们大数据学生学习的核心之一，于是我便趁着暑假期间，通过B站兄弟连的视频对Linux系统展开简单的学习。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://funder666.github.io/2021/09/01/linux/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第一章 Linux起源unix，C语言，TCP-IP 可以看作三胞胎，他们结合在一起相互诞生，其他具体自行可以看：计算机组成原理，计算机网络，以及C语言。可以结合在一起来学习，效果更佳。 第二章 系统分区Linux与Windows一样，它的主分区和拓展分区加起来不能超过四个，而且拓展分区最多一个且不能放入数据文件以及它不能格式化，拓展分区里放的逻辑分区可以放数据和格式化。Linux 硬件全为文件">
+<meta property="og:description" content="1title:Linux学习笔记  对于大数据开发来讲，很多相关的软件和框架都是运行在Linux操作系统之上的，因此Linux是我们大数据学生学习的核心之一，于是我便趁着暑假期间，通过B站兄弟连的视频对Linux系统展开简单的学习。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/830b609c2b6085bd3fb3d61641806b54/0?w=462&h=186">
 <meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/aae46524d8aca9c0a79007dd05f27047/0?w=1670&h=124">
@@ -102,8 +102,8 @@
 <meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/c8ee9fa12cdb41da25a41e0642984ff5/0?w=920&h=486">
 <meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/14e5dcd8d057a2fca860cb8834a091be/0?w=890&h=416">
 <meta property="og:image" content="https://qqadapt.qpic.cn/txdocpic/0/8d936b7c27bb0ef8122440a689153b9f/0?w=752&h=580">
-<meta property="article:published_time" content="2021-09-01T07:20:55.201Z">
-<meta property="article:modified_time" content="2021-08-22T11:24:44.057Z">
+<meta property="article:published_time" content="2021-09-01T08:14:08.260Z">
+<meta property="article:modified_time" content="2021-09-01T07:54:15.675Z">
 <meta property="article:author" content="Restart">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://qqadapt.qpic.cn/txdocpic/0/830b609c2b6085bd3fb3d61641806b54/0?w=462&h=186">
@@ -495,7 +495,14 @@
     
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="第一章-Linux起源"><a href="#第一章-Linux起源" class="headerlink" title="第一章 Linux起源"></a>第一章 Linux起源</h1><p>unix，C语言，TCP-IP 可以看作三胞胎，他们结合在一起相互诞生，其他具体自行可以看：计算机组成原理，计算机网络，以及C语言。可以结合在一起来学习，效果更佳。</p>
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title:Linux学习笔记</span><br></pre></td></tr></table></figure>
+
+<p>对于大数据开发来讲，很多相关的软件和框架都是运行在Linux操作系统之上的，因此Linux是我们大数据学生学习的核心之一，于是我便趁着暑假期间，通过B站兄弟连的视频对Linux系统展开简单的学习。</p>
+<span id="more"></span>
+
+
+
+<h1 id="第一章-Linux起源"><a href="#第一章-Linux起源" class="headerlink" title="第一章 Linux起源"></a>第一章 Linux起源</h1><p>unix，C语言，TCP-IP 可以看作三胞胎，他们结合在一起相互诞生，其他具体自行可以看：计算机组成原理，计算机网络，以及C语言。可以结合在一起来学习，效果更佳。</p>
 <h1 id="第二章-系统分区"><a href="#第二章-系统分区" class="headerlink" title="第二章 系统分区"></a>第二章 系统分区</h1><p>Linux与Windows一样，它的主分区和拓展分区加起来不能超过四个，而且拓展分区最多一个且不能放入数据文件以及它不能格式化，拓展分区里放的逻辑分区可以放数据和格式化。<br>Linux 硬件全为文件 这一点与Windows不一样，下面介绍一些Linux的主要硬件文件名以及存放路径：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">IDE硬盘 /dev/hd[a-d]</span><br><span class="line"></span><br><span class="line">SCSI/SATA/USB硬盘 /dev/sd[a-p]</span><br><span class="line"></span><br><span class="line">光驱 /dev/cdrom或/dev/sr0</span><br><span class="line"></span><br><span class="line">软盘 /dev/fd[0-1]</span><br><span class="line"></span><br><span class="line">打印机（25针） /dev/lp[0-2]</span><br><span class="line"></span><br><span class="line">打印机（USB） /dev/usb/lp[0-15]</span><br><span class="line"></span><br><span class="line">鼠标 /dev/mouse</span><br></pre></td></tr></table></figure>
 
@@ -2751,7 +2758,7 @@
 <li>第一个脚本 </li>
 </ol>
 <p>[root@localhost sh]# vi hello.sh #!/bin/Bash </p>
-<p>#The first program # Author: shenchao （E-mail: <a href="mailto:&#x73;&#x68;&#101;&#110;&#99;&#x68;&#97;&#111;&#64;&#x6c;&#97;&#109;&#112;&#98;&#x72;&#111;&#116;&#104;&#x65;&#114;&#46;&#110;&#x65;&#x74;">&#x73;&#x68;&#101;&#110;&#99;&#x68;&#97;&#111;&#64;&#x6c;&#97;&#109;&#112;&#98;&#x72;&#111;&#116;&#104;&#x65;&#114;&#46;&#110;&#x65;&#x74;</a>）   </p>
+<p>#The first program # Author: shenchao （E-mail: <a href="mailto:&#115;&#104;&#101;&#110;&#99;&#104;&#x61;&#111;&#x40;&#x6c;&#x61;&#109;&#x70;&#x62;&#x72;&#x6f;&#x74;&#x68;&#x65;&#114;&#46;&#x6e;&#x65;&#x74;">&#115;&#104;&#101;&#110;&#99;&#104;&#x61;&#111;&#x40;&#x6c;&#x61;&#109;&#x70;&#x62;&#x72;&#x6f;&#x74;&#x68;&#x65;&#114;&#46;&#x6e;&#x65;&#x74;</a>）   </p>
 <p>echo -e “Mr. Shen Chao is the most honest man in LampBrother”</p>
 <ol start="3">
 <li>脚本执行 </li>
@@ -4382,7 +4389,7 @@
     </a>
   
   
-    <a href="/2021/09/01/git%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/09/01/%E7%88%AC%E8%99%AB/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
