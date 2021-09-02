@@ -542,44 +542,86 @@
 </tbody></table>
 <h2 id="Git命令行操作"><a href="#Git命令行操作" class="headerlink" title="Git命令行操作"></a>Git命令行操作</h2><h3 id="1-1本地库初始化"><a href="#1-1本地库初始化" class="headerlink" title="1.1本地库初始化"></a>1.1本地库初始化</h3><p><code>进入文件夹</code></p>
 <p><img src="https://i.loli.net/2021/09/02/8HGmk6sUi9Q5lnS.png" alt="image.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">注意：生成的 .git 目录中存放的是本地库相关文件，不要删除</span><br></pre></td></tr></table></figure>
-
+<pre><code>git init
+注意：生成的 .git 目录中存放的是本地库相关文件，不要删除
+</code></pre>
 <h3 id="1-2设置签名"><a href="#1-2设置签名" class="headerlink" title="1.2设置签名"></a>1.2设置签名</h3><p>作用：区分不同开发人员的身份</p>
 <ul>
 <li><p>项目(仓库)级别<code>仅在当前本地库有效</code></p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name tom  #设置用户名tom</span><br><span class="line">git config user.email liu@qq.com #设置用户邮箱</span><br></pre></td></tr></table></figure></li>
+<pre><code>git config user.name tom  #设置用户名tom
+git config user.email liu@qq.com #设置用户邮箱
+</code></pre>
+</li>
 <li><p>系统用户级别<code>仅在当前登录的操作系统用户有效</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name tom</span><br><span class="line">git config --global user.email liu@qq.com</span><br></pre></td></tr></table></figure></li>
+<pre><code>git config --global user.name tom
+git config --global user.email liu@qq.com
+</code></pre>
+</li>
 </ul>
 <blockquote>
 <p>仅仅加了一个 <code>--global</code></p>
 <p>优先级别：<code>项目级别</code>  &gt;  <code>系统级别</code></p>
 <p>信息保存位置：<code>~/.gitconfig 文件</code>  </p>
 </blockquote>
-<h3 id="1-3基本操作"><a href="#1-3基本操作" class="headerlink" title="1.3基本操作"></a>1.3基本操作</h3><h4 id="1-3-1-状态查看"><a href="#1-3-1-状态查看" class="headerlink" title="1.3.1 状态查看"></a>1.3.1 状态查看</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status   #查看工作区、暂存区状态</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-3-2-添加"><a href="#1-3-2-添加" class="headerlink" title="1.3.2 添加"></a>1.3.2 添加</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add fileName  #指定文件</span><br><span class="line">git rm --cached fileName  从暂存区撤回</span><br><span class="line">git add . #所有</span><br><span class="line">说明：将工作区的文件添加到暂存区</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-3-3-提交"><a href="#1-3-3-提交" class="headerlink" title="1.3.3 提交"></a>1.3.3 提交</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">将暂存区内容提交到本地库</span><br><span class="line">git commit filename(此时会进入vim，需要添加提交信息)</span><br><span class="line">不进入vim 则可以：</span><br><span class="line">git commit -m &#x27;commit message&#x27; fileName（在-m&#x27;&#x27;里添加提交信息）</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-3-4-查看历史记录"><a href="#1-3-4-查看历史记录" class="headerlink" title="1.3.4 查看历史记录"></a>1.3.4 查看历史记录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git log </span><br><span class="line">git log --greph #图形显示,更直观</span><br><span class="line">git log --pretty=oneline #一行显示</span><br><span class="line">git log --oneline #显示部分哈希值；只显示过去版本</span><br><span class="line">git reflog  #显示指针；显示所有版本(常用)</span><br><span class="line">说明：HEAD@&#123;移动到当前版本需要多少步&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="1-3基本操作"><a href="#1-3基本操作" class="headerlink" title="1.3基本操作"></a>1.3基本操作</h3><h4 id="1-3-1-状态查看"><a href="#1-3-1-状态查看" class="headerlink" title="1.3.1 状态查看"></a>1.3.1 状态查看</h4><pre><code>git status   #查看工作区、暂存区状态
+</code></pre>
+<h4 id="1-3-2-添加"><a href="#1-3-2-添加" class="headerlink" title="1.3.2 添加"></a>1.3.2 添加</h4><pre><code>git add fileName  #指定文件
+git rm --cached fileName  从暂存区撤回
+git add . #所有
+说明：将工作区的文件添加到暂存区
+</code></pre>
+<h4 id="1-3-3-提交"><a href="#1-3-3-提交" class="headerlink" title="1.3.3 提交"></a>1.3.3 提交</h4><pre><code>将暂存区内容提交到本地库
+git commit filename(此时会进入vim，需要添加提交信息)
+不进入vim 则可以：
+git commit -m &#39;commit message&#39; fileName（在-m&#39;&#39;里添加提交信息）
+</code></pre>
+<h4 id="1-3-4-查看历史记录"><a href="#1-3-4-查看历史记录" class="headerlink" title="1.3.4 查看历史记录"></a>1.3.4 查看历史记录</h4><pre><code>git log 
+git log --greph #图形显示,更直观
+git log --pretty=oneline #一行显示
+git log --oneline #显示部分哈希值；只显示过去版本
+git reflog  #显示指针；显示所有版本(常用)
+说明：HEAD@&#123;移动到当前版本需要多少步&#125;
+</code></pre>
 <h4 id="1-3-5-前进后退"><a href="#1-3-5-前进后退" class="headerlink" title="1.3.5 前进后退"></a>1.3.5 前进后退</h4><ul>
 <li><p>基于索引值<code>推荐</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 索引值(部分就行，即git reflog中显示的索引值)</span><br><span class="line">例子：git reset --hard a6ace91 #回到这个状态</span><br></pre></td></tr></table></figure></li>
+<pre><code>git reset --hard 索引值(部分就行，即git reflog中显示的索引值)
+例子：git reset --hard a6ace91 #回到这个状态
+</code></pre>
+</li>
 <li><p>使用 <strong>^</strong> 符号<code>只能后退，更近的版本会消失</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">例子：git reset --hard HEAD^^</span><br><span class="line">注意：几个 ^ 表示后退几步</span><br></pre></td></tr></table></figure></li>
+<pre><code>git reset --hard HEAD^
+例子：git reset --hard HEAD^^
+注意：几个 ^ 表示后退几步
+</code></pre>
+</li>
 <li><p>使用 <strong>~</strong> 符号<code>只能后退</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~n</span><br><span class="line">例子：git reset --hard HEAD~3</span><br></pre></td></tr></table></figure></li>
+<pre><code>git reset --hard HEAD~n
+例子：git reset --hard HEAD~3
+</code></pre>
+</li>
 </ul>
-<h4 id="1-3-6-reset的三个参数比较"><a href="#1-3-6-reset的三个参数比较" class="headerlink" title="1.3.6 reset的三个参数比较"></a>1.3.6 reset的三个参数比较</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">soft: </span><br><span class="line">  - 仅本地库移动HEAD 指针</span><br><span class="line">mixed:</span><br><span class="line">  - 在本地库移动HEAD指针</span><br><span class="line">  - 重置暂存区</span><br><span class="line">hard:</span><br><span class="line">  - 在本地库移动HEAD指针</span><br><span class="line">  - 重置暂存区</span><br><span class="line">  - 重置工作区</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-3-7-删除文件并找回"><a href="#1-3-7-删除文件并找回" class="headerlink" title="1.3.7　删除文件并找回"></a>1.3.7　删除文件并找回</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">前提：删除前，文件存在时的状态提交到了本地库。</span><br><span class="line">rm 文件名(rm aaa.txt)删除本地文件&gt;然后提交到暂存区git add aaa.txt &gt;然后提交到本地仓库git commit -m ”delete aaa” aaa.txt (删除完成)</span><br><span class="line">找回操作：git reset --hard [指针位置] </span><br><span class="line">删除操作已经提交到本地库：指针位置指向历史记录(回到之前未删除版本)</span><br><span class="line">删除操作尚未提交到本地库：指针位置使用 HEAD(git reset --hard HEAD)(回到之前未删除版本)</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-3-8-文件差异比较"><a href="#1-3-8-文件差异比较" class="headerlink" title="1.3.8 文件差异比较"></a>1.3.8 文件差异比较</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git diff 文件名</span><br><span class="line">在工作区中用vim修改文件后</span><br><span class="line">git diff  文件名  #将工作区和本地库进行比较</span><br><span class="line">修改后提交到暂存区</span><br><span class="line">git diff HEAD 哈希值 文件名  #将暂存区中的文件和本地库历史记录比较</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<h4 id="1-3-6-reset的三个参数比较"><a href="#1-3-6-reset的三个参数比较" class="headerlink" title="1.3.6 reset的三个参数比较"></a>1.3.6 reset的三个参数比较</h4><pre><code>soft: 
+  - 仅本地库移动HEAD 指针
+mixed:
+  - 在本地库移动HEAD指针
+  - 重置暂存区
+hard:
+  - 在本地库移动HEAD指针
+  - 重置暂存区
+  - 重置工作区
+</code></pre>
+<h4 id="1-3-7-删除文件并找回"><a href="#1-3-7-删除文件并找回" class="headerlink" title="1.3.7　删除文件并找回"></a>1.3.7　删除文件并找回</h4><pre><code>前提：删除前，文件存在时的状态提交到了本地库。
+rm 文件名(rm aaa.txt)删除本地文件&gt;然后提交到暂存区git add aaa.txt &gt;然后提交到本地仓库git commit -m ”delete aaa” aaa.txt (删除完成)
+找回操作：git reset --hard [指针位置] 
+删除操作已经提交到本地库：指针位置指向历史记录(回到之前未删除版本)
+删除操作尚未提交到本地库：指针位置使用 HEAD(git reset --hard HEAD)(回到之前未删除版本)
+</code></pre>
+<h4 id="1-3-8-文件差异比较"><a href="#1-3-8-文件差异比较" class="headerlink" title="1.3.8 文件差异比较"></a>1.3.8 文件差异比较</h4><pre><code>git diff 文件名
+在工作区中用vim修改文件后
+git diff  文件名  #将工作区和本地库进行比较
+修改后提交到暂存区
+git diff HEAD 哈希值 文件名  #将暂存区中的文件和本地库历史记录比较
+</code></pre>
 <h3 id="2-2-分支管理"><a href="#2-2-分支管理" class="headerlink" title="2.2 分支管理"></a>2.2 分支管理</h3><p><img src="https://i.loli.net/2021/09/02/kGYKEuc8ep3R5yg.png" alt="image.png"></p>
 <h4 id="2-2-1-什么是分支管理"><a href="#2-2-1-什么是分支管理" class="headerlink" title="2.2.1 什么是分支管理"></a>2.2.1 什么是分支管理</h4><ul>
 <li>在版本控制中，使用推进多个任务</li>
@@ -591,30 +633,32 @@
 <h4 id="2-2-3-分支操作"><a href="#2-2-3-分支操作" class="headerlink" title="2.2.3 分支操作"></a>2.2.3 分支操作</h4><ul>
 <li>创建分支</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名</span><br></pre></td></tr></table></figure>
-
+<pre><code>git branch 分支名
+</code></pre>
 <ul>
 <li>查看分支</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">git branch -v </span><br></pre></td></tr></table></figure>
-
+<pre><code>git branch
+git branch -v 
+</code></pre>
 <ul>
 <li>切换分支</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名</span><br><span class="line">git checkout -b 分支名   #创建分支并直接切换到该分支</span><br></pre></td></tr></table></figure>
-
+<pre><code>git checkout 分支名
+git checkout -b 分支名   #创建分支并直接切换到该分支
+</code></pre>
 <ul>
 <li>合并分支<code>相当于把修改了的文件拉过来</code></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git merge xxx</span><br><span class="line">注意：合并分支的时候要明确谁谁合并</span><br><span class="line">	我在a分支里面修改了。要合并到master，就先切换到master，然后合并b</span><br></pre></td></tr></table></figure>
-
+<pre><code>git merge xxx
+注意：合并分支的时候要明确谁谁合并
+    我在a分支里面修改了。要合并到master，就先切换到master，然后合并b
+</code></pre>
 <ul>
 <li>删除分支</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d 分支名</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>git branch -d 分支名
+</code></pre>
 <h4 id="2-2-4-解决冲突"><a href="#2-2-4-解决冲突" class="headerlink" title="2.2.4 解决冲突"></a>2.2.4 解决冲突</h4><ul>
 <li><p>冲突原因: 2个分支,修改同一文件,同一位置,修改内容不一样时.</p>
 </li>
@@ -632,24 +676,28 @@
 </li>
 </ul>
 <h2 id="Git-结合Github"><a href="#Git-结合Github" class="headerlink" title="Git 结合Github"></a>Git 结合Github</h2><p><code>别分手</code>  <code>别名 分支名</code></p>
-<h4 id="1-1-创建远程库地址别名"><a href="#1-1-创建远程库地址别名" class="headerlink" title="1.1 创建远程库地址别名"></a>1.1 创建远程库地址别名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote -v  #查看远程地址别名</span><br><span class="line">git remote add 别名 远程地址 </span><br><span class="line">例子：git remote add origin https://xx</span><br></pre></td></tr></table></figure>
-
+<h4 id="1-1-创建远程库地址别名"><a href="#1-1-创建远程库地址别名" class="headerlink" title="1.1 创建远程库地址别名"></a>1.1 创建远程库地址别名</h4><pre><code>git remote -v  #查看远程地址别名
+git remote add 别名 远程地址 
+例子：git remote add origin https://xx
+</code></pre>
 <h4 id="1-2-推送"><a href="#1-2-推送" class="headerlink" title="1.2 推送"></a>1.2 推送</h4><p><code>开发修改完把本地库的文件推送到远程仓库</code> <code>前提是提交到了本地库才可以推送</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push 别名 分支名</span><br><span class="line">git push -u 别名 分支名    #-u指定默认主机</span><br><span class="line">例子：git push origin master</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>git push 别名 分支名
+git push -u 别名 分支名    #-u指定默认主机
+例子：git push origin master
+</code></pre>
 <p>出现unable to access问题则用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>git config --global http.sslVerify &quot;false&quot;
+</code></pre>
 <h4 id="1-3-克隆"><a href="#1-3-克隆" class="headerlink" title="1.3 克隆"></a>1.3 克隆</h4><p><code>完整的把远程库克隆到本地</code>  <code>克隆下来后不要在主分支里面做开发</code> <code>clone进行一次，从无到有的过程，更新用pull</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone  远程地址</span><br><span class="line">例子：git clone https://xx</span><br></pre></td></tr></table></figure>
-
+<pre><code>git clone  远程地址
+例子：git clone https://xx
+</code></pre>
 <h4 id="1-4-拉取"><a href="#1-4-拉取" class="headerlink" title="1.4 拉取"></a>1.4 拉取</h4><p>  <code>本地存在clone下来的文件  就用pull更新</code>  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pull = fetch + merge</span><br><span class="line">	git fetch 别名 分支名</span><br><span class="line">	git merge 别名 分支名</span><br><span class="line">git pull 别名 分支名</span><br></pre></td></tr></table></figure>
-
+<pre><code>pull = fetch + merge
+    git fetch 别名 分支名
+    git merge 别名 分支名
+git pull 别名 分支名
+</code></pre>
 <h4 id="1-5-解决冲突"><a href="#1-5-解决冲突" class="headerlink" title="1.5 解决冲突"></a>1.5 解决冲突</h4><p><code>注意：解决冲突后的提交是不能带文件名的</code></p>
 <p><code>如果不是基于远程库最新版做的修改不能推送，必须先pull下来安装冲突办法解决</code></p>
 <h4 id="1-6-跨团队合作"><a href="#1-6-跨团队合作" class="headerlink" title="1.6 跨团队合作"></a>1.6 跨团队合作</h4><p><code>代码review之后合并</code></p>
@@ -672,7 +720,10 @@
 <li>登录GitHub。<code>Settings</code>  –&gt; <code>SSH and GPG keys </code> –&gt; <code>New SSH Key    </code></li>
 <li>回到git通过ssh地址创建。<code>git remote add 别名 SSH地址  </code></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在 GitFlow 基础上， 充分利用了 Git 的 Fork 和 pull request 的功能以达到代码审核的目的。 </span><br><span class="line">安全可靠地管理大团队的开发者</span><br></pre></td></tr></table></figure>
+<pre><code>在 GitFlow 基础上， 充分利用了 Git 的 Fork 和 pull request 的功能以达到代码审核的目的。 
+安全可靠地管理大团队的开发者
+</code></pre>
+
                 
             </div>
             <hr/>
@@ -834,19 +885,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/02/linux/">
+                <a href="/2021/09/02/%E7%88%AC%E8%99%AB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Linux学习笔记">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Python爬虫学习笔记">
                         
-                        <span class="card-title">Linux学习笔记</span>
+                        <span class="card-title">Python爬虫学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对于大数据开发来讲，很多相关的软件和框架都是运行在Linux操作系统之上的，因此Linux是我们大数据学生学习的核心之一，于是我便趁着暑假期间，通过B站兄弟连的视频对Linux系统展开简单的学习。
+                            ​    在大一夏季学期至军训期间，闲暇之时想学点有意思的东西。既能让我产生兴趣，又能够促进我对于编程语言的学习，爬虫绝对是一个很好的选择。
                         
                     </div>
                     <div class="publish-info">
@@ -864,8 +915,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
                     </a>
                     
                 </div>
@@ -1275,6 +1326,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/node_modules/hexo-helper-live2dlib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/hexo-helper-live2d","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/node_modules/hexo-helper-live2dassets/koharu.model.json"},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>

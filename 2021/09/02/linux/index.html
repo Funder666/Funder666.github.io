@@ -498,16 +498,28 @@
 
 <h1 id="第一章-Linux起源"><a href="#第一章-Linux起源" class="headerlink" title="第一章 Linux起源"></a>第一章 Linux起源</h1><p>unix，C语言，TCP-IP 可以看作三胞胎，他们结合在一起相互诞生，其他具体自行可以看：计算机组成原理，计算机网络，以及C语言。可以结合在一起来学习，效果更佳。</p>
 <h1 id="第二章-系统分区"><a href="#第二章-系统分区" class="headerlink" title="第二章 系统分区"></a>第二章 系统分区</h1><p>Linux与Windows一样，它的主分区和拓展分区加起来不能超过四个，而且拓展分区最多一个且不能放入数据文件以及它不能格式化，拓展分区里放的逻辑分区可以放数据和格式化。<br>Linux 硬件全为文件 这一点与Windows不一样，下面介绍一些Linux的主要硬件文件名以及存放路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">IDE硬盘 /dev/hd[a-d]</span><br><span class="line"></span><br><span class="line">SCSI/SATA/USB硬盘 /dev/sd[a-p]</span><br><span class="line"></span><br><span class="line">光驱 /dev/cdrom或/dev/sr0</span><br><span class="line"></span><br><span class="line">软盘 /dev/fd[0-1]</span><br><span class="line"></span><br><span class="line">打印机（25针） /dev/lp[0-2]</span><br><span class="line"></span><br><span class="line">打印机（USB） /dev/usb/lp[0-15]</span><br><span class="line"></span><br><span class="line">鼠标 /dev/mouse</span><br></pre></td></tr></table></figure>
+<pre><code>IDE硬盘 /dev/hd[a-d]
 
+SCSI/SATA/USB硬盘 /dev/sd[a-p]
 
+光驱 /dev/cdrom或/dev/sr0
 
+软盘 /dev/fd[0-1]
+
+打印机（25针） /dev/lp[0-2]
+
+打印机（USB） /dev/usb/lp[0-15]
+
+鼠标 /dev/mouse
+</code></pre>
 <p>分区：把大硬盘分为小的逻辑分区<br>格式化：写入文件系统<br>分区设备文件名：给每个分区定义设备文件名<br>挂载：给每个分区分配挂载点<br>注意：根分区 “/ ” 以下的子分区可以单独使用硬盘<br>在虚拟机安装中 swap 的大小为内存的两倍但是超过2G没有意义，建议1000MB合适<br>/boot路径是为了让Linux系统可以顺利运行 里面最好不要存放数据 在虚拟机安装中分配200M左右大小就可以了</p>
 <h1 id="第三章-Linux的目录结构"><a href="#第三章-Linux的目录结构" class="headerlink" title="第三章 Linux的目录结构"></a>第三章 Linux的目录结构</h1><p>在Linux远程登录管理配置IP时，需要的一些简单命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ifconfig  查询当前网卡信息</span><br><span class="line">ifconfig eth0  配置网卡 </span><br><span class="line">ifconfig eth0 后+ VmNAT8的网络IP   </span><br><span class="line">df    查看系统分区</span><br><span class="line">ls /bin/   里面存放的为Linux命令文件  </span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>ifconfig  查询当前网卡信息
+ifconfig eth0  配置网卡 
+ifconfig eth0 后+ VmNAT8的网络IP   
+df    查看系统分区
+ls /bin/   里面存放的为Linux命令文件  
+</code></pre>
 <h2 id="3-1-基本介绍"><a href="#3-1-基本介绍" class="headerlink" title="3.1 基本介绍"></a><strong>3.1 基本介绍</strong></h2><p>linux 的文件系统是采用级层式的树状目录结构，在此结构中的最上层是根目录“/”，然后在此目录下再创建其他的目录。</p>
 <p> 在 Linux 世界里，一切皆文件。</p>
 <p>​                 <img src="https://cdn.jsdelivr.net/gh/Funder666/Blog-imgs/images/0" alt="img">        </p>
@@ -1782,10 +1794,13 @@
 <li>下载适用于 Unix/Linux 的源码包。</li>
 <li>下载 <strong>perl-5.x.y.tar.gz</strong> 文件后执行以下操作。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xzf perl-5.x.y.tar.gz</span><br><span class="line">$ cd perl-5.x.y</span><br><span class="line">$ ./Configure -de</span><br><span class="line">$ make</span><br><span class="line">$ make test</span><br><span class="line">$ make install</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>$ tar -xzf perl-5.x.y.tar.gz
+$ cd perl-5.x.y
+$ ./Configure -de
+$ make
+$ make test
+$ make install
+</code></pre>
 <p>接下来我们如果 <strong>perl -v</strong> 命令查看是否安装成功。</p>
 <p>安装成功后，Perl 的安装路径为 <em>/usr/local/bin</em> ，库安装在 <em>/usr/local/lib/perlXX</em>, XX 为版本号。</p>
 <p>1.941版本(202-01-05发布)</p>
@@ -1796,8 +1811,8 @@
 <p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/cb040a5db8b1671dbc10d755e17e54aa/0?w=888&h=596" alt="img">        </p>
 <p>出现上面情况可能是</p>
 <p>未关闭防火墙：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-
+<pre><code>$ systemctl stop firewalld
+</code></pre>
 <p>参考：</p>
 <p><strong>1.启动防火墙</strong></p>
 <p>systemctl start firewalld</p>
@@ -2266,10 +2281,38 @@
 <p>#为组tgroup2分配ACl权限。使用“g:组名:权限”格式</p>
 <p>​                 <img src="https://i.loli.net/2021/09/02/bvkYfOcG8ulhUaz.png" alt="img">        </p>
 <p>操作前后显示内容对比:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># ========前===========</span><br><span class="line">[yasuo@local1 ~]$ getfacl /lol</span><br><span class="line">getfacl: Removing leading &#x27;/&#x27; from absolute path names</span><br><span class="line"># file: lol</span><br><span class="line"># owner: root</span><br><span class="line"># group: root</span><br><span class="line">user::rwx</span><br><span class="line">group::r-x</span><br><span class="line">other::r-x</span><br><span class="line"></span><br><span class="line">[yasuo@local1 ~]$ ll -d /lol</span><br><span class="line">drwxr-xr-x. 2 root root 6 4月   1 15:55 /lol</span><br><span class="line"></span><br><span class="line"># =========后===========</span><br><span class="line">[yasuo@local1 ~]$ getfacl /lol</span><br><span class="line">getfacl: Removing leading &#x27;/&#x27; from absolute path names</span><br><span class="line"># file: lol</span><br><span class="line"># owner: root</span><br><span class="line"># group: zuan</span><br><span class="line">user::rwx</span><br><span class="line">#下面这行变化</span><br><span class="line">user:luban:r-x</span><br><span class="line">group::rwx</span><br><span class="line">#下面这行变化</span><br><span class="line">group:wzry:rwx</span><br><span class="line">mask::rwx</span><br><span class="line">other::---</span><br><span class="line"></span><br><span class="line"># . -&gt; + 表示有acl权限</span><br><span class="line">[yasuo@local1 ~]$ ll -d /lol  </span><br><span class="line">drwxrwx---+ 2 root zuan 6 4月   1 15:55 /lol</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code># ========前===========
+[yasuo@local1 ~]$ getfacl /lol
+getfacl: Removing leading &#39;/&#39; from absolute path names
+# file: lol
+# owner: root
+# group: root
+user::rwx
+group::r-x
+other::r-x
 
+[yasuo@local1 ~]$ ll -d /lol
+drwxr-xr-x. 2 root root 6 4月   1 15:55 /lol
 
+# =========后===========
+[yasuo@local1 ~]$ getfacl /lol
+getfacl: Removing leading &#39;/&#39; from absolute path names
+# file: lol
+# owner: root
+# group: zuan
+user::rwx
+#下面这行变化
+user:luban:r-x
+group::rwx
+#下面这行变化
+group:wzry:rwx
+mask::rwx
+other::---
 
+# . -&gt; + 表示有acl权限
+[yasuo@local1 ~]$ ll -d /lol  
+drwxrwx---+ 2 root zuan 6 4月   1 15:55 /lol
+</code></pre>
 <h3 id="8-1-3-最大有效权限与删除ACL权限"><a href="#8-1-3-最大有效权限与删除ACL权限" class="headerlink" title="8.1.3 最大有效权限与删除ACL权限"></a><strong>8.1.3 最大有效权限与删除ACL权限</strong></h3><ol>
 <li>最大有效权限mask </li>
 </ol>
@@ -2752,7 +2795,7 @@
 <li>第一个脚本 </li>
 </ol>
 <p>[root@localhost sh]# vi hello.sh #!/bin/Bash </p>
-<p>#The first program # Author: shenchao （E-mail: <a href="mailto:&#x73;&#x68;&#101;&#110;&#99;&#104;&#x61;&#111;&#x40;&#x6c;&#x61;&#x6d;&#x70;&#98;&#x72;&#111;&#116;&#x68;&#101;&#114;&#46;&#x6e;&#101;&#116;">&#x73;&#x68;&#101;&#110;&#99;&#104;&#x61;&#111;&#x40;&#x6c;&#x61;&#x6d;&#x70;&#98;&#x72;&#111;&#116;&#x68;&#101;&#114;&#46;&#x6e;&#101;&#116;</a>）   </p>
+<p>#The first program # Author: shenchao （E-mail: <a href="mailto:&#115;&#104;&#x65;&#x6e;&#x63;&#x68;&#97;&#111;&#x40;&#x6c;&#97;&#x6d;&#x70;&#98;&#x72;&#111;&#116;&#x68;&#101;&#114;&#46;&#110;&#101;&#x74;">&#115;&#104;&#x65;&#x6e;&#x63;&#x68;&#97;&#111;&#x40;&#x6c;&#97;&#x6d;&#x70;&#98;&#x72;&#111;&#116;&#x68;&#101;&#114;&#46;&#110;&#101;&#x74;</a>）   </p>
 <p>echo -e “Mr. Shen Chao is the most honest man in LampBrother”</p>
 <ol start="3">
 <li>脚本执行 </li>
@@ -3027,12 +3070,20 @@
 <p>#使用$@也代表所有参数</p>
 <p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/1823658428d3ef6ae3ecd114b871fdc2/0?w=704&h=352" alt="img">        </p>
 <p>例子3：$*与$@的区别 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash </span><br><span class="line">for i in &quot;$*&quot; </span><br><span class="line">#$*中的所有参数看成是一个整体，所以这个for循环只会循环一次         </span><br><span class="line">do                 </span><br><span class="line">echo &quot;The parameters is: $i&quot;         </span><br><span class="line">done </span><br><span class="line">x=1 </span><br><span class="line">for y in &quot;$@&quot; </span><br><span class="line">#$@中的每个参数都看成是独立的，所以“$@”中有几个参数，就会循环几次        </span><br><span class="line">do                </span><br><span class="line">echo &quot;The parameter$x is: $y&quot;                </span><br><span class="line">x=$(( $x +1 ))       </span><br><span class="line">done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code>#!/bin/bash 
+for i in &quot;$*&quot; 
+#$*中的所有参数看成是一个整体，所以这个for循环只会循环一次         
+do                 
+echo &quot;The parameters is: $i&quot;         
+done 
+x=1 
+for y in &quot;$@&quot; 
+#$@中的每个参数都看成是独立的，所以“$@”中有几个参数，就会循环几次        
+do                
+echo &quot;The parameter$x is: $y&quot;                
+x=$(( $x +1 ))       
+done
+</code></pre>
 <h3 id="10-4-4-预定义变量"><a href="#10-4-4-预定义变量" class="headerlink" title="10.4.4 预定义变量"></a><strong>10.4.4 预定义变量</strong></h3><ol>
 <li>预定义变量</li>
 </ol>
@@ -3046,12 +3097,19 @@
 <p>-t 秒数：  read命令会一直等待用户输入，使用此选项可以指定等待时间  </p>
 <p>-n 字符数： read命令只接受指定的字符数，就会 执行  </p>
 <p>-s：   隐藏输入的数据，适用于机密信息的输入  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash </span><br><span class="line">read -t 30 -p &quot;Please input your name: &quot; name </span><br><span class="line">#提示“请输入姓名”并等待30秒，把用户的输入保存入变量name中 </span><br><span class="line">echo &quot;Name is $name &quot;  </span><br><span class="line">read -s -t 30 -p &quot;Please enter your age: &quot; age </span><br><span class="line">#年龄是隐私，所以我们用“-s”选项隐藏输入 </span><br><span class="line">echo -e &quot;\n&quot; </span><br><span class="line">echo &quot;Age is $age &quot;  </span><br><span class="line">read -n 1 -t 30 -p &quot;Please select your gender[M/F]: &quot; gender</span><br><span class="line">#使用“-n 1”选项只接收一个输入字符就会执行（都不用输入回车） </span><br><span class="line">echo -e &quot;\n&quot; </span><br><span class="line">echo &quot;Sex is $gender&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code>#!/bin/bash 
+read -t 30 -p &quot;Please input your name: &quot; name 
+#提示“请输入姓名”并等待30秒，把用户的输入保存入变量name中 
+echo &quot;Name is $name &quot;  
+read -s -t 30 -p &quot;Please enter your age: &quot; age 
+#年龄是隐私，所以我们用“-s”选项隐藏输入 
+echo -e &quot;\n&quot; 
+echo &quot;Age is $age &quot;  
+read -n 1 -t 30 -p &quot;Please select your gender[M/F]: &quot; gender
+#使用“-n 1”选项只接收一个输入字符就会执行（都不用输入回车） 
+echo -e &quot;\n&quot; 
+echo &quot;Sex is $gender&quot;
+</code></pre>
 <h2 id="10-5-Bash的运算符"><a href="#10-5-Bash的运算符" class="headerlink" title="10.5 Bash的运算符"></a><strong>10.5 Bash的运算符</strong></h2><h3 id="10-5-1-数值运算与运算符"><a href="#10-5-1-数值运算与运算符" class="headerlink" title="10.5.1 数值运算与运算符"></a><strong>10.5.1 数值运算与运算符</strong></h3><ol>
 <li>declare声明变量类型 </li>
 </ol>
@@ -3469,12 +3527,15 @@
 <h2 id="11-5-流程控制"><a href="#11-5-流程控制" class="headerlink" title="11.5 流程控制"></a><strong>11.5 流程控制</strong></h2><h3 id="11-5-1-if语句"><a href="#11-5-1-if语句" class="headerlink" title="11.5.1  if语句"></a><strong>11.5.1  if语句</strong></h3><ol>
 <li>单分支if条件语句 </li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if  [ 条件判断式 ] ; then</span><br><span class="line">程序 </span><br><span class="line">fi  </span><br><span class="line">#或者</span><br><span class="line">if  [ 条件判断式 ]  </span><br><span class="line">    then</span><br><span class="line">        	程序 </span><br><span class="line">fi </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code>if  [ 条件判断式 ] ; then
+程序 
+fi  
+#或者
+if  [ 条件判断式 ]  
+    then
+            程序 
+fi 
+</code></pre>
 <p>单分支条件语句需要注意几个点</p>
 <ul>
 <li>if语句使用fi结尾，和一般语言使用大括号结尾不同 </li>
@@ -3482,118 +3543,231 @@
 <li>then后面跟符合条件之后执行的程序，可以放在[]之后，用“；”分割。也可以换行写入，就不需要“；”了</li>
 </ul>
 <p>例子：判断分区使用率 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/basn</span><br><span class="line"># 统计根分区使用率 </span><br><span class="line"># Author: shenchao （E-mail: shenchao@qq.com）  </span><br><span class="line"> rate=$(df -h | grep &quot;/dev/sda3&quot; | awk &#x27;&#123;print $5&#125;&#x27; | cut -d &quot;%&quot; -f 1)  </span><br><span class="line"> # 把根分区使用率作为变量值赋予变量rate  </span><br><span class="line"> if [ $rate -ge 80]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;Warning! /dev/sda3 is full!&quot;</span><br><span class="line"> fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code>#!/bin/basn
+# 统计根分区使用率 
+# Author: shenchao （E-mail: shenchao@qq.com）  
+ rate=$(df -h | grep &quot;/dev/sda3&quot; | awk &#39;&#123;print $5&#125;&#39; | cut -d &quot;%&quot; -f 1)  
+ # 把根分区使用率作为变量值赋予变量rate  
+ if [ $rate -ge 80]
+    then
+        echo &quot;Warning! /dev/sda3 is full!&quot;
+ fi
+</code></pre>
 <p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/894b2edf008c6069681da701d9002869/0?w=1020&h=662" alt="img">        </p>
 <ol>
 <li>双分支if条件语句 </li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if [ 条件判断式 ] </span><br><span class="line">    then   </span><br><span class="line">        条件成立时，执行的程序  </span><br><span class="line">    else </span><br><span class="line">        条件不成立时，执行的另一个程序 </span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>if [ 条件判断式 ] 
+    then   
+        条件成立时，执行的程序  
+    else 
+        条件不成立时，执行的另一个程序 
+fi
+</code></pre>
 <p>例子1：备份mysql数据库 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#备份mysql数据库。</span><br><span class="line"># Author:shenchao（E-mail:shenchao@lampbrother.net）</span><br><span class="line">ntpdateasia.pool.ntp.org&amp;&gt;/dev/null</span><br><span class="line">#同步系统时间</span><br><span class="line">date=$(date+%y%m%d)</span><br><span class="line">#把当前系统时间按照“年月日”格式赋予变量</span><br><span class="line">datesize=$(du-sh/var/lib/mysql)</span><br><span class="line">#统计mysql数据库的大小，并把大小赋予size变量</span><br><span class="line">if [ -d/tmp/dbbak ]</span><br><span class="line">    then</span><br><span class="line">        echo&quot;Date:$date!&quot; &gt; /tmp/dbbak/dbinfo.txt</span><br><span class="line">        echo&quot;Datasize$size&quot;&gt;&gt;/tmp/dbbak/dbinfo.txt</span><br><span class="line">        cd/tmp/dbbak</span><br><span class="line">        tar -zcf mysql-lib-$date.tar.gz /var/lib/mysql dbinfo.txt &amp;&gt;/dev/null</span><br><span class="line">        rm -rf /tmp/dbbak/dbinfo.txt</span><br><span class="line">    else</span><br><span class="line">        mkdir /tmp/dbbak</span><br><span class="line">        echo&quot;Date:date!&quot;&gt;/tmp/dbbak/dbinfo.txt</span><br><span class="line">        echo&quot;Datasize:size&quot;&gt;&gt;/tmp/dbbak/dbinfo.txt</span><br><span class="line">        cd/tmp/dbbak</span><br><span class="line">        tar -zcf mysql-lib-$date.tar.gz /var/lib/mysql  </span><br><span class="line">         dbinfo.txt &amp;&gt; /dev/null</span><br><span class="line">         rm -rf /tmp/dbbak/dbinfo.txt</span><br><span class="line"> fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>#!/bin/bash
+#备份mysql数据库。
+# Author:shenchao（E-mail:shenchao@lampbrother.net）
+ntpdateasia.pool.ntp.org&amp;&gt;/dev/null
+#同步系统时间
+date=$(date+%y%m%d)
+#把当前系统时间按照“年月日”格式赋予变量
+datesize=$(du-sh/var/lib/mysql)
+#统计mysql数据库的大小，并把大小赋予size变量
+if [ -d/tmp/dbbak ]
+    then
+        echo&quot;Date:$date!&quot; &gt; /tmp/dbbak/dbinfo.txt
+        echo&quot;Datasize$size&quot;&gt;&gt;/tmp/dbbak/dbinfo.txt
+        cd/tmp/dbbak
+        tar -zcf mysql-lib-$date.tar.gz /var/lib/mysql dbinfo.txt &amp;&gt;/dev/null
+        rm -rf /tmp/dbbak/dbinfo.txt
+    else
+        mkdir /tmp/dbbak
+        echo&quot;Date:date!&quot;&gt;/tmp/dbbak/dbinfo.txt
+        echo&quot;Datasize:size&quot;&gt;&gt;/tmp/dbbak/dbinfo.txt
+        cd/tmp/dbbak
+        tar -zcf mysql-lib-$date.tar.gz /var/lib/mysql  
+         dbinfo.txt &amp;&gt; /dev/null
+         rm -rf /tmp/dbbak/dbinfo.txt
+ fi
+</code></pre>
 <p>例子2：判断apache是否启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span><br><span class="line">port=$(nmap -sT 192.168.1.156 | grep tcp | grep http |awk&#x27;&#123;print$2&#125;&#x27;)</span><br><span class="line">#使用nmap命令扫描服务器，并截取apache服务的状态，赋予变量port</span><br><span class="line">if [ &quot;$port&quot;==&quot;open&quot; ]</span><br><span class="line">    then</span><br><span class="line">        echo“$(date)httpdisok!” &gt;&gt; /tmp/autostart-acc.log</span><br><span class="line">    else</span><br><span class="line">        /etc/rc.d/init.d/httpdstart &amp;&gt; /dev/null</span><br><span class="line">        echo&quot;$(date)restarthttpd!!&quot; &gt;&gt; /tmp/autostart-err.log</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>#!/bin/bash
+#Author:shenchao（E-mail:shenchao@lampbrother.net）
+port=$(nmap -sT 192.168.1.156 | grep tcp | grep http |awk&#39;&#123;print$2&#125;&#39;)
+#使用nmap命令扫描服务器，并截取apache服务的状态，赋予变量port
+if [ &quot;$port&quot;==&quot;open&quot; ]
+    then
+        echo“$(date)httpdisok!” &gt;&gt; /tmp/autostart-acc.log
+    else
+        /etc/rc.d/init.d/httpdstart &amp;&gt; /dev/null
+        echo&quot;$(date)restarthttpd!!&quot; &gt;&gt; /tmp/autostart-err.log
+fi
+</code></pre>
 <ol>
 <li>多分支if条件语句</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if [ 条件判断式1 ]</span><br><span class="line">    then</span><br><span class="line">        当条件判断式1成立时，执行程序1</span><br><span class="line">elif [ 条件判断式2 ]</span><br><span class="line">    then</span><br><span class="line">        当条件判断式2成立时，执行程序2</span><br><span class="line">„省略更多条件…</span><br><span class="line">else</span><br><span class="line">    当所有条件都不成立时，最后执行此程序</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>if [ 条件判断式1 ]
+    then
+        当条件判断式1成立时，执行程序1
+elif [ 条件判断式2 ]
+    then
+        当条件判断式2成立时，执行程序2
+„省略更多条件…
+else
+    当所有条件都不成立时，最后执行此程序
+fi
+</code></pre>
 <p>例子</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#判断用户输入的是什么文件</span><br><span class="line">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span><br><span class="line">read-p&quot;Pleaseinputafilename:&quot;file</span><br><span class="line">#接收键盘的输入，并赋予变量file</span><br><span class="line">if [ -z &quot;$file&quot; ]</span><br><span class="line">#判断file变量是否为空       </span><br><span class="line">    then</span><br><span class="line">        echo &quot;Error,pleaseinputafilename&quot;</span><br><span class="line">        exit 1</span><br><span class="line">elif [ ! -e &quot;$file&quot; ]</span><br><span class="line">#判断file的值是否存在</span><br><span class="line">    then</span><br><span class="line">        echo &quot;Yourinputisnotafile!&quot;</span><br><span class="line">        exit 2</span><br><span class="line">elif [ -f &quot;$file&quot; ]</span><br><span class="line">#判断file的值是否为普通文件</span><br><span class="line">    then </span><br><span class="line">    echo &quot;$fileisaregularefile!&quot;</span><br><span class="line">elif [ -d &quot;$file&quot; ]</span><br><span class="line">#判断file的值是否为目录文件  </span><br><span class="line">    then</span><br><span class="line">        echo &quot;$fileisadirectory!&quot;</span><br><span class="line">else</span><br><span class="line">    echo&quot;$fileisanotherfile!&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>#!/bin/bash
+#判断用户输入的是什么文件
+#Author:shenchao（E-mail:shenchao@lampbrother.net）
+read-p&quot;Pleaseinputafilename:&quot;file
+#接收键盘的输入，并赋予变量file
+if [ -z &quot;$file&quot; ]
+#判断file变量是否为空       
+    then
+        echo &quot;Error,pleaseinputafilename&quot;
+        exit 1
+elif [ ! -e &quot;$file&quot; ]
+#判断file的值是否存在
+    then
+        echo &quot;Yourinputisnotafile!&quot;
+        exit 2
+elif [ -f &quot;$file&quot; ]
+#判断file的值是否为普通文件
+    then 
+    echo &quot;$fileisaregularefile!&quot;
+elif [ -d &quot;$file&quot; ]
+#判断file的值是否为目录文件  
+    then
+        echo &quot;$fileisadirectory!&quot;
+else
+    echo&quot;$fileisanotherfile!&quot;
+fi
+</code></pre>
 <h3 id="11-5-2-case语句"><a href="#11-5-2-case语句" class="headerlink" title="11.5.2  case语句"></a><strong>11.5.2  case语句</strong></h3><p><strong>多分支case条件语句</strong> </p>
 <ul>
 <li>case语句和if…elif…else语句一样都是多分支条件语句，不过和if多分支条件语句不同的是，case语句只能判断一种条件关系，而if语句可以判断多种条件关系。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">case $ 变量名 in  </span><br><span class="line">    &quot; 值1&quot;）   </span><br><span class="line">         如果变量的值等于值1，则执行程序1   </span><br><span class="line">        ; ;</span><br><span class="line">     &quot; 值2&quot;）   </span><br><span class="line">         如果变量的值等于值2，则执行程序2  </span><br><span class="line">          ; ;  </span><br><span class="line">      …省略其他分支…  </span><br><span class="line">      * ）   </span><br><span class="line">      如果变量的值都不是以上的值，则执行此程序 </span><br><span class="line">      ; ;</span><br><span class="line">esac </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#判断用户输入</span><br><span class="line">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span><br><span class="line">read -p&quot;Pleasechooseyes/no:&quot; -t 30 cho</span><br><span class="line">case $cho in</span><br><span class="line">    &quot;yes&quot;)</span><br><span class="line">        echo&quot;Yourchooseisyes!&quot;</span><br><span class="line">        ;;       </span><br><span class="line">    &quot;no&quot;)</span><br><span class="line">        echo&quot;Yourchooseisno!&quot;</span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">    echo&quot;Yourchooseiserror!&quot;</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+<pre><code>case $ 变量名 in  
+    &quot; 值1&quot;）   
+         如果变量的值等于值1，则执行程序1   
+        ; ;
+     &quot; 值2&quot;）   
+         如果变量的值等于值2，则执行程序2  
+          ; ;  
+      …省略其他分支…  
+      * ）   
+      如果变量的值都不是以上的值，则执行此程序 
+      ; ;
+esac 
+</code></pre>
+<pre><code>#!/bin/bash
+#判断用户输入
+#Author:shenchao（E-mail:shenchao@lampbrother.net）
+read -p&quot;Pleasechooseyes/no:&quot; -t 30 cho
+case $cho in
+    &quot;yes&quot;)
+        echo&quot;Yourchooseisyes!&quot;
+        ;;       
+    &quot;no&quot;)
+        echo&quot;Yourchooseisno!&quot;
+        ;;
+    *)
+    echo&quot;Yourchooseiserror!&quot;
+    ;;
+esac
+</code></pre>
 <h3 id="11-5-3-for循环"><a href="#11-5-3-for循环" class="headerlink" title="11.5.3  for循环"></a><strong>11.5.3  for循环</strong></h3><p>语法一</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for 变量 in 值1 值2 值3</span><br><span class="line">    do </span><br><span class="line">        程序</span><br><span class="line">    done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">for city in beijing nanjing shanghai </span><br><span class="line">    do</span><br><span class="line">        echo &quot;this city is $city &quot;</span><br><span class="line">    done </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>for 变量 in 值1 值2 值3
+    do 
+        程序
+    done
+</code></pre>
+<pre><code>#!/bin/bash
+for city in beijing nanjing shanghai 
+    do
+        echo &quot;this city is $city &quot;
+    done 
+</code></pre>
 <p>输出：</p>
 <p>this city is beijing </p>
 <p>this city is nanjing </p>
 <p>this city is shanghai </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#批量解压缩脚本</span><br><span class="line">cd /sh</span><br><span class="line">ls *.tar.gz -&gt; ls.log</span><br><span class="line">for i in $(cat ls.log)</span><br><span class="line">    do</span><br><span class="line">       tar -zxf $i &amp;&gt; /dev/null</span><br><span class="line">    done </span><br><span class="line">rm -rf /sh/ls.log</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code>#!/bin/bash
+#批量解压缩脚本
+cd /sh
+ls *.tar.gz -&gt; ls.log
+for i in $(cat ls.log)
+    do
+       tar -zxf $i &amp;&gt; /dev/null
+    done 
+rm -rf /sh/ls.log
+</code></pre>
 <p>语法二</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for((初始值;循环控制条件;变量变化))</span><br><span class="line">    do</span><br><span class="line">        程序</span><br><span class="line">    done</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#从1加到100</span><br><span class="line">#Author</span><br><span class="line">num=0</span><br><span class="line">for((i=1;i&lt;=100;i++))</span><br><span class="line">    do</span><br><span class="line">        num=$(($num+$i))</span><br><span class="line">    done</span><br><span class="line">echo &quot;this sum of 1+2+...+100 is: $num&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>for((初始值;循环控制条件;变量变化))
+    do
+        程序
+    done
+</code></pre>
+<pre><code>#!/bin/bash
+#从1加到100
+#Author
+num=0
+for((i=1;i&lt;=100;i++))
+    do
+        num=$(($num+$i))
+    done
+echo &quot;this sum of 1+2+...+100 is: $num&quot;
+</code></pre>
 <h3 id="11-5-4-while循环与until循环"><a href="#11-5-4-while循环与until循环" class="headerlink" title="11.5.4  while循环与until循环"></a><strong>11.5.4  while循环与until循环</strong></h3><ol>
 <li><strong>while循环</strong> </li>
 </ol>
 <ul>
 <li>while循环是不定循环，也称作条件循环。只要条件判断式成立，循环就会一直继续，直到条件判断式不成立，循环才会停止。这就和for的固定循环不太一样了。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while [ 条件判断式 ]</span><br><span class="line">    do</span><br><span class="line">        程序</span><br><span class="line">    done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#从1加到100</span><br><span class="line">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span><br><span class="line">i=1</span><br><span class="line">s=0</span><br><span class="line">while [ $i -le 100 ] </span><br><span class="line">#如果变量i的值小于等于100，则执行循环</span><br><span class="line">    do</span><br><span class="line">        s=$(($s+$i))</span><br><span class="line">        i=$(($i+1))</span><br><span class="line">    done</span><br><span class="line">echo&quot;Thesumis:$s&quot;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
+<pre><code>while [ 条件判断式 ]
+    do
+        程序
+    done
+</code></pre>
+<pre><code>#!/bin/bash
+#从1加到100
+#Author:shenchao（E-mail:shenchao@lampbrother.net）
+i=1
+s=0
+while [ $i -le 100 ] 
+#如果变量i的值小于等于100，则执行循环
+    do
+        s=$(($s+$i))
+        i=$(($i+1))
+    done
+echo&quot;Thesumis:$s&quot;
+</code></pre>
 <ol start="2">
 <li>until循环 </li>
 </ol>
 <ul>
 <li>until循环，和while循环相反，until循环时只要条件判断式不成立则进行循环，并执行循环程序。一旦循环条件成立，则终止循环。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">until [ 条件判断式 ]</span><br><span class="line">    do</span><br><span class="line">        程序</span><br><span class="line">    done</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#从1加到100</span><br><span class="line">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span><br><span class="line">i=1</span><br><span class="line">s=0</span><br><span class="line">until [ $i -gt 100 ]</span><br><span class="line">#循环直到变量i的值大于100，就停止循环</span><br><span class="line">    do</span><br><span class="line">        s=$(($s+$i))i=$(($i+1))</span><br><span class="line">    done</span><br><span class="line">echo&quot;Thesumis:$s&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>until [ 条件判断式 ]
+    do
+        程序
+    done
+</code></pre>
+<pre><code>#!/bin/bash
+#从1加到100
+#Author:shenchao（E-mail:shenchao@lampbrother.net）
+i=1
+s=0
+until [ $i -gt 100 ]
+#循环直到变量i的值大于100，就停止循环
+    do
+        s=$(($s+$i))i=$(($i+1))
+    done
+echo&quot;Thesumis:$s&quot;
+</code></pre>
 <h1 id="第十二讲-Linux服务管理"><a href="#第十二讲-Linux服务管理" class="headerlink" title="第十二讲 Linux服务管理"></a><strong>第十二讲 Linux服务管理</strong></h1><h2 id="12-1-服务简介与分类"><a href="#12-1-服务简介与分类" class="headerlink" title="12.1  服务简介与分类"></a><strong>12.1  服务简介与分类</strong></h2><ol>
 <li>服务的分类</li>
 </ol>
@@ -4392,19 +4566,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/09/02/git%E7%AC%94%E8%AE%B0/">
+                <a href="/2021/09/02/Mysql/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="git学习笔记">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Mysql基础部分的学习">
                         
-                        <span class="card-title">git学习笔记</span>
+                        <span class="card-title">Mysql基础部分的学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Git是一个版本控制工具，有着类似快照的作用，对于从事IT行业的人是必须要掌握的。而git的学习是比较轻松的，在B站上花费数个小时便能掌握
+                            对于大数据专业来说，数据库的学习想必是不可或缺的。尽管通过知乎了解到，Mysql数据库只能处理较小的数据量，相较而言，Hbase,Hive数据库等实则更为重要。但我相信，Mysql作为如今最流行的数据库还是有学习的必要的，更何况，在掌握了其
                         
                     </div>
                     <div class="publish-info">
@@ -4422,8 +4596,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -4434,22 +4608,22 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/02/Mysql/">
+                <a href="/2021/09/02/linux/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Mysql基础部分的学习">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Linux学习笔记">
                         
-                        <span class="card-title">Mysql基础部分的学习</span>
+                        <span class="card-title">Linux学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对于大数据专业来说，数据库的学习想必是不可或缺的。尽管通过知乎了解到，Mysql数据库只能处理较小的数据量，相较而言，Hbase,Hive数据库等实则更为重要。但我相信，Mysql作为如今最流行的数据库还是有学习的必要的，更何况，在掌握了其
+                            对于大数据开发来讲，很多相关的软件和框架都是运行在Linux操作系统之上的，因此Linux是我们大数据学生学习的核心之一，于是我便趁着暑假期间，通过B站兄弟连的视频对Linux系统展开简单的学习。
                         
                     </div>
                     <div class="publish-info">
@@ -4464,11 +4638,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -4878,6 +5053,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/node_modules/hexo-helper-live2dlib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/hexo-helper-live2d","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/node_modules/hexo-helper-live2dassets/koharu.model.json"},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>
