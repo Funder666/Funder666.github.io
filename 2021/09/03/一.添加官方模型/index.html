@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git学习笔记, Restart的部落格">
+    <meta name="keywords" content="博客添加Live2D人物, Restart的部落格">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git学习笔记 | Restart的部落格</title>
+    <title>博客添加Live2D人物 | Restart的部落格</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git学习笔记</h1>
+                    <h1 class="description center-align post-title">博客添加Live2D人物</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                                <span class="chip bg-color">随笔</span>
                             </a>
                         
                     </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-02
+                    2021-09-03
                 </div>
                 
 
@@ -406,14 +406,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    550
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    2 分
                 </div>
                 
 
@@ -428,238 +428,57 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Git是一个版本控制工具，有着类似快照的作用，对于从事IT行业的人是必须要掌握的。而git的学习是比较轻松的，在B站上花费数个小时便能掌握</p>
+                <p>在苦心折腾了数小时之后，终于成功地在博客上添加上了动漫人物。网上的教程实属纷繁复杂，我在这里进行简单的概括总结。</p>
 <span id="more"></span>
 
-<p> <strong>版本控制工具应该具备的功能</strong>：</p>
-<p><strong>协同修改</strong></p>
-<p>多人并行不悖的修改服务器端的同一个文件。</p>
-<p><strong>数据备份</strong></p>
-<p>不仅保存目录和文件的当前状态，还能够保存每一个提交过的历史状态。</p>
-<p><strong>版本管理</strong></p>
-<p>在保存每一个版本的文件信息的时候要做到不保存重复数据，以节约存储空间，提高运行效率。这方面 SVN 采用的是增量式管理的方式，而 <strong>Git</strong> <strong>采取了文件系统快照的方式</strong>。</p>
-<p><strong>权限控制</strong></p>
-<p>对团队中参与开发的人员进行权限控制。</p>
-<p>对团队外开发者贡献的代码进行审核——Git 独有。</p>
-<p><strong>历史记录</strong></p>
-<p>查看修改人、修改时间、修改内容、日志信息。</p>
-<p>将本地文件恢复到某一个历史状态。</p>
-<p>分支管理</p>
-<p>允许开发团队在工作过程中多条生产线同时推进任务，进一步提高效率。</p>
-<p><strong>托管中心</strong><code>远程库</code></p>
-<ul>
-<li><strong>内网：可以自己搭建一个GitLab服务器</strong></li>
-<li><strong>外网：可以使用码云、Github</strong></li>
-</ul>
-<p><strong>版本控制工具</strong></p>
-<ul>
-<li><strong>集中式</strong>：CSV ,<strong>SVN</strong>,VSS</li>
-<li><strong>分布式</strong>：<strong>Git</strong>，Darcs,…</li>
-</ul>
-<p><strong>Git</strong> <strong>的优势</strong> </p>
-<p><strong>大部分操作在本地完成，不需要联网</strong></p>
-<p><strong>完整性保证(提交每条数据进行hash运算)</strong></p>
-<p><strong>尽可能添加数据而不是删除或修改数据</strong></p>
-<p><strong>分支操作非常快捷流畅(1因为用快照,2每个分支只是创建一个指针)</strong></p>
-<p><strong>与</strong> <strong>Linux</strong> <strong>命令全面兼容</strong></p>
-<p><strong>Git 基本工作流程</strong></p>
-<table>
-<thead>
-<tr>
-<th>git仓库</th>
-<th>暂存区</th>
-<th>工作目录</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>用于存放提交记录</td>
-<td>临时存放被修改文件</td>
-<td>被Git管理的项目目录</td>
-</tr>
-</tbody></table>
-<h2 id="Git命令行操作"><a href="#Git命令行操作" class="headerlink" title="Git命令行操作"></a>Git命令行操作</h2><h3 id="1-1本地库初始化"><a href="#1-1本地库初始化" class="headerlink" title="1.1本地库初始化"></a>1.1本地库初始化</h3><p><code>进入文件夹</code></p>
-<p><img src="https://i.loli.net/2021/09/02/8HGmk6sUi9Q5lnS.png" alt="image.png"></p>
-<pre><code>git init
-注意：生成的 .git 目录中存放的是本地库相关文件，不要删除
+<h1 id="一-添加官方模型"><a href="#一-添加官方模型" class="headerlink" title="一.添加官方模型"></a>一.添加官方模型</h1><p>官方模型共有21种，感觉耐看的只有三个（koharu,haruto,z16)，模型的预览可以去这个网站，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34321753/article/details/93895440">传送门</a>。</p>
+<p>这里我针对koharu模型进行讲解，也就是我博客主页右下角的小可爱</p>
+<ol>
+<li>进入博客根目录后用git命令安装插件</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-helper-live2d
 </code></pre>
-<h3 id="1-2设置签名"><a href="#1-2设置签名" class="headerlink" title="1.2设置签名"></a>1.2设置签名</h3><p>作用：区分不同开发人员的身份</p>
-<ul>
-<li><p>项目(仓库)级别<code>仅在当前本地库有效</code></p>
-<pre><code>git config user.name tom  #设置用户名tom
-git config user.email liu@qq.com #设置用户邮箱
+<ol start="2">
+<li>安装动漫人物库</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> live2d-widget-model-koharu <span class="token comment" spellcheck="true">#想添加其他的就改最后的模型名字，名字在模型预览网站可以找到</span>
 </code></pre>
-</li>
-<li><p>系统用户级别<code>仅在当前登录的操作系统用户有效</code></p>
-<pre><code>git config --global user.name tom
-git config --global user.email liu@qq.com
+<ol start="3">
+<li>在博客根目录下的_config.yml配置文件中添加如下代码</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash">live2d: 
+  enable: <span class="token boolean">true</span> 
+  scriptFrom: local 
+  pluginRootPath: live2dw/ 
+  pluginJsPath: lib/ 
+  pluginModelPath: assets/ 
+  tagMode: <span class="token boolean">false</span> 
+  log: <span class="token boolean">false</span> 
+  model: 
+    use: live2d-widget-model-koharu <span class="token comment" spellcheck="true">#填加你想用的模型 </span>
+  display: 
+    position: right 
+    width: 150 
+    height: 300 
+  mobile: 
+    show: <span class="token boolean">true</span> 
+    react: 
+      opacity: 0.7
 </code></pre>
-</li>
-</ul>
-<blockquote>
-<p>仅仅加了一个 <code>--global</code></p>
-<p>优先级别：<code>项目级别</code>  &gt;  <code>系统级别</code></p>
-<p>信息保存位置：<code>~/.gitconfig 文件</code>  </p>
-</blockquote>
-<h3 id="1-3基本操作"><a href="#1-3基本操作" class="headerlink" title="1.3基本操作"></a>1.3基本操作</h3><h4 id="1-3-1-状态查看"><a href="#1-3-1-状态查看" class="headerlink" title="1.3.1 状态查看"></a>1.3.1 状态查看</h4><pre><code>git status   #查看工作区、暂存区状态
+<p>最后hexo g -d 后，刷新一下博客就能出来了</p>
+<h1 id="二-添加大佬们自己定制的模型"><a href="#二-添加大佬们自己定制的模型" class="headerlink" title="二. 添加大佬们自己定制的模型"></a>二. 添加大佬们自己定制的模型</h1><p>我这里找到的是添加恶魔小萝莉的模型</p>
+<h2 id="2-1-添加固定样式的模型"><a href="#2-1-添加固定样式的模型" class="headerlink" title="2.1 添加固定样式的模型"></a>2.1 添加固定样式的模型</h2><p>首先找到head.ejs文件，我的在 E:\blogtest\themes\matery\layout_partial\head.ejs</p>
+<p>不同主题位置可能不一样，这里针对matery主题</p>
+<p>接着添加如下两行代码:</p>
+<pre class=" language-bash"><code class="language-bash">    <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"stylesheet"</span> type<span class="token operator">=</span><span class="token string">"text/css"</span> href<span class="token operator">=</span><span class="token string">"//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"//cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>    
 </code></pre>
-<h4 id="1-3-2-添加"><a href="#1-3-2-添加" class="headerlink" title="1.3.2 添加"></a>1.3.2 添加</h4><pre><code>git add fileName  #指定文件
-git rm --cached fileName  从暂存区撤回
-git add . #所有
-说明：将工作区的文件添加到暂存区
-</code></pre>
-<h4 id="1-3-3-提交"><a href="#1-3-3-提交" class="headerlink" title="1.3.3 提交"></a>1.3.3 提交</h4><pre><code>将暂存区内容提交到本地库
-git commit filename(此时会进入vim，需要添加提交信息)
-不进入vim 则可以：
-git commit -m &#39;commit message&#39; fileName（在-m&#39;&#39;里添加提交信息）
-</code></pre>
-<h4 id="1-3-4-查看历史记录"><a href="#1-3-4-查看历史记录" class="headerlink" title="1.3.4 查看历史记录"></a>1.3.4 查看历史记录</h4><pre><code>git log 
-git log --greph #图形显示,更直观
-git log --pretty=oneline #一行显示
-git log --oneline #显示部分哈希值；只显示过去版本
-git reflog  #显示指针；显示所有版本(常用)
-说明：HEAD@&#123;移动到当前版本需要多少步&#125;
-</code></pre>
-<h4 id="1-3-5-前进后退"><a href="#1-3-5-前进后退" class="headerlink" title="1.3.5 前进后退"></a>1.3.5 前进后退</h4><ul>
-<li><p>基于索引值<code>推荐</code></p>
-<pre><code>git reset --hard 索引值(部分就行，即git reflog中显示的索引值)
-例子：git reset --hard a6ace91 #回到这个状态
-</code></pre>
-</li>
-<li><p>使用 <strong>^</strong> 符号<code>只能后退，更近的版本会消失</code></p>
-<pre><code>git reset --hard HEAD^
-例子：git reset --hard HEAD^^
-注意：几个 ^ 表示后退几步
-</code></pre>
-</li>
-<li><p>使用 <strong>~</strong> 符号<code>只能后退</code></p>
-<pre><code>git reset --hard HEAD~n
-例子：git reset --hard HEAD~3
-</code></pre>
-</li>
-</ul>
-<h4 id="1-3-6-reset的三个参数比较"><a href="#1-3-6-reset的三个参数比较" class="headerlink" title="1.3.6 reset的三个参数比较"></a>1.3.6 reset的三个参数比较</h4><pre><code>soft: 
-  - 仅本地库移动HEAD 指针
-mixed:
-  - 在本地库移动HEAD指针
-  - 重置暂存区
-hard:
-  - 在本地库移动HEAD指针
-  - 重置暂存区
-  - 重置工作区
-</code></pre>
-<h4 id="1-3-7-删除文件并找回"><a href="#1-3-7-删除文件并找回" class="headerlink" title="1.3.7　删除文件并找回"></a>1.3.7　删除文件并找回</h4><pre><code>前提：删除前，文件存在时的状态提交到了本地库。
-rm 文件名(rm aaa.txt)删除本地文件&gt;然后提交到暂存区git add aaa.txt &gt;然后提交到本地仓库git commit -m ”delete aaa” aaa.txt (删除完成)
-找回操作：git reset --hard [指针位置] 
-删除操作已经提交到本地库：指针位置指向历史记录(回到之前未删除版本)
-删除操作尚未提交到本地库：指针位置使用 HEAD(git reset --hard HEAD)(回到之前未删除版本)
-</code></pre>
-<h4 id="1-3-8-文件差异比较"><a href="#1-3-8-文件差异比较" class="headerlink" title="1.3.8 文件差异比较"></a>1.3.8 文件差异比较</h4><pre><code>git diff 文件名
-在工作区中用vim修改文件后
-git diff  文件名  #将工作区和本地库进行比较
-修改后提交到暂存区
-git diff HEAD 哈希值 文件名  #将暂存区中的文件和本地库历史记录比较
-</code></pre>
-<h3 id="2-2-分支管理"><a href="#2-2-分支管理" class="headerlink" title="2.2 分支管理"></a>2.2 分支管理</h3><p><img src="https://i.loli.net/2021/09/02/kGYKEuc8ep3R5yg.png" alt="image.png"></p>
-<h4 id="2-2-1-什么是分支管理"><a href="#2-2-1-什么是分支管理" class="headerlink" title="2.2.1 什么是分支管理"></a>2.2.1 什么是分支管理</h4><ul>
-<li>在版本控制中，使用推进多个任务</li>
-</ul>
-<h4 id="2-2-2-分支的好处"><a href="#2-2-2-分支的好处" class="headerlink" title="2.2.2 分支的好处"></a>2.2.2 分支的好处</h4><ul>
-<li>同时并行推进多个功能开发，提高开发效率</li>
-<li>某一分支开发失败，不会对其它分支有任何影响</li>
-</ul>
-<h4 id="2-2-3-分支操作"><a href="#2-2-3-分支操作" class="headerlink" title="2.2.3 分支操作"></a>2.2.3 分支操作</h4><ul>
-<li>创建分支</li>
-</ul>
-<pre><code>git branch 分支名
-</code></pre>
-<ul>
-<li>查看分支</li>
-</ul>
-<pre><code>git branch
-git branch -v 
-</code></pre>
-<ul>
-<li>切换分支</li>
-</ul>
-<pre><code>git checkout 分支名
-git checkout -b 分支名   #创建分支并直接切换到该分支
-</code></pre>
-<ul>
-<li>合并分支<code>相当于把修改了的文件拉过来</code></li>
-</ul>
-<pre><code>git merge xxx
-注意：合并分支的时候要明确谁谁合并
-    我在a分支里面修改了。要合并到master，就先切换到master，然后合并b
-</code></pre>
-<ul>
-<li>删除分支</li>
-</ul>
-<pre><code>git branch -d 分支名
-</code></pre>
-<h4 id="2-2-4-解决冲突"><a href="#2-2-4-解决冲突" class="headerlink" title="2.2.4 解决冲突"></a>2.2.4 解决冲突</h4><ul>
-<li><p>冲突原因: 2个分支,修改同一文件,同一位置,修改内容不一样时.</p>
-</li>
-<li><p><strong>冲突的表现:</strong></p>
-<p> <img src="https://i.loli.net/2021/09/02/OZkfDnTC91FHzS4.gif" alt="clip_image002.gif"></p>
-</li>
-</ul>
-<ul>
-<li>冲突的解决<ul>
-<li>第一步：编辑，删除特殊标记<code>&lt;&lt;&lt;</code> <code>===</code></li>
-<li>第二步：修改到满意位置，保存退出</li>
-<li>第三步：添加到缓存区  <code>git  add 文件名</code></li>
-<li>第四步：提交到本地库<code>git commit -m &#39;日志信息&#39; </code>  <code>注意：后面一定不能带文件名</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="Git-结合Github"><a href="#Git-结合Github" class="headerlink" title="Git 结合Github"></a>Git 结合Github</h2><p><code>别分手</code>  <code>别名 分支名</code></p>
-<h4 id="1-1-创建远程库地址别名"><a href="#1-1-创建远程库地址别名" class="headerlink" title="1.1 创建远程库地址别名"></a>1.1 创建远程库地址别名</h4><pre><code>git remote -v  #查看远程地址别名
-git remote add 别名 远程地址 
-例子：git remote add origin https://xx
-</code></pre>
-<h4 id="1-2-推送"><a href="#1-2-推送" class="headerlink" title="1.2 推送"></a>1.2 推送</h4><p><code>开发修改完把本地库的文件推送到远程仓库</code> <code>前提是提交到了本地库才可以推送</code></p>
-<pre><code>git push 别名 分支名
-git push -u 别名 分支名    #-u指定默认主机
-例子：git push origin master
-</code></pre>
-<p>出现unable to access问题则用：</p>
-<pre><code>git config --global http.sslVerify &quot;false&quot;
-</code></pre>
-<h4 id="1-3-克隆"><a href="#1-3-克隆" class="headerlink" title="1.3 克隆"></a>1.3 克隆</h4><p><code>完整的把远程库克隆到本地</code>  <code>克隆下来后不要在主分支里面做开发</code> <code>clone进行一次，从无到有的过程，更新用pull</code></p>
-<pre><code>git clone  远程地址
-例子：git clone https://xx
-</code></pre>
-<h4 id="1-4-拉取"><a href="#1-4-拉取" class="headerlink" title="1.4 拉取"></a>1.4 拉取</h4><p>  <code>本地存在clone下来的文件  就用pull更新</code>  </p>
-<pre><code>pull = fetch + merge
-    git fetch 别名 分支名
-    git merge 别名 分支名
-git pull 别名 分支名
-</code></pre>
-<h4 id="1-5-解决冲突"><a href="#1-5-解决冲突" class="headerlink" title="1.5 解决冲突"></a>1.5 解决冲突</h4><p><code>注意：解决冲突后的提交是不能带文件名的</code></p>
-<p><code>如果不是基于远程库最新版做的修改不能推送，必须先pull下来安装冲突办法解决</code></p>
-<h4 id="1-6-跨团队合作"><a href="#1-6-跨团队合作" class="headerlink" title="1.6 跨团队合作"></a>1.6 跨团队合作</h4><p><code>代码review之后合并</code></p>
-<ul>
-<li><p><strong>适用于个人</strong></p>
-<p><strong>邀请成员</strong>:<code>Settings</code> –&gt; <code>Collaborators</code> –&gt;<code>填写用户名</code> –&gt;<code>打开链接接受邀请</code></p>
-</li>
-<li><p><strong>企业</strong>   <code>创建一个组织</code> <code>方便管理</code></p>
-</li>
-<li><p><strong>review</strong></p>
-<p>  <code>组织做review</code>  <code>通过Pull request</code></p>
-</li>
-<li><p><strong>给开源社区共享代码</strong></p>
-<p>  <code>点击别人仓库的fork 到自己的仓库</code>   – &gt; <code>然后clone下来 修改后推送到远程库</code>  –&gt; <code>点击Pull Request请求</code> –&gt; <code>Create pull request发消息</code></p>
-</li>
-</ul>
-<h4 id="1-7-SSH-免密登录"><a href="#1-7-SSH-免密登录" class="headerlink" title="1.7 SSH 免密登录"></a>1.7 SSH 免密登录</h4><ul>
-<li>输入:<code>ssh-keygen -t rsa -C GitHub邮箱地址</code>  </li>
-<li>进入<code>.ssh</code>目录，复制<code>id_rsa.pub</code>文件内容</li>
-<li>登录GitHub。<code>Settings</code>  –&gt; <code>SSH and GPG keys </code> –&gt; <code>New SSH Key    </code></li>
-<li>回到git通过ssh地址创建。<code>git remote add 别名 SSH地址  </code></li>
-</ul>
-<pre><code>在 GitFlow 基础上， 充分利用了 Git 的 Fork 和 pull request 的功能以达到代码审核的目的。 
-安全可靠地管理大团队的开发者
-</code></pre>
+<p>保存配置文件，最后hexo g -d 后，刷新一下博客就能出来了。</p>
+<h2 id="2-2-添加定制化的模型"><a href="#2-2-添加定制化的模型" class="headerlink" title="2.2 添加定制化的模型"></a>2.2 添加定制化的模型</h2><p>上面的方法添加的模型样式大小位置语言等都是固定的，想要更换模型可以调用其他的API，想要完全自定义模型，需要自行研究后端API，太难了，希望有人能教教。</p>
+<p>可参考以下网址，我表示没整明白，但的确有人根据他们的方法整好的。</p>
+<p>大佬可以将各种游戏的2d人物提取出来，变成自己博客的看板娘，羡慕~</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">传送门1</a></p>
+<p><a target="_blank" rel="noopener" href="https://nocilol.me/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-01/">传送门2</a></p>
 
                 
             </div>
@@ -686,7 +505,7 @@ git pull 别名 分支名
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Funder666.github.io/2021/09/02/git%E7%AC%94%E8%AE%B0/">http://Funder666.github.io/2021/09/02/git%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://Funder666.github.io/2021/09/03/%E4%B8%80.%E6%B7%BB%E5%8A%A0%E5%AE%98%E6%96%B9%E6%A8%A1%E5%9E%8B/">http://Funder666.github.io/2021/09/03/%E4%B8%80.%E6%B7%BB%E5%8A%A0%E5%AE%98%E6%96%B9%E6%A8%A1%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -724,8 +543,8 @@ git pull 别名 分支名
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                                    <span class="chip bg-color">随笔</span>
                                 </a>
                             
                         </div>
@@ -771,9 +590,10 @@ git pull 别名 分支名
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/09/03/%E4%B8%80.%E6%B7%BB%E5%8A%A0%E5%AE%98%E6%96%B9%E6%A8%A1%E5%9E%8B/">
                     <div class="card-image">
@@ -791,9 +611,9 @@ git pull 别名 分支名
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -802,6 +622,7 @@ git pull 别名 分支名
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -820,19 +641,19 @@ git pull 别名 分支名
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/02/%E7%88%AC%E8%99%AB/">
+                <a href="/2021/09/02/git%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Python爬虫学习笔记">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="git学习笔记">
                         
-                        <span class="card-title">Python爬虫学习笔记</span>
+                        <span class="card-title">git学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ​    在大一夏季学期至军训期间，闲暇之时想学点有意思的东西。既能让我产生兴趣，又能够促进我对于编程语言的学习，爬虫绝对是一个很好的选择。
+                            Git是一个版本控制工具，有着类似快照的作用，对于从事IT行业的人是必须要掌握的。而git的学习是比较轻松的，在B站上花费数个小时便能掌握
                         
                     </div>
                     <div class="publish-info">
@@ -850,8 +671,8 @@ git pull 别名 分支名
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
