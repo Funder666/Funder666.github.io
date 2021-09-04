@@ -485,13 +485,13 @@
 <h3 id="1-2设置签名"><a href="#1-2设置签名" class="headerlink" title="1.2设置签名"></a>1.2设置签名</h3><p>作用：区分不同开发人员的身份</p>
 <ul>
 <li><p>项目(仓库)级别<code>仅在当前本地库有效</code></p>
-<pre><code>git config user.name tom  #设置用户名tom
-git config user.email liu@qq.com #设置用户邮箱
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config user.name tom  <span class="token comment" spellcheck="true">#设置用户名tom</span>
+<span class="token function">git</span> config user.email liu@qq.com <span class="token comment" spellcheck="true">#设置用户邮箱</span>
 </code></pre>
 </li>
 <li><p>系统用户级别<code>仅在当前登录的操作系统用户有效</code></p>
-<pre><code>git config --global user.name tom
-git config --global user.email liu@qq.com
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name tom
+<span class="token function">git</span> config --global user.email liu@qq.com
 </code></pre>
 </li>
 </ul>
@@ -500,44 +500,44 @@ git config --global user.email liu@qq.com
 <p>优先级别：<code>项目级别</code>  &gt;  <code>系统级别</code></p>
 <p>信息保存位置：<code>~/.gitconfig 文件</code>  </p>
 </blockquote>
-<h3 id="1-3基本操作"><a href="#1-3基本操作" class="headerlink" title="1.3基本操作"></a>1.3基本操作</h3><h4 id="1-3-1-状态查看"><a href="#1-3-1-状态查看" class="headerlink" title="1.3.1 状态查看"></a>1.3.1 状态查看</h4><pre><code>git status   #查看工作区、暂存区状态
+<h3 id="1-3基本操作"><a href="#1-3基本操作" class="headerlink" title="1.3基本操作"></a>1.3基本操作</h3><h4 id="1-3-1-状态查看"><a href="#1-3-1-状态查看" class="headerlink" title="1.3.1 状态查看"></a>1.3.1 状态查看</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> status   <span class="token comment" spellcheck="true">#查看工作区、暂存区状态</span>
 </code></pre>
-<h4 id="1-3-2-添加"><a href="#1-3-2-添加" class="headerlink" title="1.3.2 添加"></a>1.3.2 添加</h4><pre><code>git add fileName  #指定文件
-git rm --cached fileName  从暂存区撤回
-git add . #所有
+<h4 id="1-3-2-添加"><a href="#1-3-2-添加" class="headerlink" title="1.3.2 添加"></a>1.3.2 添加</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> add fileName  <span class="token comment" spellcheck="true">#指定文件</span>
+<span class="token function">git</span> <span class="token function">rm</span> --cached fileName  从暂存区撤回
+<span class="token function">git</span> add <span class="token keyword">.</span> <span class="token comment" spellcheck="true">#所有</span>
 说明：将工作区的文件添加到暂存区
 </code></pre>
-<h4 id="1-3-3-提交"><a href="#1-3-3-提交" class="headerlink" title="1.3.3 提交"></a>1.3.3 提交</h4><pre><code>将暂存区内容提交到本地库
-git commit filename(此时会进入vim，需要添加提交信息)
+<h4 id="1-3-3-提交"><a href="#1-3-3-提交" class="headerlink" title="1.3.3 提交"></a>1.3.3 提交</h4><pre class=" language-bash"><code class="language-bash">将暂存区内容提交到本地库
+<span class="token function">git</span> commit filename<span class="token punctuation">(</span>此时会进入vim，需要添加提交信息<span class="token punctuation">)</span>
 不进入vim 则可以：
-git commit -m &#39;commit message&#39; fileName（在-m&#39;&#39;里添加提交信息）
+<span class="token function">git</span> commit -m <span class="token string">'commit message'</span> fileName（在-m<span class="token string">''</span>里添加提交信息）
 </code></pre>
-<h4 id="1-3-4-查看历史记录"><a href="#1-3-4-查看历史记录" class="headerlink" title="1.3.4 查看历史记录"></a>1.3.4 查看历史记录</h4><pre><code>git log 
-git log --greph #图形显示,更直观
-git log --pretty=oneline #一行显示
-git log --oneline #显示部分哈希值；只显示过去版本
-git reflog  #显示指针；显示所有版本(常用)
-说明：HEAD@&#123;移动到当前版本需要多少步&#125;
+<h4 id="1-3-4-查看历史记录"><a href="#1-3-4-查看历史记录" class="headerlink" title="1.3.4 查看历史记录"></a>1.3.4 查看历史记录</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> log 
+<span class="token function">git</span> log --greph <span class="token comment" spellcheck="true">#图形显示,更直观</span>
+<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline <span class="token comment" spellcheck="true">#一行显示</span>
+<span class="token function">git</span> log --oneline <span class="token comment" spellcheck="true">#显示部分哈希值；只显示过去版本</span>
+<span class="token function">git</span> reflog  <span class="token comment" spellcheck="true">#显示指针；显示所有版本(常用)</span>
+说明：HEAD@<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;移动到当前版本需要多少步&amp;#125;</span>
 </code></pre>
 <h4 id="1-3-5-前进后退"><a href="#1-3-5-前进后退" class="headerlink" title="1.3.5 前进后退"></a>1.3.5 前进后退</h4><ul>
 <li><p>基于索引值<code>推荐</code></p>
-<pre><code>git reset --hard 索引值(部分就行，即git reflog中显示的索引值)
-例子：git reset --hard a6ace91 #回到这个状态
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> reset --hard 索引值<span class="token punctuation">(</span>部分就行，即git reflog中显示的索引值<span class="token punctuation">)</span>
+例子：git reset --hard a6ace91 <span class="token comment" spellcheck="true">#回到这个状态</span>
 </code></pre>
 </li>
 <li><p>使用 <strong>^</strong> 符号<code>只能后退，更近的版本会消失</code></p>
-<pre><code>git reset --hard HEAD^
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD^
 例子：git reset --hard HEAD^^
 注意：几个 ^ 表示后退几步
 </code></pre>
 </li>
 <li><p>使用 <strong>~</strong> 符号<code>只能后退</code></p>
-<pre><code>git reset --hard HEAD~n
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD~n
 例子：git reset --hard HEAD~3
 </code></pre>
 </li>
 </ul>
-<h4 id="1-3-6-reset的三个参数比较"><a href="#1-3-6-reset的三个参数比较" class="headerlink" title="1.3.6 reset的三个参数比较"></a>1.3.6 reset的三个参数比较</h4><pre><code>soft: 
+<h4 id="1-3-6-reset的三个参数比较"><a href="#1-3-6-reset的三个参数比较" class="headerlink" title="1.3.6 reset的三个参数比较"></a>1.3.6 reset的三个参数比较</h4><pre class=" language-bash"><code class="language-bash">soft: 
   - 仅本地库移动HEAD 指针
 mixed:
   - 在本地库移动HEAD指针
@@ -547,17 +547,17 @@ hard:
   - 重置暂存区
   - 重置工作区
 </code></pre>
-<h4 id="1-3-7-删除文件并找回"><a href="#1-3-7-删除文件并找回" class="headerlink" title="1.3.7　删除文件并找回"></a>1.3.7　删除文件并找回</h4><pre><code>前提：删除前，文件存在时的状态提交到了本地库。
-rm 文件名(rm aaa.txt)删除本地文件&gt;然后提交到暂存区git add aaa.txt &gt;然后提交到本地仓库git commit -m ”delete aaa” aaa.txt (删除完成)
-找回操作：git reset --hard [指针位置] 
-删除操作已经提交到本地库：指针位置指向历史记录(回到之前未删除版本)
-删除操作尚未提交到本地库：指针位置使用 HEAD(git reset --hard HEAD)(回到之前未删除版本)
+<h4 id="1-3-7-删除文件并找回"><a href="#1-3-7-删除文件并找回" class="headerlink" title="1.3.7　删除文件并找回"></a>1.3.7　删除文件并找回</h4><pre class=" language-bash"><code class="language-bash">前提：删除前，文件存在时的状态提交到了本地库。
+<span class="token function">rm</span> 文件名<span class="token punctuation">(</span>rm aaa.txt<span class="token punctuation">)</span>删除本地文件<span class="token operator">></span>然后提交到暂存区git add aaa.txt <span class="token operator">></span>然后提交到本地仓库git commit -m ”delete aaa” aaa.txt <span class="token punctuation">(</span>删除完成<span class="token punctuation">)</span>
+找回操作：git reset --hard <span class="token punctuation">[</span>指针位置<span class="token punctuation">]</span> 
+删除操作已经提交到本地库：指针位置指向历史记录<span class="token punctuation">(</span>回到之前未删除版本<span class="token punctuation">)</span>
+删除操作尚未提交到本地库：指针位置使用 HEAD<span class="token punctuation">(</span>git reset --hard HEAD<span class="token punctuation">)</span><span class="token punctuation">(</span>回到之前未删除版本<span class="token punctuation">)</span>
 </code></pre>
-<h4 id="1-3-8-文件差异比较"><a href="#1-3-8-文件差异比较" class="headerlink" title="1.3.8 文件差异比较"></a>1.3.8 文件差异比较</h4><pre><code>git diff 文件名
+<h4 id="1-3-8-文件差异比较"><a href="#1-3-8-文件差异比较" class="headerlink" title="1.3.8 文件差异比较"></a>1.3.8 文件差异比较</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> 文件名
 在工作区中用vim修改文件后
-git diff  文件名  #将工作区和本地库进行比较
+<span class="token function">git</span> <span class="token function">diff</span>  文件名  <span class="token comment" spellcheck="true">#将工作区和本地库进行比较</span>
 修改后提交到暂存区
-git diff HEAD 哈希值 文件名  #将暂存区中的文件和本地库历史记录比较
+<span class="token function">git</span> <span class="token function">diff</span> HEAD 哈希值 文件名  <span class="token comment" spellcheck="true">#将暂存区中的文件和本地库历史记录比较</span>
 </code></pre>
 <h3 id="2-2-分支管理"><a href="#2-2-分支管理" class="headerlink" title="2.2 分支管理"></a>2.2 分支管理</h3><p><img src="https://i.loli.net/2021/09/02/kGYKEuc8ep3R5yg.png" alt="image.png"></p>
 <h4 id="2-2-1-什么是分支管理"><a href="#2-2-1-什么是分支管理" class="headerlink" title="2.2.1 什么是分支管理"></a>2.2.1 什么是分支管理</h4><ul>
@@ -570,31 +570,31 @@ git diff HEAD 哈希值 文件名  #将暂存区中的文件和本地库历史�
 <h4 id="2-2-3-分支操作"><a href="#2-2-3-分支操作" class="headerlink" title="2.2.3 分支操作"></a>2.2.3 分支操作</h4><ul>
 <li>创建分支</li>
 </ul>
-<pre><code>git branch 分支名
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch 分支名
 </code></pre>
 <ul>
 <li>查看分支</li>
 </ul>
-<pre><code>git branch
-git branch -v 
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch
+<span class="token function">git</span> branch -v 
 </code></pre>
 <ul>
 <li>切换分支</li>
 </ul>
-<pre><code>git checkout 分支名
-git checkout -b 分支名   #创建分支并直接切换到该分支
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> checkout 分支名
+<span class="token function">git</span> checkout -b 分支名   <span class="token comment" spellcheck="true">#创建分支并直接切换到该分支</span>
 </code></pre>
 <ul>
 <li>合并分支<code>相当于把修改了的文件拉过来</code></li>
 </ul>
-<pre><code>git merge xxx
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> merge xxx
 注意：合并分支的时候要明确谁谁合并
     我在a分支里面修改了。要合并到master，就先切换到master，然后合并b
 </code></pre>
 <ul>
 <li>删除分支</li>
 </ul>
-<pre><code>git branch -d 分支名
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch -d 分支名
 </code></pre>
 <h4 id="2-2-4-解决冲突"><a href="#2-2-4-解决冲突" class="headerlink" title="2.2.4 解决冲突"></a>2.2.4 解决冲突</h4><ul>
 <li><p>冲突原因: 2个分支,修改同一文件,同一位置,修改内容不一样时.</p>
@@ -613,27 +613,27 @@ git checkout -b 分支名   #创建分支并直接切换到该分支
 </li>
 </ul>
 <h2 id="Git-结合Github"><a href="#Git-结合Github" class="headerlink" title="Git 结合Github"></a>Git 结合Github</h2><p><code>别分手</code>  <code>别名 分支名</code></p>
-<h4 id="1-1-创建远程库地址别名"><a href="#1-1-创建远程库地址别名" class="headerlink" title="1.1 创建远程库地址别名"></a>1.1 创建远程库地址别名</h4><pre><code>git remote -v  #查看远程地址别名
-git remote add 别名 远程地址 
+<h4 id="1-1-创建远程库地址别名"><a href="#1-1-创建远程库地址别名" class="headerlink" title="1.1 创建远程库地址别名"></a>1.1 创建远程库地址别名</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote -v  <span class="token comment" spellcheck="true">#查看远程地址别名</span>
+<span class="token function">git</span> remote add 别名 远程地址 
 例子：git remote add origin https://xx
 </code></pre>
 <h4 id="1-2-推送"><a href="#1-2-推送" class="headerlink" title="1.2 推送"></a>1.2 推送</h4><p><code>开发修改完把本地库的文件推送到远程仓库</code> <code>前提是提交到了本地库才可以推送</code></p>
-<pre><code>git push 别名 分支名
-git push -u 别名 分支名    #-u指定默认主机
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push 别名 分支名
+<span class="token function">git</span> push -u 别名 分支名    <span class="token comment" spellcheck="true">#-u指定默认主机</span>
 例子：git push origin master
 </code></pre>
 <p>出现unable to access问题则用：</p>
-<pre><code>git config --global http.sslVerify &quot;false&quot;
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global http.sslVerify <span class="token string">"false"</span>
 </code></pre>
 <h4 id="1-3-克隆"><a href="#1-3-克隆" class="headerlink" title="1.3 克隆"></a>1.3 克隆</h4><p><code>完整的把远程库克隆到本地</code>  <code>克隆下来后不要在主分支里面做开发</code> <code>clone进行一次，从无到有的过程，更新用pull</code></p>
-<pre><code>git clone  远程地址
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone  远程地址
 例子：git clone https://xx
 </code></pre>
 <h4 id="1-4-拉取"><a href="#1-4-拉取" class="headerlink" title="1.4 拉取"></a>1.4 拉取</h4><p>  <code>本地存在clone下来的文件  就用pull更新</code>  </p>
-<pre><code>pull = fetch + merge
-    git fetch 别名 分支名
-    git merge 别名 分支名
-git pull 别名 分支名
+<pre class=" language-bash"><code class="language-bash">pull <span class="token operator">=</span> fetch + merge
+    <span class="token function">git</span> fetch 别名 分支名
+    <span class="token function">git</span> merge 别名 分支名
+<span class="token function">git</span> pull 别名 分支名
 </code></pre>
 <h4 id="1-5-解决冲突"><a href="#1-5-解决冲突" class="headerlink" title="1.5 解决冲突"></a>1.5 解决冲突</h4><p><code>注意：解决冲突后的提交是不能带文件名的</code></p>
 <p><code>如果不是基于远程库最新版做的修改不能推送，必须先pull下来安装冲突办法解决</code></p>
@@ -657,7 +657,7 @@ git pull 别名 分支名
 <li>登录GitHub。<code>Settings</code>  –&gt; <code>SSH and GPG keys </code> –&gt; <code>New SSH Key    </code></li>
 <li>回到git通过ssh地址创建。<code>git remote add 别名 SSH地址  </code></li>
 </ul>
-<pre><code>在 GitFlow 基础上， 充分利用了 Git 的 Fork 和 pull request 的功能以达到代码审核的目的。 
+<pre class=" language-bash"><code class="language-bash">在 GitFlow 基础上， 充分利用了 Git 的 Fork 和 pull request 的功能以达到代码审核的目的。 
 安全可靠地管理大团队的开发者
 </code></pre>
 

@@ -406,14 +406,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18.3k
+                    6.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    80 分
+                    27 分
                 </div>
                 
 
@@ -459,14 +459,14 @@
 </li>
 </ol>
 <p>DML用于查询与修改数据记录，包括如下SQL语句：</p>
-<pre><code>INSERT：添加数据到数据库中
+<pre class=" language-mysql"><code class="language-mysql">INSERT：添加数据到数据库中
 UPDATE：修改数据库中的数据
 DELETE：删除数据库中的数据
 SELECT：选择（查询）数据
 SELECT是SQL语言的基础，最为重要。
 </code></pre>
 <p>DDL用于定义数据库的结构，比如创建、修改或删除</p>
-<pre><code>数据库对象，包括如下SQL语句：
+<pre class=" language-mysql"><code class="language-mysql">数据库对象，包括如下SQL语句：
 CREATE TABLE：创建数据库表
 ALTER TABLE：更改表结构、添加、删除、修改列长度
 DROP TABLE：删除表
@@ -474,25 +474,25 @@ CREATE INDEX：在表上建立索引
 DROP INDEX：删除索引
 </code></pre>
 <p>DCL用来控制数据库的访问，包括如下SQL语句：</p>
-<pre><code>GRANT：授予访问权限
+<pre class=" language-mysql"><code class="language-mysql">GRANT：授予访问权限
 REVOKE：撤销访问权限
 COMMIT：提交事务处理
 ROLLBACK：事务处理回退
 SAVEPOINT：设置保存点
 LOCK：对数据库的特定部分进行锁定
 </code></pre>
-<h1 id="二-常见用法"><a href="#二-常见用法" class="headerlink" title="二.常见用法"></a>二.常见用法</h1><h2 id="2-1-启动和停止MySQL服务"><a href="#2-1-启动和停止MySQL服务" class="headerlink" title="2.1 启动和停止MySQL服务"></a>2.1 启动和停止MySQL服务</h2><pre><code>方式一：通过计算机管理方式
+<h1 id="二-常见用法"><a href="#二-常见用法" class="headerlink" title="二.常见用法"></a>二.常见用法</h1><h2 id="2-1-启动和停止MySQL服务"><a href="#2-1-启动和停止MySQL服务" class="headerlink" title="2.1 启动和停止MySQL服务"></a>2.1 启动和停止MySQL服务</h2><pre class=" language-mysql"><code class="language-mysql">方式一：通过计算机管理方式
 右击计算机—管理—服务—启动或停止MySQL服务
 方式二：通过命令行方式
 启动：net start mysql服务名
 停止：net stop mysql服务名
 </code></pre>
-<h2 id="2-2-MySQL服务端的登录和退出"><a href="#2-2-MySQL服务端的登录和退出" class="headerlink" title="2.2 MySQL服务端的登录和退出"></a>2.2 MySQL服务端的登录和退出</h2><pre><code>登录
+<h2 id="2-2-MySQL服务端的登录和退出"><a href="#2-2-MySQL服务端的登录和退出" class="headerlink" title="2.2 MySQL服务端的登录和退出"></a>2.2 MySQL服务端的登录和退出</h2><pre class=" language-mysql"><code class="language-mysql">登录
 mysql –h 主机名 –u用户名 –p密码
 退出
 exit或ctrl+C
 </code></pre>
-<h2 id="2-3-MySQL的常见命令"><a href="#2-3-MySQL的常见命令" class="headerlink" title="2.3 MySQL的常见命令"></a>2.3 MySQL的常见命令</h2><pre><code>查看当前所有的数据库
+<h2 id="2-3-MySQL的常见命令"><a href="#2-3-MySQL的常见命令" class="headerlink" title="2.3 MySQL的常见命令"></a>2.3 MySQL的常见命令</h2><pre class=" language-mysql"><code class="language-mysql">查看当前所有的数据库
 show databases;
 
 查询当前使用的数据库
@@ -526,7 +526,7 @@ drop table 表名;
 desc 表名;
 
 查看建表语句
-show create table &lt;table name&gt;;
+show create table <table name>;
 
 查看服务器的版本
 方式一：登录到mysql服务端
@@ -537,7 +537,7 @@ mysql --version
 mysql --V
 
 </code></pre>
-<h2 id="2-4-MySQL的语法规范"><a href="#2-4-MySQL的语法规范" class="headerlink" title="2.4 MySQL的语法规范"></a>2.4 MySQL的语法规范</h2><pre><code>1.不区分大小写,但建议关键字大写，表名、列名小写
+<h2 id="2-4-MySQL的语法规范"><a href="#2-4-MySQL的语法规范" class="headerlink" title="2.4 MySQL的语法规范"></a>2.4 MySQL的语法规范</h2><pre class=" language-mysql"><code class="language-mysql">1.不区分大小写,但建议关键字大写，表名、列名小写
 2.每条命令最好用分号结尾
 3.每条命令根据需要，可以进行缩进 或换行
 4.注释
@@ -555,7 +555,7 @@ mysql --V
 </li>
 <li>案例</li>
 </ul>
-<pre><code>USE myemployees;
+<pre class=" language-mysql"><code class="language-mysql">USE myemployees;
 
 #1.查询表中的单个字段
 SELECT last_name FROM employees;
@@ -570,7 +570,7 @@ SELECT * FROM employees;
 # select 常量值;
 # 注意：字符型和日期型的常量值必须用单引号引起来，数值型不需要
 SELECT 100;
-SELECT &#39;join&#39;;
+SELECT 'join';
 
 #5.查询函数
 #select 函数名(实参列表);
@@ -592,7 +592,7 @@ SELECT last_name AS 姓,first_name AS 名 FROM employees;
 SELECT last_name 姓,first_name 名 FROM employees;
 
 #案例:查询salary,结果显示 out put
-SELECT salary AS &quot;out put&quot; FROM employees;
+SELECT salary AS "out put" FROM employees;
 
 #8.去重
 # select distinct 字段名 from 表名;
@@ -611,9 +611,9 @@ mysql中的+号:
 只能作为运算符
 
 select 100+90; 两个操作数都为数值型,做加法运算
-select &#39;123+90&#39;;其中一方为字符型,试图将字符型数值转换为数值型
+select '123+90';其中一方为字符型,试图将字符型数值转换为数值型
         如果转换成功,则继续做加法运算
-select &#39;john&#39;+90; 如果转换失败,则将字符型数值转换成0
+select 'john'+90; 如果转换失败,则将字符型数值转换成0
 
 select null+0; 只要其中一方为null,则结果肯定为null.
 */
@@ -624,7 +624,7 @@ SELECT last_name+first_name AS 姓名 FROM employees;
 功能：拼接字符
 select concat(字符1，字符2，字符3,...);
 */
-SELECT CONCAT(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;) AS 结果 FROM employees;
+SELECT CONCAT('a','b','c') AS 结果 FROM employees;
 
 SELECT CONCAT(last_name,first_name) AS 姓名 FROM employees;
 
@@ -640,13 +640,13 @@ SELECT IFNULL(commission_pct,0) FROM employees;
 <li>语法：select 查询列表 from 表名 where 筛选条件;</li>
 <li>分类</li>
 </ul>
-<pre><code>一、按条件表达式筛选
-    条件运算符:&gt; &lt; = != &lt;&gt; &gt;= &lt;= &lt;=&gt;安全等于
+<pre class=" language-mysql"><code class="language-mysql">一、按条件表达式筛选
+    条件运算符:> < = != <> >= <= <=>安全等于
 二、按逻辑表达式筛选
-    逻辑运算符:&amp;&amp; || |
+    逻辑运算符:&& || |
     and or not
     
-    &amp;&amp; 和 and:两个条件都为true，结果为true，反之为false
+    && 和 and:两个条件都为true，结果为true，反之为false
     || 和 or:只要有一个条件为true，结果为true，反之为false
     ! 或 not:如果连接的条件本身为false，结果为true，反之为false    
     
@@ -661,11 +661,11 @@ SELECT IFNULL(commission_pct,0) FROM employees;
 <h3 id="3-2-1-按条件表达式筛选"><a href="#3-2-1-按条件表达式筛选" class="headerlink" title="3.2.1 按条件表达式筛选"></a>3.2.1 按条件表达式筛选</h3><ul>
 <li>条件运算符:&gt; &lt; = != &lt;&gt; &gt;= &lt;= &lt;=&gt;安全等于</li>
 </ul>
-<pre><code>#案例1:查询工资&gt;12000的员工信息
-SELECT * FROM employees WHERE salary&gt;12000;
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询工资>12000的员工信息
+SELECT * FROM employees WHERE salary>12000;
 
 #案例2:查询部门编号不等于90号的员工名和部门编号
-SELECT last_name,department_id FROM employees WHERE department_id &lt;&gt; 90;
+SELECT last_name,department_id FROM employees WHERE department_id <> 90;
 </code></pre>
 <h3 id="3-2-2-按逻辑表达式筛选"><a href="#3-2-2-按逻辑表达式筛选" class="headerlink" title="3.2.2 按逻辑表达式筛选"></a>3.2.2 按逻辑表达式筛选</h3><ul>
 <li><p>逻辑运算符:&amp;&amp;(and) ||(or) |(not)</p>
@@ -673,30 +673,30 @@ SELECT last_name,department_id FROM employees WHERE department_id &lt;&gt; 90;
 <li><p>&amp;&amp; 和 and:两个条件都为true，结果为true，反之为false<br>|| 和 or:只要有一个条件为true，结果为true，反之为false<br>! 或 not:如果连接的条件本身为false，结果为true，反之为false</p>
 </li>
 </ul>
-<pre><code>#案例1:查询工资z在10000到20000之间的员工名、工资及奖金
-SELECT last_name,salary,commission_pct FROM employees WHERE salary&gt;=10000 AND salary&lt;=20000;
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询工资z在10000到20000之间的员工名、工资及奖金
+SELECT last_name,salary,commission_pct FROM employees WHERE salary>=10000 AND salary<=20000;
 
 #案例2:查询部门编号不是在90-110之间,或者工资高于15000的员工信息
-SELECT * FROM employees WHERE department_id &lt;90 OR department_id&gt;110 OR salary&gt;15000;
+SELECT * FROM employees WHERE department_id <90 OR department_id>110 OR salary>15000;
 </code></pre>
 <p>​    </p>
 <h3 id="3-2-3-模糊查询"><a href="#3-2-3-模糊查询" class="headerlink" title="3.2.3 模糊查询"></a>3.2.3 模糊查询</h3><ol>
 <li>like</li>
 </ol>
-<pre><code>#案例1:查询员工名中包含字符a的员工信息
-SELECT * FROM employees WHERE last_name LIKE &#39;%a%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询员工名中包含字符a的员工信息
+SELECT * FROM employees WHERE last_name LIKE '%a%';
 
 #案例2:查询员工名中第三个字符为b，第五个字符为a的员工名和工资
-SELECT last_name,salary FROM employees WHERE last_name LIKE &#39;__b_a%&#39;;
+SELECT last_name,salary FROM employees WHERE last_name LIKE '__b_a%';
 
 #案例3:查询员工名种第二个字符为_的员工名
-SELECT last_name FROM employees WHERE last_name LIKE &#39;_\_%&#39;;
+SELECT last_name FROM employees WHERE last_name LIKE '_\_%';
 </code></pre>
 <ol start="2">
 <li>between and</li>
 </ol>
-<pre><code>#案例1:查询员工编号在100到120之间的员工信息
-SELECT * FROM employees WHERE employee_id&gt;=100 AND employee_id&lt;=120;
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询员工编号在100到120之间的员工信息
+SELECT * FROM employees WHERE employee_id>=100 AND employee_id<=120;
 
 SELECT * FROM employees WHERE employee_id BETWEEN 100 AND 120;
 
@@ -715,11 +715,11 @@ SELECT * FROM employees WHERE employee_id BETWEEN 100 AND 120;
 <li><p>特点:<br> 1.使用in提高语句简洁度<br> 2.in列表的值类型必须一致或兼容</p>
 </li>
 </ul>
-<pre><code>#案例1:查询员工的工种编号是IT_PROG、AD_VP、AD_PRES中的一个员工名和工种编号
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询员工的工种编号是IT_PROG、AD_VP、AD_PRES中的一个员工名和工种编号
 
-SELECT last_name,job_id FROM employees WHERE job_id=&#39;IT_PROG&#39; OR job_id=&#39;AD_PRES&#39; OR job_id=&#39;AD_VP&#39;;
+SELECT last_name,job_id FROM employees WHERE job_id='IT_PROG' OR job_id='AD_PRES' OR job_id='AD_VP';
 
-SELECT last_name,job_id FROM employees WHERE job_id IN(&#39;IT_PROG&#39;,&#39;AD_PRES&#39;,&#39;AD_VP&#39;);
+SELECT last_name,job_id FROM employees WHERE job_id IN('IT_PROG','AD_PRES','AD_VP');
 </code></pre>
 <ol start="4">
 <li>is null</li>
@@ -727,24 +727,24 @@ SELECT last_name,job_id FROM employees WHERE job_id IN(&#39;IT_PROG&#39;,&#39;AD
 <ul>
 <li>=或&lt;&gt;不能用于判断null值<br>is null 或 is not null 可以判断null值</li>
 </ul>
-<pre><code>#案例1:查询没有奖金的员工名和奖金率
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询没有奖金的员工名和奖金率
 SELECT last_name,commission_pct FROM employees WHERE commission_pct IS NULL;
 SELECT last_name,commission_pct FROM employees WHERE commission_pct IS NOT NULL;
 </code></pre>
 <ol start="5">
 <li>&lt;=&gt;</li>
 </ol>
-<pre><code>#案例1:查询没有奖金的员工名和奖金率
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询没有奖金的员工名和奖金率
 
-SELECT last_name,commission_pct FROM employees WHERE commission_pct &lt;=&gt; NULL;
+SELECT last_name,commission_pct FROM employees WHERE commission_pct <=> NULL;
 
 #案例2:查询工资为12000的员工信息
-SELECT last_name,commission_pct FROM employees WHERE salary &lt;=&gt; 12000;
+SELECT last_name,commission_pct FROM employees WHERE salary <=> 12000;
 
-#is null PK &lt;=&gt;
+#is null PK <=>
 #         普通类型的数值    null值        可读性
 # is null     ×              √              √
-# &lt;=&gt;        √             √             ×
+# <=>        √             √             ×
 </code></pre>
 <h2 id="3-3-排序查询"><a href="#3-3-排序查询" class="headerlink" title="3.3 排序查询"></a>3.3 排序查询</h2><ul>
 <li><p>引入：select * from employees;</p>
@@ -761,12 +761,12 @@ SELECT last_name,commission_pct FROM employees WHERE salary &lt;=&gt; 12000;
 <li><p>案例</p>
 </li>
 </ul>
-<pre><code>#案例1:查询员工信息,要求工资从高到低排序
+<pre class=" language-mysql"><code class="language-mysql">#案例1:查询员工信息,要求工资从高到低排序
 SELECT * FROM employees ORDER BY salary DESC;
 SELECT * FROM employees ORDER BY salary;
 
-#案例2:查询部门编号是&gt;=90，按入职时间的先后进行排序
-SELECT * FROM employees WHERE department_id&gt;=90 ORDER BY hiredate ASC;
+#案例2:查询部门编号是>=90，按入职时间的先后进行排序
+SELECT * FROM employees WHERE department_id>=90 ORDER BY hiredate ASC;
 
 #案例3:按年薪的高低显示员工的信息和年薪【按表达式排序】
 SELECT *,salary*12*(1+IFNULL(commission_pct,0)) 年薪 FROM employees 
@@ -785,19 +785,19 @@ ORDER BY LENGTH(last_name) DESC;
 SELECT * FROM employees
 ORDER BY salary ASC,employee_id DESC;
 </code></pre>
-<h1 id="四-常见函数"><a href="#四-常见函数" class="headerlink" title="四.常见函数"></a>四.常见函数</h1><h2 id="4-1-单行函数"><a href="#4-1-单行函数" class="headerlink" title="4.1 单行函数"></a>4.1 单行函数</h2><h3 id="4-1-1-字符函数"><a href="#4-1-1-字符函数" class="headerlink" title="4.1.1 字符函数"></a>4.1.1 字符函数</h3><pre><code>#1.length 获取参数值的字节值
-SELECT LENGTH(&#39;subei&#39;);
-SELECT LENGTH(&#39;鬼谷子qwe&#39;);
+<h1 id="四-常见函数"><a href="#四-常见函数" class="headerlink" title="四.常见函数"></a>四.常见函数</h1><h2 id="4-1-单行函数"><a href="#4-1-单行函数" class="headerlink" title="4.1 单行函数"></a>4.1 单行函数</h2><h3 id="4-1-1-字符函数"><a href="#4-1-1-字符函数" class="headerlink" title="4.1.1 字符函数"></a>4.1.1 字符函数</h3><pre class=" language-mysql"><code class="language-mysql">#1.length 获取参数值的字节值
+SELECT LENGTH('subei');
+SELECT LENGTH('鬼谷子qwe');
 
-SHOW VARIABLES LIKE &#39;%char%&#39;;
+SHOW VARIABLES LIKE '%char%';
 
 #2.concat 拼接字符串
-SELECT CONCAT(last_name,&#39;_&#39;,first_name) 姓名 FROM employees;
+SELECT CONCAT(last_name,'_',first_name) 姓名 FROM employees;
 
 #3.upper:变大写、lower：变小写
 
-SELECT UPPER(&#39;ton&#39;);
-SELECT LOWER(&#39;ton&#39;);
+SELECT UPPER('ton');
+SELECT LOWER('ton');
 
 #示例：将姓变大写，名变小写，然后拼接
 SELECT CONCAT(UPPER(last_name),LOWER(first_name)) 姓名 FROM employees;
@@ -807,41 +807,41 @@ SELECT CONCAT(UPPER(last_name),LOWER(first_name)) 姓名 FROM employees;
 #注意:索引从1开始
 
 #截取从指定所有处后面的所以字符
-SELECT SUBSTR(&#39;吴刚伐桂在天上&#39;,4) out_put;
+SELECT SUBSTR('吴刚伐桂在天上',4) out_put;
 
 #截取从指定索引处指定字符长度的字符
-SELECT SUBSTR(&#39;吴刚伐桂在天上&#39;,1,2) out_put;
+SELECT SUBSTR('吴刚伐桂在天上',1,2) out_put;
 
 #案例:姓名中首字符大写,其他字符小写，然后用_拼接,显示出来
-SELECT CONCAT(UPPER(SUBSTR(last_name,1,1)),&#39;_&#39;,LOWER(SUBSTR(last_name,2))) out_put FROM employees;
+SELECT CONCAT(UPPER(SUBSTR(last_name,1,1)),'_',LOWER(SUBSTR(last_name,2))) out_put FROM employees;
 
 #5.instr:获取子串第一次出现的索引,找不到返回0
-SELECT INSTR(&#39;MySQL技术进阶&#39;,&#39;技术&#39;) AS out_put;
+SELECT INSTR('MySQL技术进阶','技术') AS out_put;
 
 #6.trim:去前后空格
 
-SELECT LENGTH(TRIM(&#39;    霍山    &#39;)) AS out_put;
+SELECT LENGTH(TRIM('    霍山    ')) AS out_put;
 
-SELECT TRIM(&#39;+&#39; FROM &#39;++++李刚+++刘邦+++&#39;) AS out_put;
+SELECT TRIM('+' FROM '++++李刚+++刘邦+++') AS out_put;
 
 #7.lpad:用指定的字符实现左填充指定长度
-SELECT LPAD(&#39;梅林&#39;,8,&#39;+&#39;) AS out_put;
+SELECT LPAD('梅林',8,'+') AS out_put;
 
 #8.rpad:用指定的字符实现右填充指定长度
-SELECT RPAD(&#39;梅林&#39;,5,&#39;&amp;&#39;) AS out_put;
+SELECT RPAD('梅林',5,'&') AS out_put;
 
 #9.replace:替换
-SELECT REPLACE(&#39;莉莉伊万斯的青梅竹马是詹姆&#39;,&#39;詹姆&#39;,&#39;斯内普&#39;) AS out_put;
+SELECT REPLACE('莉莉伊万斯的青梅竹马是詹姆','詹姆','斯内普') AS out_put;
 </code></pre>
-<h3 id="4-1-2-数学函数"><a href="#4-1-2-数学函数" class="headerlink" title="4.1.2 数学函数"></a>4.1.2 数学函数</h3><pre><code>#1.round:四舍五入
+<h3 id="4-1-2-数学函数"><a href="#4-1-2-数学函数" class="headerlink" title="4.1.2 数学函数"></a>4.1.2 数学函数</h3><pre class=" language-mysql"><code class="language-mysql">#1.round:四舍五入
 SELECT ROUND(1.45);
 SELECT ROUND(1.567,2);
 
-#2.ceil:向上取整,返回&gt;=该参数的最小整数
+#2.ceil:向上取整,返回>=该参数的最小整数
 SELECT CEIL(1.005);
 SELECT CEIL(-1.002);
 
-#3.floor:向下取整,返回&lt;=该参数的最大整数
+#3.floor:向下取整,返回<=该参数的最大整数
 SELECT FLOOR(-9.99);
 
 #4.truncate:截断
@@ -853,7 +853,7 @@ SELECT MOD(10,3);
 #6.rand:获取随机数，返回0-1之间的小数
 SELECT RAND();
 </code></pre>
-<h3 id="4-1-3-日期函数"><a href="#4-1-3-日期函数" class="headerlink" title="4.1.3 日期函数"></a>4.1.3 日期函数</h3><pre><code>#1.now:返回当前系统时间+日期
+<h3 id="4-1-3-日期函数"><a href="#4-1-3-日期函数" class="headerlink" title="4.1.3 日期函数"></a>4.1.3 日期函数</h3><pre class=" language-mysql"><code class="language-mysql">#1.now:返回当前系统时间+日期
 SELECT NOW();
 
 #2.year:返回年
@@ -868,14 +868,14 @@ SELECT MONTHNAME(NOW());
 #4.day:返回日
 #DATEDIFF:返回两个日期相差的天数
 SELECT DAY(NOW());
-SELECT DATEDIFF(&#39;2020/06/30&#39;,&#39;2020/06/21&#39;);
+SELECT DATEDIFF('2020/06/30','2020/06/21');
 
 #5.str_to_date:将字符通过指定格式转换成日期
-SELECT STR_TO_DATE(&#39;2020-5-13&#39;,&#39;%Y-%c-%d&#39;) AS out_put;
+SELECT STR_TO_DATE('2020-5-13','%Y-%c-%d') AS out_put;
 
 #6.date_format:将日期转换成字符
-SELECT DATE_FORMAT(&#39;2020/6/6&#39;,&#39;%Y年%m月%d日&#39;) AS out_put;
-SELECT DATE_FORMAT(NOW(),&#39;%Y年%m月%d日&#39;) AS out_put;
+SELECT DATE_FORMAT('2020/6/6','%Y年%m月%d日') AS out_put;
+SELECT DATE_FORMAT(NOW(),'%Y年%m月%d日') AS out_put;
 
 #7.curdate:返回当前日期
 SELECT CURDATE();
@@ -883,11 +883,11 @@ SELECT CURDATE();
 #8.curtime:返回当前时间
 SELECT CURTIME();
 </code></pre>
-<h3 id="4-1-4-流程控制函数"><a href="#4-1-4-流程控制函数" class="headerlink" title="4.1.4 流程控制函数"></a>4.1.4 流程控制函数</h3><pre><code>#1.if函数: if else效果
+<h3 id="4-1-4-流程控制函数"><a href="#4-1-4-流程控制函数" class="headerlink" title="4.1.4 流程控制函数"></a>4.1.4 流程控制函数</h3><pre class=" language-mysql"><code class="language-mysql">#1.if函数: if else效果
 
-SELECT IF(10&lt;5,&#39;大&#39;,&#39;小&#39;);
+SELECT IF(10<5,'大','小');
 
-SELECT last_name,commission_pct,IF(commission_pct IS NULL,&#39;没奖金！！！&#39;,&#39;有奖金!!!&#39;) 备注 FROM employees;
+SELECT last_name,commission_pct,IF(commission_pct IS NULL,'没奖金！！！','有奖金!!!') 备注 FROM employees;
 
 #2.case函数
 #使用一:switch case 的效果
@@ -951,22 +951,22 @@ end
 
 #案例:查询员工的工资的情况
 /*
-如果工资&gt;20000，显示A级别
-如果工资&gt;15000，显示B级别
-如果工资&gt;10000，显示c级别
+如果工资>20000，显示A级别
+如果工资>15000，显示B级别
+如果工资>10000，显示c级别
 否则，显示D级别
 */
 
 SELECT salary,
 CASE
-WHEN salary&gt;20000 THEN &#39;A&#39;
-WHEN salary&gt;15000 THEN &#39;B&#39;
-WHEN salary&gt;10000 THEN &#39;C&#39;
-ELSE &#39;D&#39;
+WHEN salary>20000 THEN 'A'
+WHEN salary>15000 THEN 'B'
+WHEN salary>10000 THEN 'C'
+ELSE 'D'
 END AS 工资等级
 FROM employees;
 </code></pre>
-<h3 id="4-1-5-其他函数"><a href="#4-1-5-其他函数" class="headerlink" title="4.1.5 其他函数"></a>4.1.5 其他函数</h3><pre><code>#version 当前数据库服务器的版本
+<h3 id="4-1-5-其他函数"><a href="#4-1-5-其他函数" class="headerlink" title="4.1.5 其他函数"></a>4.1.5 其他函数</h3><pre class=" language-mysql"><code class="language-mysql">#version 当前数据库服务器的版本
 SELECT VERSION();
 
 #database 当前打开的数据库
@@ -975,11 +975,11 @@ SELECT DATABASE();
 #user当前用户
 SELECT USER();
 
-#password(&#39;字符&#39;)：返回该字符的密码形式
-SELECT PASSWORD(&#39;a&#39;);
+#password('字符')：返回该字符的密码形式
+SELECT PASSWORD('a');
 
-#md5(&#39;字符&#39;):返回该字符的md5加密形式
-SELECT MD5(&#39;a&#39;);
+#md5('字符'):返回该字符的md5加密形式
+SELECT MD5('a');
 </code></pre>
 <h2 id="4-2-分组函数"><a href="#4-2-分组函数" class="headerlink" title="4.2 分组函数"></a>4.2 分组函数</h2><p>分组函数</p>
 <ul>
@@ -997,7 +997,7 @@ SELECT MD5(&#39;a&#39;);
 </ul>
 </li>
 </ul>
-<pre><code>#1.简单使用
+<pre class=" language-mysql"><code class="language-mysql">#1.简单使用
 SELECT SUM(salary) FROM employees;
 SELECT AVG(salary) FROM employees;
 SELECT MAX(salary) FROM employees;
@@ -1044,7 +1044,7 @@ SELECT COUNT(1) FROM employees;
 /*
 效率上：
 MyISAM存储引擎，count(*)最高
-InnoDB存储引擎，count(*)和count(1)效率&gt;count(字段)
+InnoDB存储引擎，count(*)和count(1)效率>count(字段)
 */
 
 #6.和分组函数一同查询的字段有限制
@@ -1055,7 +1055,7 @@ SELECT AVG(salary),employee_id FROM employees;
 <ul>
 <li>语法</li>
 </ul>
-<pre><code>select 分组函数,分组后的字段
+<pre class=" language-mysql"><code class="language-mysql">select 分组函数,分组后的字段
 from 表
 【where 筛选条件】
 group by 分组的字段
@@ -1084,7 +1084,7 @@ group by 分组的字段
 <li><p>案例</p>
 </li>
 </ul>
-<pre><code>#引入:查询每个部门的平均工资
+<pre class=" language-mysql"><code class="language-mysql">#引入:查询每个部门的平均工资
 SELECT AVG(salary) FROM employees;
 
 #案例1:查询每个工种的最高工资
@@ -1100,7 +1100,7 @@ GROUP BY location_id;
 #添加筛选条件
 #案例1:查询邮箱中包含a字符的，每个部门的平均工资
 SELECT AVG(salary),department_id FROM employees
-WHERE email LIKE &#39;%a%&#39; GROUP BY department_id;
+WHERE email LIKE '%a%' GROUP BY department_id;
 
 #案例2:查询有奖金的每个领导手下员工的最高工资
 SELECT MAX(salary),manager_id FROM employees
@@ -1108,30 +1108,30 @@ WHERE commission_pct IS NOT NULL
 GROUP BY manager_id;
 
 #添加复杂的筛选条件
-#案例1:查询哪个部门的员工个数&gt;2
+#案例1:查询哪个部门的员工个数>2
 #1.查询每个部门的员工个数
 SELECT COUNT(*),department_id FROM employees
 GROUP BY department_id;
 
 #2.根据1的结果进行筛选，查询哪个部门的员工个数大于2
 SELECT COUNT(*),department_id FROM employees
-GROUP BY department_id HAVING COUNT(*)&gt;2;
+GROUP BY department_id HAVING COUNT(*)>2;
 
 
-#案例2:查询每个工种有奖金的员工的最高工资&gt;12000的工种编号和最高工资 
+#案例2:查询每个工种有奖金的员工的最高工资>12000的工种编号和最高工资 
 #1.查询每个工种有奖金的员工的最高工资 
 SELECT MAX(salary),job_id FROM employees 
 WHERE commission_pct IS NOT NULL GROUP BY job_id; 
 
-#2.根据结果继续筛选，最高工资&gt;12000 
+#2.根据结果继续筛选，最高工资>12000 
 
 SELECT MAX(salary), job_id FROM employees 
 WHERE commission_pct IS NOT NULL GROUP BY job_id 
-HAVING MAX(salary)&gt;12000; 
+HAVING MAX(salary)>12000; 
 
 #按表达式或函数分组
 
-#案例:按员工姓名的长度分组,查询每一组的员工个数,筛选员工个数&gt;5
+#案例:按员工姓名的长度分组,查询每一组的员工个数,筛选员工个数>5
 
 #1.查询每个长度的员工个数 
 SELECT COUNT(*),LENGTH(last_name) len_name 
@@ -1139,7 +1139,7 @@ FROM employees GROUP BY LENGTH(last_name);
 
 #2.添加筛选条件
 SELECT COUNT(*) c,LENGTH(last_name) len_name 
-FROM employees GROUP BY len_name HAVING c&gt;5;
+FROM employees GROUP BY len_name HAVING c>5;
 
 #按多个字段查询
 #案例:查询每个部门每个工种的员工的平均工资
@@ -1161,7 +1161,7 @@ ORDER BY AVG(salary) DESC;
 <li>如何避免：添加有效的连接条件</li>
 <li>分类</li>
 </ul>
-<pre><code>按年代分类：
+<pre class=" language-mysql"><code class="language-mysql">按年代分类：
     sql92标准:仅仅支持内连接
     sql99标准【推荐】：支持内连接+外连接（左外和右外）+交叉连接
     
@@ -1177,7 +1177,7 @@ ORDER BY AVG(salary) DESC;
         
 交叉连接
 </code></pre>
-<h3 id="sql92标准案例"><a href="#sql92标准案例" class="headerlink" title="sql92标准案例"></a>sql92标准案例</h3><pre><code>#1、等值连接
+<h3 id="sql92标准案例"><a href="#sql92标准案例" class="headerlink" title="sql92标准案例"></a>sql92标准案例</h3><pre class=" language-mysql"><code class="language-mysql">#1、等值连接
 
 /*
 1.多表等值连接的结果为多表的交集部分
@@ -1229,7 +1229,7 @@ AND e.`commission_pct` IS NOT NULL;
 SELECT department_name,city
 FROM departments d,locations l
 WHERE d.`location_id` = l.`location_id`
-AND city LIKE &#39;_o%&#39;;
+AND city LIKE '_o%';
 
 #5、可以加分组
 #案例1：查询每个城市的部门个数
@@ -1262,7 +1262,7 @@ SELECT last_name,department_name,city
 FROM employees e,departments d,locations l
 WHERE e.`department_id`=d.`department_id`
 AND d.`location_id`=l.`location_id`
-AND city LIKE &#39;s%&#39;
+AND city LIKE 's%'
 ORDER BY department_name DESC;
 
 #2、非等值连接
@@ -1271,7 +1271,7 @@ ORDER BY department_name DESC;
 SELECT salary,grade_level
 FROM employees e,job_grades g
 WHERE salary BETWEEN g.`lowest_sal` AND g.`highest_sal`
-AND g.`grade_level`=&#39;A&#39;;
+AND g.`grade_level`='A';
 
 
 #3、自连接
@@ -1284,7 +1284,7 @@ WHERE e.`manager_id`=m.`employee_id`;
 <h3 id="sql99标准案例（常用）"><a href="#sql99标准案例（常用）" class="headerlink" title="sql99标准案例（常用）"></a>sql99标准案例（常用）</h3><ul>
 <li>语法</li>
 </ul>
-<pre><code>select 查询列表
+<pre class=" language-mysql"><code class="language-mysql">select 查询列表
 from 表1 别名 【连接类型】
 join 表2 别名 
 on 连接条件
@@ -1312,7 +1312,7 @@ on 连接条件
 <h4 id="5-1-1内连接"><a href="#5-1-1内连接" class="headerlink" title="5.1.1内连接"></a>5.1.1内连接</h4><ul>
 <li>语法：</li>
 </ul>
-<pre><code>select 查询列表
+<pre class=" language-mysql"><code class="language-mysql">select 查询列表
 from 表1 别名
 inner join 表2 别名
 on 连接条件;
@@ -1341,7 +1341,7 @@ on 连接条件;
 <ol>
 <li>等值连接</li>
 </ol>
-<pre><code>#案例1.查询员工名、部门名
+<pre class=" language-mysql"><code class="language-mysql">#案例1.查询员工名、部门名
 
 SELECT last_name,department_name FROM departments d
 INNER JOIN  employees e
@@ -1350,9 +1350,9 @@ ON e.`department_id` = d.`department_id`;
 #案例2.查询名字中包含e的员工名和工种名（添加筛选）
 SELECT last_name,job_title FROM employees e
 INNER JOIN jobs j ON e.`job_id`=  j.`job_id`
-WHERE e.`last_name` LIKE &#39;%e%&#39;;
+WHERE e.`last_name` LIKE '%e%';
 
-#案例3.查询部门个数&gt;3的城市名和部门个数，（添加分组+筛选）
+#案例3.查询部门个数>3的城市名和部门个数，（添加分组+筛选）
 
 #1.查询每个城市的部门个数
 #2.在1结果上筛选满足条件的
@@ -1361,9 +1361,9 @@ FROM departments d
 INNER JOIN locations l
 ON d.`location_id`=l.`location_id`
 GROUP BY city
-HAVING COUNT(*)&gt;3;
+HAVING COUNT(*)>3;
 
-#案例4.查询哪个部门的员工个数&gt;3的部门名和员工个数，并按个数降序（添加排序）
+#案例4.查询哪个部门的员工个数>3的部门名和员工个数，并按个数降序（添加排序）
 
 #1.查询每个部门的员工个数
 SELECT COUNT(*),department_name
@@ -1372,14 +1372,14 @@ INNER JOIN departments d
 ON e.`department_id`=d.`department_id`
 GROUP BY department_name;
 
-#2.在1结果上筛选员工个数&gt;3的记录，并排序
+#2.在1结果上筛选员工个数>3的记录，并排序
 
 SELECT COUNT(*) 个数,department_name
 FROM employees e
 INNER JOIN departments d
 ON e.`department_id`=d.`department_id`
 GROUP BY department_name
-HAVING COUNT(*)&gt;3
+HAVING COUNT(*)>3
 ORDER BY COUNT(*) DESC;
 
 #案例5.查询员工名、部门名、工种名，并按部门名降序（添加三表连接）
@@ -1412,7 +1412,7 @@ ORDER BY grade_level DESC;
 <ol start="3">
 <li>自连接</li>
 </ol>
-<pre><code>#查询员工的名字、上级的名字
+<pre class=" language-mysql"><code class="language-mysql">#查询员工的名字、上级的名字
 SELECT e.last_name,m.last_name
 FROM employees e
 JOIN employees m
@@ -1423,7 +1423,7 @@ SELECT e.last_name,m.last_name
 FROM employees e
 JOIN employees m
 ON e.`manager_id`= m.`employee_id`
-WHERE e.`last_name` LIKE &#39;%k%&#39;;
+WHERE e.`last_name` LIKE '%k%';
 </code></pre>
 <h4 id="5-1-2-外连接"><a href="#5-1-2-外连接" class="headerlink" title="5.1.2 外连接"></a>5.1.2 外连接</h4><ul>
 <li><p>应用场景：用于查询一个表中有，另一个表没有的记录</p>
@@ -1444,7 +1444,7 @@ WHERE e.`last_name` LIKE &#39;%k%&#39;;
 <ol>
 <li>左外连接</li>
 </ol>
-<pre><code># 查询男朋友 不在男神表的的女神名
+<pre class=" language-mysql"><code class="language-mysql"># 查询男朋友 不在男神表的的女神名
 SELECT b.*,bo.* FROM boys bo
 LEFT OUTER JOIN beauty b
 ON b.`boyfriend_id` = bo.`id`
@@ -1460,7 +1460,7 @@ WHERE e.`employee_id` IS NULL;
 <ol start="2">
 <li>右外连接</li>
 </ol>
-<pre><code>SELECT d.*,e.employee_id
+<pre class=" language-mysql"><code class="language-mysql">SELECT d.*,e.employee_id
 FROM employees e
 RIGHT OUTER JOIN departments d
 ON d.`department_id` = e.`department_id`
@@ -1469,12 +1469,12 @@ WHERE e.`employee_id` IS NULL;
 <ol start="3">
 <li>全外连接</li>
 </ol>
-<pre><code>USE girls;
+<pre class=" language-mysql"><code class="language-mysql">USE girls;
 SELECT b.*,bo.* FROM beauty b
 FULL OUTER JOIN boys bo
 ON b.`boyfriend_id` = bo.id;
 </code></pre>
-<h4 id="5-1-3-交叉连接"><a href="#5-1-3-交叉连接" class="headerlink" title="5.1.3 交叉连接"></a>5.1.3 交叉连接</h4><pre><code>SELECT b.*,bo.* FROM beauty b
+<h4 id="5-1-3-交叉连接"><a href="#5-1-3-交叉连接" class="headerlink" title="5.1.3 交叉连接"></a>5.1.3 交叉连接</h4><pre class=" language-mysql"><code class="language-mysql">SELECT b.*,bo.* FROM beauty b
 CROSS JOIN boys bo;
 </code></pre>
 <blockquote>
@@ -1498,21 +1498,21 @@ CROSS JOIN boys bo;
 <ol>
 <li>标量子查询（★）</li>
 </ol>
-<pre><code>#案例1：谁的工资比 Abel 高?
+<pre class=" language-mysql"><code class="language-mysql">#案例1：谁的工资比 Abel 高?
 
 #①查询Abel的工资
 SELECT salary
 FROM employees
-WHERE last_name = &#39;Abel&#39;;
+WHERE last_name = 'Abel';
 
-#②查询员工的信息，满足 salary&gt;①结果
+#②查询员工的信息，满足 salary>①结果
 SELECT *
 FROM employees
-WHERE salary&gt;(
+WHERE salary>(
 
     SELECT salary
     FROM employees
-    WHERE last_name = &#39;Abel&#39;
+    WHERE last_name = 'Abel'
     
 );
 
@@ -1526,7 +1526,7 @@ WHERE employee_id = 141;
 SELECT salary FROM employees
 WHERE employee_id = 143;
 
-#③查询员工的姓名，job_id 和工资，要求job_id=①并且salary&gt;②
+#③查询员工的姓名，job_id 和工资，要求job_id=①并且salary>②
 
 SELECT last_name,job_id,salary
 FROM employees
@@ -1534,7 +1534,7 @@ WHERE job_id = (
     SELECT job_id
     FROM employees
     WHERE employee_id = 141
-) AND salary&gt;(
+) AND salary>(
     SELECT salary
     FROM employees
     WHERE employee_id = 143
@@ -1567,11 +1567,11 @@ SELECT MIN(salary),department_id
 FROM employees
 GROUP BY department_id;
 
-#③ 在②基础上筛选，满足min(salary)&gt;①
+#③ 在②基础上筛选，满足min(salary)>①
 SELECT MIN(salary),department_id
 FROM employees
 GROUP BY department_id
-HAVING MIN(salary)&gt;(
+HAVING MIN(salary)>(
     SELECT  MIN(salary)
     FROM employees
     WHERE department_id = 50
@@ -1580,7 +1580,7 @@ HAVING MIN(salary)&gt;(
 <ol start="2">
 <li>列子查询（多行子查询）（★）</li>
 </ol>
-<pre><code>#案例1：返回location_id是1400或1700的部门中的所有员工姓名
+<pre class=" language-mysql"><code class="language-mysql">#案例1：返回location_id是1400或1700的部门中的所有员工姓名
 
 #①查询location_id是1400或1700的部门编号
 SELECT DISTINCT department_id
@@ -1591,7 +1591,7 @@ WHERE location_id IN(1400,1700);
 
 SELECT last_name
 FROM employees
-WHERE department_id  &lt;&gt;ALL(
+WHERE department_id  <>ALL(
     SELECT DISTINCT department_id
     FROM departments
     WHERE location_id IN(1400,1700)
@@ -1603,55 +1603,55 @@ WHERE department_id  &lt;&gt;ALL(
 #①查询job_id为‘IT_PROG’部门任一工资
 
 SELECT DISTINCT salary FROM employees
-WHERE job_id = &#39;IT_PROG&#39;;
+WHERE job_id = 'IT_PROG';
 
-#②查询员工号、姓名、job_id 以及salary，salary&lt;(①)的任意一个
+#②查询员工号、姓名、job_id 以及salary，salary<(①)的任意一个
 SELECT last_name,employee_id,job_id,salary
 FROM employees
-WHERE salary&lt;ANY(
+WHERE salary<ANY(
     SELECT DISTINCT salary
     FROM employees
-    WHERE job_id = &#39;IT_PROG&#39;
+    WHERE job_id = 'IT_PROG'
 
-) AND job_id&lt;&gt;&#39;IT_PROG&#39;;
+) AND job_id<>'IT_PROG';
 
 #或
 SELECT last_name,employee_id,job_id,salary
 FROM employees
-WHERE salary&lt;(
+WHERE salary<(
     SELECT MAX(salary)
     FROM employees
-    WHERE job_id = &#39;IT_PROG&#39;
+    WHERE job_id = 'IT_PROG'
 
-) AND job_id&lt;&gt;&#39;IT_PROG&#39;;
+) AND job_id<>'IT_PROG';
 
 
 #案例3：返回其它部门中比job_id为‘IT_PROG’部门所有工资都低的员工   的员工号、姓名、job_id 以及salary
 
 SELECT last_name,employee_id,job_id,salary
 FROM employees
-WHERE salary&lt;ALL(
+WHERE salary<ALL(
     SELECT DISTINCT salary
     FROM employees
-    WHERE job_id = &#39;IT_PROG&#39;
+    WHERE job_id = 'IT_PROG'
 
-) AND job_id&lt;&gt;&#39;IT_PROG&#39;;
+) AND job_id<>'IT_PROG';
 
 #或
 
 SELECT last_name,employee_id,job_id,salary
 FROM employees
-WHERE salary&lt;(
+WHERE salary<(
     SELECT MIN( salary)
     FROM employees
-    WHERE job_id = &#39;IT_PROG&#39;
+    WHERE job_id = 'IT_PROG'
 
-) AND job_id&lt;&gt;&#39;IT_PROG&#39;;
+) AND job_id<>'IT_PROG';
 </code></pre>
 <ol start="3">
 <li>行子查询（结果集一行多列或多行多列）</li>
 </ol>
-<pre><code>#案例：查询员工编号最小并且工资最高的员工信息
+<pre class=" language-mysql"><code class="language-mysql">#案例：查询员工编号最小并且工资最高的员工信息
 
 SELECT * FROM employees
 WHERE (employee_id,salary)=(
@@ -1678,7 +1678,7 @@ WHERE employee_id=(
 <h3 id="5-2-2-select后面"><a href="#5-2-2-select后面" class="headerlink" title="5.2.2 select后面"></a>5.2.2 select后面</h3><blockquote>
 <p>仅仅支持标量子查询</p>
 </blockquote>
-<pre><code>#案例：查询每个部门的员工个数
+<pre class=" language-mysql"><code class="language-mysql">#案例：查询每个部门的员工个数
 
 SELECT d.*,(
     SELECT COUNT(*)
@@ -1705,7 +1705,7 @@ SELECT (
 <li><p>案例</p>
 </li>
 </ul>
-<pre><code>#案例：查询每个部门的平均工资的工资等级
+<pre class=" language-mysql"><code class="language-mysql">#案例：查询每个部门的平均工资的工资等级
 #①查询每个部门的平均工资
 SELECT AVG(salary),department_id
 FROM employees GROUP BY department_id;
@@ -1731,7 +1731,7 @@ ON ag_dep.ag BETWEEN lowest_sal AND highest_sal;
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>#案例1：查询有员工的部门名
+<pre class=" language-mysql"><code class="language-mysql">#案例1：查询有员工的部门名
 
 #in
 SELECT department_name
@@ -1773,7 +1773,7 @@ WHERE NOT EXISTS(
 <li>应用场景：当要显示的数据，一页显示不全，需要分页提交sql请求。</li>
 <li>语法</li>
 </ul>
-<pre><code>    select 查询列表
+<pre class=" language-mysql"><code class="language-mysql">    select 查询列表
     from 表
     【join type join 表2
     on 连接条件
@@ -1789,7 +1789,7 @@ WHERE NOT EXISTS(
 <ul>
 <li>特点</li>
 </ul>
-<pre><code>①limit语句放在查询语句的最后
+<pre class=" language-mysql"><code class="language-mysql">①limit语句放在查询语句的最后
 ②公式
     要显示的页数 page，每页的条目数size
     
@@ -1821,11 +1821,11 @@ ORDER BY salary DESC LIMIT 10 ;
 <li>含义：union (联合、合并)：将多条查询语句的结果合并成一个结果。</li>
 <li>语法</li>
 </ul>
-<pre class=" language-sql"><code class="language-sql">查询语句<span class="token number">1</span>
-<span class="token keyword">union</span> 【<span class="token keyword">all</span>】
-查询语句<span class="token number">2</span>
-<span class="token keyword">union</span> 【<span class="token keyword">all</span>】
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<pre class=" language-mysql"><code class="language-mysql">查询语句1
+union 【all】
+查询语句2
+union 【all】
+...
 </code></pre>
 <ul>
 <li><p>意义</p>
@@ -1844,25 +1844,25 @@ ORDER BY salary DESC LIMIT 10 ;
 <li><p>案例</p>
 </li>
 </ul>
-<pre><code>#引入的案例：查询部门编号&gt;90或邮箱包含a的员工信息
+<pre class=" language-mysql"><code class="language-mysql">#引入的案例：查询部门编号>90或邮箱包含a的员工信息
 
-SELECT * FROM employees WHERE email LIKE &#39;%a%&#39; OR department_id&gt;90;
+SELECT * FROM employees WHERE email LIKE '%a%' OR department_id>90;
 
-SELECT * FROM employees  WHERE email LIKE &#39;%a%&#39;
+SELECT * FROM employees  WHERE email LIKE '%a%'
 UNION
-SELECT * FROM employees  WHERE department_id&gt;90;
+SELECT * FROM employees  WHERE department_id>90;
 
 
 #案例：查询中国用户中男性的信息以及外国用户中年男性的用户信息
 
-SELECT id,cname,csex FROM t_ca WHERE csex=&#39;男&#39;
+SELECT id,cname,csex FROM t_ca WHERE csex='男'
 UNION
-SELECT t_id,tName,tGender FROM t_ua WHERE tGender=&#39;male&#39;;
+SELECT t_id,tName,tGender FROM t_ua WHERE tGender='male';
 </code></pre>
 <ul>
 <li>此处用到的数据库文件</li>
 </ul>
-<pre><code>/*
+<pre class=" language-mysql"><code class="language-mysql">/*
  Navicat MySQL Data Transfer
 
  Source Server         : localhost
@@ -1895,9 +1895,9 @@ CREATE TABLE `t_ca`  (
 -- ----------------------------
 -- Records of t_ca
 -- ----------------------------
-INSERT INTO `t_ca` VALUES (1, &#39;韩梅梅&#39;, &#39;女&#39;);
-INSERT INTO `t_ca` VALUES (2, &#39;李雷&#39;, &#39;男&#39;);
-INSERT INTO `t_ca` VALUES (3, &#39;李明&#39;, &#39;男&#39;);
+INSERT INTO `t_ca` VALUES (1, '韩梅梅', '女');
+INSERT INTO `t_ca` VALUES (2, '李雷', '男');
+INSERT INTO `t_ca` VALUES (3, '李明', '男');
 
 SET FOREIGN_KEY_CHECKS = 1;
 
@@ -1935,11 +1935,11 @@ CREATE TABLE `t_ua`  (
 -- ----------------------------
 -- Records of t_ua
 -- ----------------------------
-INSERT INTO `t_ua` VALUES (1, &#39;john&#39;, &#39;male&#39;);
-INSERT INTO `t_ua` VALUES (2, &#39;lucy&#39;, &#39;female&#39;);
-INSERT INTO `t_ua` VALUES (3, &#39;lily&#39;, &#39;female&#39;);
-INSERT INTO `t_ua` VALUES (4, &#39;jack&#39;, &#39;male&#39;);
-INSERT INTO `t_ua` VALUES (5, &#39;rose&#39;, &#39;female&#39;);
+INSERT INTO `t_ua` VALUES (1, 'john', 'male');
+INSERT INTO `t_ua` VALUES (2, 'lucy', 'female');
+INSERT INTO `t_ua` VALUES (3, 'lily', 'female');
+INSERT INTO `t_ua` VALUES (4, 'jack', 'male');
+INSERT INTO `t_ua` VALUES (5, 'rose', 'female');
 
 SET FOREIGN_KEY_CHECKS = 1;
 </code></pre>
@@ -1964,33 +1964,33 @@ SET FOREIGN_KEY_CHECKS = 1;
 <li><p>具体案例</p>
 </li>
 </ul>
-<pre><code>SELECT * FROM beauty;
+<pre class=" language-mysql"><code class="language-mysql">SELECT * FROM beauty;
 #1.插入的值的类型要与列的类型一致或兼容
 INSERT INTO beauty(id,NAME,sex,borndate,phone,photo,boyfriend_id)
-VALUES(13,&#39;唐艺昕&#39;,&#39;女&#39;,&#39;1990-4-23&#39;,&#39;1898888888&#39;,NULL,2);
+VALUES(13,'唐艺昕','女','1990-4-23','1898888888',NULL,2);
 
 #2.不可以为null的列必须插入值。可以为null的列如何插入值？
     #方法一：
     INSERT INTO beauty(id,NAME,sex,borndate,phone,photo,boyfriend_id)
-    VALUES(13,&#39;唐艺昕&#39;,&#39;女&#39;,&#39;1990-4-23&#39;,&#39;1898888888&#39;,NULL,2);
+    VALUES(13,'唐艺昕','女','1990-4-23','1898888888',NULL,2);
 
     #方法二：
     INSERT INTO beauty(id,NAME,sex,phone)
-    VALUES(15,&#39;娜扎&#39;,&#39;女&#39;,&#39;1388888888&#39;);
+    VALUES(15,'娜扎','女','1388888888');
 
 #3.列的顺序是否可以调换
 INSERT INTO beauty(NAME,sex,id,phone)
-VALUES(&#39;蒋欣&#39;,&#39;女&#39;,16,&#39;110&#39;);
+VALUES('蒋欣','女',16,'110');
 
 #4.列数和值的个数必须一致
 
 INSERT INTO beauty(NAME,sex,id,phone)
-VALUES(&#39;关晓彤&#39;,&#39;女&#39;,17,&#39;110&#39;);
+VALUES('关晓彤','女',17,'110');
 
 #5.可以省略列名，默认所有列，而且列的顺序和表中列的顺序一致
 
 INSERT INTO beauty
-VALUES(18,&#39;张飞&#39;,&#39;男&#39;,NULL,&#39;119&#39;,NULL,NULL);
+VALUES(18,'张飞','男',NULL,'119',NULL,NULL);
 </code></pre>
 <p>方式二</p>
 <ul>
@@ -2001,7 +2001,7 @@ VALUES(18,&#39;张飞&#39;,&#39;男&#39;,NULL,&#39;119&#39;,NULL,NULL);
 <li>两种方式的区别</li>
 <li>案例</li>
 </ul>
-<pre><code>1.方式一支持一次插入多行，语法如下：
+<pre class=" language-mysql"><code class="language-mysql">1.方式一支持一次插入多行，语法如下：
 insert into 表名【(字段名,..)】 values(值，..),(值，...),...;
 2.方式一支持子查询，语法如下：
     insert into 表名 查询语句;
@@ -2009,29 +2009,29 @@ insert into 表名【(字段名,..)】 values(值，..),(值，...),...;
 #1、方式一支持插入多行,方式二不支持
 
 INSERT INTO beauty
-VALUES(23,&#39;唐艺昕1&#39;,&#39;女&#39;,&#39;1990-4-23&#39;,&#39;1898888888&#39;,NULL,2)
-,(24,&#39;唐艺昕2&#39;,&#39;女&#39;,&#39;1990-4-23&#39;,&#39;1898888888&#39;,NULL,2)
-,(25,&#39;唐艺昕3&#39;,&#39;女&#39;,&#39;1990-4-23&#39;,&#39;1898888888&#39;,NULL,2);
+VALUES(23,'唐艺昕1','女','1990-4-23','1898888888',NULL,2)
+,(24,'唐艺昕2','女','1990-4-23','1898888888',NULL,2)
+,(25,'唐艺昕3','女','1990-4-23','1898888888',NULL,2);
 
 #2、方式一支持子查询，方式二不支持
 
-INSERT INTO beauty(id,NAME,phone) SELECT 26,&#39;宋茜&#39;,&#39;11809866&#39;;
+INSERT INTO beauty(id,NAME,phone) SELECT 26,'宋茜','11809866';
 
 INSERT INTO beauty(id,NAME,phone) 
-SELECT id,boyname,&#39;1234567&#39; FROM boys WHERE id&lt;3;  
+SELECT id,boyname,'1234567' FROM boys WHERE id<3;  
 </code></pre>
 <h2 id="6-2-修改语句"><a href="#6-2-修改语句" class="headerlink" title="6.2 修改语句"></a>6.2 修改语句</h2><ul>
 <li>修改单表的记录（★）</li>
 <li>语法：update 表名 set 列=新值,列=新值,… where 筛选条件;</li>
 <li>案例</li>
 </ul>
-<pre><code>#1.修改单表的记录
+<pre class=" language-mysql"><code class="language-mysql">#1.修改单表的记录
 #案例1：修改beauty表中姓唐的女神的电话为13899888899
-UPDATE beauty SET phone = &#39;13899888899&#39;
-WHERE NAME LIKE &#39;唐%&#39;;
+UPDATE beauty SET phone = '13899888899'
+WHERE NAME LIKE '唐%';
 
 #案例2：修改boys表中id好为2的名称为张飞，魅力值 10
-UPDATE boys SET boyname=&#39;张飞&#39;,usercp=10
+UPDATE boys SET boyname='张飞',usercp=10
 WHERE id=2;
 </code></pre>
 <ul>
@@ -2044,12 +2044,12 @@ WHERE id=2;
 <li><p>案例</p>
 </li>
 </ul>
-<pre><code>#2.修改多表的记录
+<pre class=" language-mysql"><code class="language-mysql">#2.修改多表的记录
 #案例 1：修改张无忌的女朋友的手机号为114
 UPDATE boys bo
 INNER JOIN beauty b ON bo.`id`=b.`boyfriend_id`
-SET b.`phone`=&#39;119&#39;,bo.`userCP`=1000
-WHERE bo.`boyName`=&#39;张无忌&#39;;
+SET b.`phone`='119',bo.`userCP`=1000
+WHERE bo.`boyName`='张无忌';
 
 #案例2：修改没有男朋友的女神的男朋友编号都为2号
 UPDATE boys bo
@@ -2060,7 +2060,7 @@ SET b.`boyfriend_id`=2 WHERE bo.`id` IS NULL;
 <ul>
 <li>语法</li>
 </ul>
-<pre><code>1、单表的删除【★】
+<pre class=" language-mysql"><code class="language-mysql">1、单表的删除【★】
 delete from 表名 where 筛选条件
 
 2、多表的删除【补充】
@@ -2082,13 +2082,13 @@ where 筛选条件;
 <li>语法:truncate table 表名;</li>
 <li>案例</li>
 </ul>
-<pre><code>#将魅力值&gt;100的男神信息删除
+<pre class=" language-mysql"><code class="language-mysql">#将魅力值>100的男神信息删除
 TRUNCATE TABLE boys ;
 </code></pre>
 <ul>
 <li>两种方式的区别【面试题】</li>
 </ul>
-<pre><code>1.delete 可以加where 条件，truncate不能加
+<pre class=" language-mysql"><code class="language-mysql">1.delete 可以加where 条件，truncate不能加
 2.truncate删除，效率高一点
 3.假如要删除的表中有自增长列，
   如果用delete删除后，再插入数据，自增长列的值从断点开始，而truncate删除后，再插入数据，自增长列的值从1开始。
@@ -2101,7 +2101,7 @@ TRUNCATE TABLE boys ;
 <li>语法：create database 【if not exists】 库名【 character set 字符集名】;</li>
 <li>案例</li>
 </ul>
-<pre><code>#案例：创建库Books
+<pre class=" language-mysql"><code class="language-mysql">#案例：创建库Books
 CREATE DATABASE IF NOT EXISTS books ;
 </code></pre>
 </li>
@@ -2119,17 +2119,17 @@ ALTER DATABASE books CHARACTER SET gbk;
 <li>语法：drop database 【if exists】 库名;</li>
 <li>案例</li>
 </ul>
-<pre><code>#案例：库的删除
+<pre class=" language-mysql"><code class="language-mysql">#案例：库的删除
 DROP DATABASE IF EXISTS books;
 </code></pre>
-<h2 id><a href="#" class="headerlink" title></a></h2></li>
+</li>
 </ul>
 <h2 id="7-2-表的管理"><a href="#7-2-表的管理" class="headerlink" title="7.2 表的管理"></a>7.2 表的管理</h2><ul>
 <li><p>表的创建</p>
 <ul>
 <li>语法</li>
 </ul>
-<pre><code>create table 表名(
+<pre class=" language-mysql"><code class="language-mysql">create table 表名(
     列名 列的类型【(长度) 约束】,
     列名 列的类型【(长度) 约束】,
     列名 列的类型【(长度) 约束】,
@@ -2140,7 +2140,7 @@ DROP DATABASE IF EXISTS books;
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>*/
+<pre class=" language-mysql"><code class="language-mysql">*/
 #案例：创建表Book
 CREATE TABLE book (
   id INT,
@@ -2169,7 +2169,7 @@ DESC author ;
 <ul>
 <li>常用命令</li>
 </ul>
-<pre><code>1.添加列
+<pre class=" language-mysql"><code class="language-mysql">1.添加列
 alter table 表名 add column 列名 类型 【first|after 字段名】;
 2.修改列的类型或约束
 alter table 表名 modify column 列名 新类型 【新约束】;
@@ -2181,9 +2181,9 @@ alter table 表名 drop column 列名;
 alter table 表名 rename 【to】 新表名;
 </code></pre>
 <ul>
-<li>案例</li>
+<li>案例mysql</li>
 </ul>
-<pre><code>#①修改列名
+<pre class=" language-mysql"><code class="language-mysql">#①修改列名
 ALTER TABLE book CHANGE COLUMN publishdate pubDate DATETIME ;
 
 #②修改列的类型或约束
@@ -2205,7 +2205,7 @@ DESC book;
 <ul>
 <li>语法</li>
 </ul>
-<pre><code>drop table【if exists】 表名;
+<pre class=" language-mysql"><code class="language-mysql">drop table【if exists】 表名;
 #通用的写法：
 DROP DATABASE IF EXISTS 旧库名;
 CREATE DATABASE 新库名 ;
@@ -2216,14 +2216,14 @@ CREATE TABLE  表名();
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>DROP TABLE IF EXISTS book_author;
+<pre class=" language-mysql"><code class="language-mysql">DROP TABLE IF EXISTS book_author;
 SHOW TABLES;
 </code></pre>
 </li>
 <li><p>表的复制</p>
 </li>
 </ul>
-<pre><code>1、复制表的结构
+<pre class=" language-mysql"><code class="language-mysql">1、复制表的结构
 create table 表名 like 旧表;
 2、复制表的结构+数据
 create table 表名 
@@ -2231,10 +2231,10 @@ select 查询列表 from 旧表【where 筛选】;
 
 案例
 INSERT INTO author VALUES
-(1,&#39;村上春树&#39;,&#39;日本&#39;),
-(2,&#39;莫言&#39;,&#39;中国&#39;),
-(3,&#39;冯唐&#39;,&#39;中国&#39;),
-(4,&#39;金庸&#39;,&#39;中国&#39;);
+(1,'村上春树','日本'),
+(2,'莫言','中国'),
+(3,'冯唐','中国'),
+(4,'金庸','中国');
 
 SELECT * FROM Author;
 SELECT * FROM copy2;
@@ -2247,7 +2247,7 @@ CREATE TABLE copy2 SELECT * FROM author;
 
 #只复制部分数据
 CREATE TABLE copy3 SELECT id,au_name
-FROM author WHERE nation=&#39;中国&#39;;
+FROM author WHERE nation='中国';
 
 #仅仅复制某些字段
 CREATE TABLE copy4 SELECT id,au_name
@@ -2256,7 +2256,7 @@ FROM author WHERE 0;
 <h1 id="八-数据类型"><a href="#八-数据类型" class="headerlink" title="八.数据类型"></a>八.数据类型</h1><h3 id="8-1-整型"><a href="#8-1-整型" class="headerlink" title="8.1 整型"></a>8.1 整型</h3><ul>
 <li>分类</li>
 </ul>
-<pre><code>tinyint、smallint、mediumint、int/integer、bigint
+<pre class=" language-mysql"><code class="language-mysql">tinyint、smallint、mediumint、int/integer、bigint
 1         2           3        4         8
 </code></pre>
 <ul>
@@ -2268,7 +2268,7 @@ FROM author WHERE 0;
 </li>
 <li>案例</li>
 </ul>
-<pre><code>DROP TABLE IF EXISTS tab_int ;
+<pre class=" language-mysql"><code class="language-mysql">DROP TABLE IF EXISTS tab_int ;
 
 CREATE TABLE tab_int (t1 INT (7) ZEROFILL, t2 INT (7) ZEROFILL) ;
 
@@ -2300,7 +2300,7 @@ SELECT * FROM tab_int ;
 <li><p>案例</p>
 </li>
 </ul>
-<pre><code>#测试M和D
+<pre class=" language-mysql"><code class="language-mysql">#测试M和D
 DROP TABLE tab_float ;
 
 CREATE TABLE tab_float (f1 FLOAT, f2 DOUBLE, f3 DECIMAL) ;
@@ -2328,29 +2328,29 @@ INSERT INTO tab_float VALUES(1523.4,1523.4,1523.4);
 <li>较长的文本：text、blob(较大的二进制)</li>
 <li>特点</li>
 </ul>
-<pre><code>  写法            M的意思                    特点        空间的耗费     效率
+<pre class=" language-mysql"><code class="language-mysql">  写法            M的意思                    特点        空间的耗费     效率
 char/char(M)    最大的字符数，可以省略，默认为1 固定长度的字符    比较耗费     高
 
 varchar/varchar(M)    最大的字符数，不可以省略    可变长度的字符       比较节省       低
 </code></pre>
-<pre><code>CREATE TABLE tab_char(
-    c1 ENUM(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)
+<pre class=" language-mysql"><code class="language-mysql">CREATE TABLE tab_char(
+    c1 ENUM('a','b','c')
 );
 
-INSERT INTO tab_char VALUES(&#39;a&#39;);
-INSERT INTO tab_char VALUES(&#39;b&#39;);
-INSERT INTO tab_char VALUES(&#39;c&#39;);
-INSERT INTO tab_char VALUES(&#39;m&#39;);
-INSERT INTO tab_char VALUES(&#39;A&#39;);
+INSERT INTO tab_char VALUES('a');
+INSERT INTO tab_char VALUES('b');
+INSERT INTO tab_char VALUES('c');
+INSERT INTO tab_char VALUES('m');
+INSERT INTO tab_char VALUES('A');
 
 SELECT * FROM tab_set;
 
 CREATE TABLE tab_set(
-    s1 SET(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;)
+    s1 SET('a','b','c','d')
 );
-INSERT INTO tab_set VALUES(&#39;a&#39;);
-INSERT INTO tab_set VALUES(&#39;A,B&#39;);
-INSERT INTO tab_set VALUES(&#39;a,c,d&#39;);
+INSERT INTO tab_set VALUES('a');
+INSERT INTO tab_set VALUES('A,B');
+INSERT INTO tab_set VALUES('a,c,d');
 </code></pre>
 <h3 id="8-4-日期型"><a href="#8-4-日期型" class="headerlink" title="8.4 日期型"></a>8.4 日期型</h3><ul>
 <li>分类：<ul>
@@ -2363,14 +2363,14 @@ INSERT INTO tab_set VALUES(&#39;a,c,d&#39;);
 </li>
 <li>特点</li>
 </ul>
-<pre><code>           字节        范围            时区等的影响
+<pre class=" language-mysql"><code class="language-mysql">           字节        范围            时区等的影响
 datetime     8        1000——9999          不受
 timestamp     4        1970-2038            受
 </code></pre>
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>CREATE TABLE tab_date(
+<pre class=" language-mysql"><code class="language-mysql">CREATE TABLE tab_date(
     t1 DATETIME,
     t2 TIMESTAMP
 );
@@ -2379,9 +2379,9 @@ INSERT INTO tab_date VALUES(NOW(),NOW());
 
 SELECT * FROM tab_date;
 
-SHOW VARIABLES LIKE &#39;time_zone&#39;;
+SHOW VARIABLES LIKE 'time_zone';
 
-SET time_zone=&#39;+9:00&#39;;
+SET time_zone='+9:00';
 </code></pre>
 <h1 id="九-常见约束"><a href="#九-常见约束" class="headerlink" title="九.常见约束"></a>九.常见约束</h1><ul>
 <li>含义：一种限制，用于限制表中的数据，为了保证表中的数据的准确和可靠性。</li>
@@ -2389,7 +2389,7 @@ SET time_zone=&#39;+9:00&#39;;
 <ul>
 <li>分类</li>
 </ul>
-<pre><code>六大约束
+<pre class=" language-mysql"><code class="language-mysql">六大约束
     NOT NULL：非空，用于保证该字段的值不能为空
     比如姓名、学号等
     DEFAULT:默认，用于保证该字段有默认值
@@ -2416,13 +2416,13 @@ SET time_zone=&#39;+9:00&#39;;
 <li><p>语法</p>
 </li>
 </ul>
-<pre><code>CREATE TABLE 表名&#123;
+<pre class=" language-mysql"><code class="language-mysql">CREATE TABLE 表名&#123;
     字段名 字段类型 列级约束,
     字段名 字段类型,
     表级约束
 &#125;;
 </code></pre>
-<h2 id="9-1-创建表时添加约束"><a href="#9-1-创建表时添加约束" class="headerlink" title="9.1 创建表时添加约束"></a>9.1 创建表时添加约束</h2><pre><code>#先新建一个库
+<h2 id="9-1-创建表时添加约束"><a href="#9-1-创建表时添加约束" class="headerlink" title="9.1 创建表时添加约束"></a>9.1 创建表时添加约束</h2><pre class=" language-mysql"><code class="language-mysql">#先新建一个库
 CREATE DATABASE students;
 </code></pre>
 <ol>
@@ -2432,14 +2432,14 @@ CREATE DATABASE students;
 <li>语法：直接在字段名和类型后面追加 约束类型即可。只支持：默认、非空、主键、唯一</li>
 <li>案例</li>
 </ul>
-<pre><code>USE students;
+<pre class=" language-mysql"><code class="language-mysql">USE students;
 
 DROP TABLE stuinfo;
 
 CREATE TABLE stuinfo(
     id INT PRIMARY KEY,#主键
     stuName VARCHAR(20) NOT NULL UNIQUE,#非空
-    gender CHAR(1) CHECK(gender=&#39;男&#39; OR gender =&#39;女&#39;),#检查
+    gender CHAR(1) CHECK(gender='男' OR gender ='女'),#检查
     seat INT UNIQUE,#唯一
     age INT DEFAULT  18,#默认约束
     majorId INT REFERENCES major(id)#外键
@@ -2459,7 +2459,7 @@ SHOW INDEX FROM stuinfo;
 <ul>
 <li>语法：在各个字段的最下面 【constraint 约束名】 约束类型(字段名)</li>
 </ul>
-<pre><code>TABLE IF EXISTS stuinfo;
+<pre class=" language-mysql"><code class="language-mysql">TABLE IF EXISTS stuinfo;
 CREATE TABLE stuinfo(
     id INT,
     stuname VARCHAR(20),
@@ -2470,7 +2470,7 @@ CREATE TABLE stuinfo(
     
     CONSTRAINT pk PRIMARY KEY(id),#主键
     CONSTRAINT uq UNIQUE(seat),#唯一键
-    CONSTRAINT ck CHECK(gender =&#39;男&#39; OR gender  = &#39;女&#39;),#检查
+    CONSTRAINT ck CHECK(gender ='男' OR gender  = '女'),#检查
     CONSTRAINT fk_stuinfo_major FOREIGN KEY(majorid) REFERENCES major(id)#外键    
 );
 
@@ -2479,7 +2479,7 @@ SHOW INDEX FROM stuinfo;
 <ul>
 <li>通用的写法</li>
 </ul>
-<pre><code>CREATE TABLE IF NOT EXISTS stuinfo(
+<pre class=" language-mysql"><code class="language-mysql">CREATE TABLE IF NOT EXISTS stuinfo(
     id INT PRIMARY KEY,
     stuname VARCHAR(20),
     sex CHAR(1),
@@ -2507,14 +2507,14 @@ create table 表名(
 <ul>
 <li>主键和唯一的区别</li>
 </ul>
-<pre><code>        保证唯一性  是否允许为空    一个表中可以有多少个   是否允许组合
+<pre class=" language-mysql"><code class="language-mysql">        保证唯一性  是否允许为空    一个表中可以有多少个   是否允许组合
 主键        √                ×            至多有1个           √，但不推荐
 唯一        √                √            可以有多个          √，但不推荐
 </code></pre>
 <h2 id="9-2-修改表时添加约束"><a href="#9-2-修改表时添加约束" class="headerlink" title="9.2 修改表时添加约束"></a>9.2 修改表时添加约束</h2><ul>
 <li>语法</li>
 </ul>
-<pre><code>1、添加列级约束
+<pre class=" language-mysql"><code class="language-mysql">1、添加列级约束
 alter table 表名 modify column 字段名 字段类型 新约束;
 
 2、添加表级约束
@@ -2523,7 +2523,7 @@ alter table 表名 add 【constraint 约束名】 约束类型(字段名) 【外
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>DROP TABLE IF EXISTS stuinfo;
+<pre class=" language-mysql"><code class="language-mysql">DROP TABLE IF EXISTS stuinfo;
 CREATE TABLE stuinfo(
     id INT,
     stuname VARCHAR(20),
@@ -2555,7 +2555,7 @@ ALTER TABLE stuinfo MODIFY COLUMN age INT DEFAULT 18;
 #5.添加外键
 ALTER TABLE stuinfo ADD CONSTRAINT fk_stuinfo_major FOREIGN KEY(majorid) REFERENCES major(id); 
 </code></pre>
-<h2 id="9-3-修改表时删除约束"><a href="#9-3-修改表时删除约束" class="headerlink" title="9.3 修改表时删除约束"></a>9.3 修改表时删除约束</h2><pre><code>#1.删除非空约束
+<h2 id="9-3-修改表时删除约束"><a href="#9-3-修改表时删除约束" class="headerlink" title="9.3 修改表时删除约束"></a>9.3 修改表时删除约束</h2><pre class=" language-mysql"><code class="language-mysql">#1.删除非空约束
 ALTER TABLE stuinfo MODIFY COLUMN stuname VARCHAR(20) NULL;
 
 #2.删除默认约束
@@ -2575,7 +2575,7 @@ SHOW INDEX FROM stuinfo;
 <ul>
 <li>修改表时添加或删除约束的具体语法总结：</li>
 </ul>
-<pre><code>1、非空
+<pre class=" language-mysql"><code class="language-mysql">1、非空
 添加非空
 alter table 表名 modify column 字段名 字段类型 not null;
 删除非空
@@ -2609,7 +2609,7 @@ alter table 表名 drop foreign key 约束名;
 <li>含义：可以不用手动的插入值，系统提供默认的序列值</li>
 <li>特点</li>
 </ul>
-<pre><code>1.不用手动插入值，可以自动提供序列值，默认从1开始，步长为1
+<pre class=" language-mysql"><code class="language-mysql">1.不用手动插入值，可以自动提供序列值，默认从1开始，步长为1
   auto_increment_increment
   如果要更改起始值：手动插入值
   如果要更改步长：更改系统变量
@@ -2621,7 +2621,7 @@ alter table 表名 drop foreign key 约束名;
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>#一、创建表时设置标识列
+<pre class=" language-mysql"><code class="language-mysql">#一、创建表时设置标识列
 DROP TABLE IF EXISTS tab_identity;
 
 CREATE TABLE tab_identity(
@@ -2630,20 +2630,20 @@ CREATE TABLE tab_identity(
     seat INT 
 ) TRUNCATE TABLE tab_identity;
 
-INSERT INTO tab_identity(id,NAME) VALUES(NULL,&#39;john&#39;);
+INSERT INTO tab_identity(id,NAME) VALUES(NULL,'john');
 
-INSERT INTO tab_identity(NAME) VALUES(&#39;lucy&#39;);
+INSERT INTO tab_identity(NAME) VALUES('lucy');
 
 SELECT * FROM tab_identity;
 
-SHOW VARIABLES LIKE &#39;%auto_increment%&#39;;
+SHOW VARIABLES LIKE '%auto_increment%';
 
 SET auto_increment_increment=3;
 </code></pre>
 <ul>
 <li>语法总结</li>
 </ul>
-<pre><code>一、创建表时设置自增长列
+<pre class=" language-mysql"><code class="language-mysql">一、创建表时设置自增长列
 create table 表(
     字段名 字段类型 约束 auto_increment
 );
@@ -2657,26 +2657,26 @@ alter table 表 modify column 字段名 字段类型 约束;
 <h1 id="TCL语言"><a href="#TCL语言" class="headerlink" title="TCL语言"></a>TCL语言</h1><h1 id="十-事务"><a href="#十-事务" class="headerlink" title="十. 事务"></a>十. 事务</h1><h2 id="10-1-事务的用法"><a href="#10-1-事务的用法" class="headerlink" title="10.1 事务的用法"></a>10.1 事务的用法</h2><ul>
 <li>事务：一个或一组sql语句组成一个执行单元，这个执行单元要么全部执行，要么全部不执行。</li>
 </ul>
-<pre><code>案例：转账
+<pre class=" language-mysql"><code class="language-mysql">案例：转账
 
 张三丰  1000
 郭襄    1000
 
-update 表 set 张三丰的余额=500 where name=&#39;张三丰&#39;
+update 表 set 张三丰的余额=500 where name='张三丰'
 意外
-update 表 set 郭襄的余额=1500 where name=&#39;郭襄&#39;
+update 表 set 郭襄的余额=1500 where name='郭襄'
 </code></pre>
 <ul>
 <li>事务的特点</li>
 </ul>
-<pre><code>案例：转账
+<pre class=" language-mysql"><code class="language-mysql">案例：转账
 
 张三丰  1000
 郭襄    1000
 
-update 表 set 张三丰的余额=500 where name=&#39;张三丰&#39;
+update 表 set 张三丰的余额=500 where name='张三丰'
 意外
-update 表 set 郭襄的余额=1500 where name=&#39;郭襄&#39;
+update 表 set 郭襄的余额=1500 where name='郭襄'
 </code></pre>
 <ul>
 <li>事务的特性(ACID)<ul>
@@ -2695,16 +2695,16 @@ update 表 set 郭襄的余额=1500 where name=&#39;郭襄&#39;
 </ul>
 </li>
 </ul>
-<pre><code>开启事务的语句;
-update 表 set 张三丰的余额=500 where name=&#39;张三丰&#39;
+<pre class=" language-mysql"><code class="language-mysql">开启事务的语句;
+update 表 set 张三丰的余额=500 where name='张三丰'
 
-update 表 set 郭襄的余额=1500 where name=&#39;郭襄&#39; 
+update 表 set 郭襄的余额=1500 where name='郭襄' 
 结束事务的语句;
 </code></pre>
 <ul>
 <li>具体步骤</li>
 </ul>
-<pre><code>步骤1：开启事务
+<pre class=" language-mysql"><code class="language-mysql">步骤1：开启事务
 set autocommit=0;
 start transaction;可选的
 
@@ -2720,7 +2720,7 @@ rollback;回滚事务
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>SHOW VARIABLES LIKE &#39;autocommit&#39;;
+<pre class=" language-mysql"><code class="language-mysql">SHOW VARIABLES LIKE 'autocommit';
 SHOW ENGINES;
 
 #1.演示事务的使用步骤
@@ -2731,14 +2731,14 @@ CREATE TABLE account(
     balance DOUBLE
 );
 INSERT INTO account(username,balance)
-VALUES(&#39;张无忌&#39;,1000),(&#39;赵敏&#39;,1000);
+VALUES('张无忌',1000),('赵敏',1000);
 
 #开启事务
 SET autocommit=0;
 START TRANSACTION;
 #编写一组事务的语句
-UPDATE account SET balance = 1000 WHERE username=&#39;张无忌&#39;;
-UPDATE account SET balance = 1000 WHERE username=&#39;赵敏&#39;;
+UPDATE account SET balance = 1000 WHERE username='张无忌';
+UPDATE account SET balance = 1000 WHERE username='赵敏';
 
 #结束事务
 ROLLBACK;
@@ -2762,7 +2762,7 @@ SELECT * FROM account;
 <p>一个事务与其他事务隔离的程度称为隔离级别. 数据库规定了多种事务隔离级别, 不同隔离级别对应不同的干扰程度, 隔离级别越高, 数据一致性就越好, 但并发性越弱</p>
 <p>3、如何解决并发问题？</p>
 <p>通过设置隔离级别来解决并发问题<br>4、隔离级别</p>
-<pre><code>                            脏读            不可重复读             幻读
+<pre class=" language-mysql"><code class="language-mysql">                            脏读            不可重复读             幻读
 read uncommitted:读未提交     ×              ×              ×       
 read committed：读已提交      √              ×              ×
 repeatable read：可重复读     √              √              ×
@@ -2772,7 +2772,7 @@ serializable：串行化         √             √              √
 <li>Oracle 支持的2 种事务隔离级别：READ COMMITED, SERIALIZABLE。Oracle 默认的事务隔离级别为: READ COMMITED</li>
 <li>Mysql 支持4 种事务隔离级别. Mysql 默认的事务隔离级别为: REPEATABLE READ</li>
 </ul>
-<pre><code>查看隔离级别
+<pre class=" language-mysql"><code class="language-mysql">查看隔离级别
 select @@tx_isolation;
 设置隔离级别
 set session|global transaction isolation level 隔离级别;
@@ -2787,7 +2787,7 @@ ROLLBACK;
 <h2 id="10-3-回滚点用法"><a href="#10-3-回滚点用法" class="headerlink" title="10.3 回滚点用法"></a>10.3 回滚点用法</h2><ul>
 <li>savepoint 节点名;设置保存点</li>
 </ul>
-<pre><code>#3.演示savepoint 的使用
+<pre class=" language-mysql"><code class="language-mysql">#3.演示savepoint 的使用
 SET autocommit=0;
 
 START TRANSACTION;
@@ -2807,22 +2807,22 @@ SELECT * FROM account;
 </li>
 <li>案例</li>
 </ul>
-<pre><code>SELECT stuname,majorname FROM stuinfo s
+<pre class=" language-mysql"><code class="language-mysql">SELECT stuname,majorname FROM stuinfo s
 INNER JOIN major m ON s.`majorid`= m.`id`
-WHERE s.`stuname` LIKE &#39;张%&#39;;
+WHERE s.`stuname` LIKE '张%';
 
 CREATE VIEW v1 AS
 SELECT stuname,majorname
 FROM stuinfo s
 INNER JOIN major m ON s.`majorid`= m.`id`;
 
-SELECT * FROM v1 WHERE stuname LIKE &#39;张%&#39;;
+SELECT * FROM v1 WHERE stuname LIKE '张%';
 </code></pre>
 <h2 id="11-1-视图的创建"><a href="#11-1-视图的创建" class="headerlink" title="11.1 视图的创建"></a>11.1 <strong>视图的创建</strong></h2><ul>
 <li>语法：create view 视图名 as 查询语句;</li>
 <li>案例</li>
 </ul>
-<pre><code>USE myemployees;
+<pre class=" language-mysql"><code class="language-mysql">USE myemployees;
 
 #1.查询姓名中包含a字符的员工名、部门名和工种信息
     #①创建
@@ -2833,7 +2833,7 @@ SELECT * FROM v1 WHERE stuname LIKE &#39;张%&#39;;
     JOIN jobs j ON j.job_id  = e.job_id;
 
     #②使用
-    SELECT * FROM myv1 WHERE last_name LIKE &#39;%a%&#39;;
+    SELECT * FROM myv1 WHERE last_name LIKE '%a%';
 
 #2.查询各部门的平均工资级别
     #①创建视图查看每个部门的平均工资
@@ -2868,7 +2868,7 @@ SELECT * FROM myv2 ORDER BY ag LIMIT 1;
 <h2 id="11-2-视图的修改"><a href="#11-2-视图的修改" class="headerlink" title="11.2 视图的修改"></a>11.2 <strong>视图的修改</strong></h2><ul>
 <li>语法</li>
 </ul>
-<pre><code>方式一：
+<pre class=" language-mysql"><code class="language-mysql">方式一：
 create or replace view 视图名 as 查询语句;
 方式二：
 alter view 视图名 as 查询语句;
@@ -2876,7 +2876,7 @@ alter view 视图名 as 查询语句;
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>#方式一：
+<pre class=" language-mysql"><code class="language-mysql">#方式一：
 /*
 create or replace view  视图名 as 查询语句;
 */
@@ -2898,7 +2898,7 @@ ALTER VIEW myv3 AS SELECT * FROM employees;
 <li>语法：drop view 视图1，视图2,…;</li>
 <li>案例</li>
 </ul>
-<pre><code>/*
+<pre class=" language-mysql"><code class="language-mysql">/*
 语法：drop view 视图名,视图名,...;
 */
 DROP VIEW emp_v1,emp_v2,myv3;
@@ -2906,13 +2906,13 @@ DROP VIEW emp_v1,emp_v2,myv3;
 <h2 id="11-4-视图的查看"><a href="#11-4-视图的查看" class="headerlink" title="11.4 视图的查看"></a>11.4 <strong>视图的查看</strong></h2><ul>
 <li>语法</li>
 </ul>
-<pre><code>desc 视图名;
+<pre class=" language-mysql"><code class="language-mysql">desc 视图名;
 show create view 视图名;
 </code></pre>
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>DESC myv3;
+<pre class=" language-mysql"><code class="language-mysql">DESC myv3;
 SHOW CREATE VIEW myv3;
 </code></pre>
 <h2 id="11-5-视图的更新"><a href="#11-5-视图的更新" class="headerlink" title="11.5 视图的更新"></a>11.5 <strong>视图的更新</strong></h2><ul>
@@ -2921,9 +2921,9 @@ SHOW CREATE VIEW myv3;
 <li>删除：delete</li>
 <li>查看：select</li>
 </ul>
-<pre><code>CREATE OR REPLACE VIEW myv1
+<pre class=" language-mysql"><code class="language-mysql">CREATE OR REPLACE VIEW myv1
 AS
-SELECT last_name,email,salary*12*(1+IFNULL(commission_pct,0)) &quot;annual salary&quot;
+SELECT last_name,email,salary*12*(1+IFNULL(commission_pct,0)) "annual salary"
 FROM employees;
 
 CREATE OR REPLACE VIEW myv1
@@ -2935,13 +2935,13 @@ SELECT * FROM myv1;
 SELECT * FROM employees;
 #1.插入
 
-INSERT INTO myv1 VALUES(&#39;张飞&#39;,&#39;zf@qq.com&#39;);
+INSERT INTO myv1 VALUES('张飞','zf@qq.com');
 
 #2.修改
-UPDATE myv1 SET last_name = &#39;张无忌&#39; WHERE last_name=&#39;张飞&#39;;
+UPDATE myv1 SET last_name = '张无忌' WHERE last_name='张飞';
 
 #3.删除
-DELETE FROM myv1 WHERE last_name = &#39;张无忌&#39;;
+DELETE FROM myv1 WHERE last_name = '张无忌';
 </code></pre>
 <p>注意：视图一般用于查询的，而不是更新的，所以具备以下特点的视图都不允许更新</p>
 <ul>
@@ -2952,7 +2952,7 @@ DELETE FROM myv1 WHERE last_name = &#39;张无忌&#39;;
 <li>from一个不能更新的视图</li>
 <li>where子句的子查询引用了from子句中的表</li>
 </ul>
-<pre><code>#具备以下特点的视图不允许更新
+<pre class=" language-mysql"><code class="language-mysql">#具备以下特点的视图不允许更新
 #①包含以下关键字的sql语句：分组函数、distinct、group  by、having、union或者union all
 
 CREATE OR REPLACE VIEW myv1
@@ -2969,12 +2969,12 @@ UPDATE myv1 SET m=9000 WHERE department_id=10;
 #②常量视图
 CREATE OR REPLACE VIEW myv2
 AS
-SELECT &#39;john&#39; NAME;
+SELECT 'john' NAME;
 
 SELECT * FROM myv2;
 
 #更新
-UPDATE myv2 SET NAME=&#39;lucy&#39;;
+UPDATE myv2 SET NAME='lucy';
 
 #③Select中包含子查询
 
@@ -2997,8 +2997,8 @@ ON e.department_id  = d.department_id;
 
 #更新
 SELECT * FROM myv4;
-UPDATE myv4 SET last_name  = &#39;张飞&#39; WHERE last_name=&#39;Whalen&#39;;
-INSERT INTO myv4 VALUES(&#39;陈真&#39;,&#39;xxxx&#39;);
+UPDATE myv4 SET last_name  = '张飞' WHERE last_name='Whalen';
+INSERT INTO myv4 VALUES('陈真','xxxx');
 
 #⑤from一个不能更新的视图
 CREATE OR REPLACE VIEW myv5
@@ -3022,10 +3022,10 @@ WHERE employee_id IN(
 
 #更新
 SELECT * FROM myv6;
-UPDATE myv6 SET salary=10000 WHERE last_name = &#39;k_ing&#39;;
+UPDATE myv6 SET salary=10000 WHERE last_name = 'k_ing';
 </code></pre>
 <p><strong>视图和表的对比</strong></p>
-<pre><code>         关键字      是否占用物理空间                使用
+<pre class=" language-mysql"><code class="language-mysql">         关键字      是否占用物理空间                使用
 视图        view        占用较小，只保存sql逻辑      一般用于查询
 表        table        保存实际的数据                 增删改查
 </code></pre>
@@ -3051,22 +3051,22 @@ UPDATE myv6 SET salary=10000 WHERE last_name = &#39;k_ing&#39;;
 <ul>
 <li>查看所有系统变量</li>
 </ul>
-<pre><code>show global|【session】variables;
+<pre class=" language-mysql"><code class="language-mysql">show global|【session】variables;
 </code></pre>
 <ul>
 <li>查看满足条件的部分系统变量</li>
 </ul>
-<pre><code>show global|【session】 variables like &#39;%char%&#39;;
+<pre class=" language-mysql"><code class="language-mysql">show global|【session】 variables like '%char%';
 </code></pre>
 <ul>
 <li>查看指定的系统变量的值</li>
 </ul>
-<pre><code>select @@global|【session】系统变量名;
+<pre class=" language-mysql"><code class="language-mysql">select @@global|【session】系统变量名;
 </code></pre>
 <ul>
 <li>为某个系统变量赋值</li>
 </ul>
-<pre><code>方式一：
+<pre class=" language-mysql"><code class="language-mysql">方式一：
 set global|【session】系统变量名=值;
 方式二：
 set @@global|【session】系统变量名=值;
@@ -3076,10 +3076,10 @@ set @@global|【session】系统变量名=值;
 <h3 id="12-1-1-全局变量"><a href="#12-1-1-全局变量" class="headerlink" title="12.1.1 全局变量"></a>12.1.1 全局变量</h3><ul>
 <li>作用域：针对于所有会话（连接）有效，但不能跨重启</li>
 </ul>
-<pre><code>#①查看所有全局变量
+<pre class=" language-mysql"><code class="language-mysql">#①查看所有全局变量
 SHOW GLOBAL VARIABLES;
 #②查看满足条件的部分系统变量
-SHOW GLOBAL VARIABLES LIKE &#39;%char%&#39;;
+SHOW GLOBAL VARIABLES LIKE '%char%';
 #③查看指定的系统变量的值
 SELECT @@global.autocommit;
 #④为某个系统变量赋值
@@ -3089,16 +3089,16 @@ SET GLOBAL autocommit=0;
 <h3 id="12-1-2-会话变量"><a href="#12-1-2-会话变量" class="headerlink" title="12.1.2 会话变量"></a>12.1.2 会话变量</h3><ul>
 <li>作用域：针对于当前会话（连接）有效*</li>
 </ul>
-<pre><code>#①查看所有会话变量
+<pre class=" language-mysql"><code class="language-mysql">#①查看所有会话变量
 SHOW SESSION VARIABLES;
 #②查看满足条件的部分会话变量
-SHOW SESSION VARIABLES LIKE &#39;%char%&#39;;
+SHOW SESSION VARIABLES LIKE '%char%';
 #③查看指定的会话变量的值
 SELECT @@autocommit;
 SELECT @@session.tx_isolation;
 #④为某个会话变量赋值
-SET @@session.tx_isolation=&#39;read-uncommitted&#39;;
-SET SESSION tx_isolation=&#39;read-committed&#39;;
+SET @@session.tx_isolation='read-uncommitted';
+SET SESSION tx_isolation='read-committed';
 </code></pre>
 <h2 id="12-2-自定义变量"><a href="#12-2-自定义变量" class="headerlink" title="12.2 自定义变量"></a>12.2 自定义变量</h2><h3 id="12-2-1用户变量"><a href="#12-2-1用户变量" class="headerlink" title="12.2.1用户变量"></a>12.2.1用户变量</h3><ul>
 <li><p>说明：变量由用户自定义，而不是系统提供的 </p>
@@ -3106,7 +3106,7 @@ SET SESSION tx_isolation=&#39;read-committed&#39;;
 <li><p>使用步骤： 1、声明 2、赋值 3、使用（查看、比较、运算等）</p>
 </li>
 </ul>
-<pre><code>#赋值操作符：=或:=
+<pre class=" language-mysql"><code class="language-mysql">#赋值操作符：=或:=
 #①声明并初始化
 SET @变量名=值;
 SET @变量名:=值;
@@ -3126,7 +3126,7 @@ SELECT @变量名;
 <h3 id="12-2-2-局部变量"><a href="#12-2-2-局部变量" class="headerlink" title="12.2.2 局部变量"></a>12.2.2 局部变量</h3><ul>
 <li>作用域：仅仅在定义它的begin end块中有效 应用在 begin end中的第一句话</li>
 </ul>
-<pre><code>#①声明
+<pre class=" language-mysql"><code class="language-mysql">#①声明
 DECLARE 变量名 类型;
 DECLARE 变量名 类型 【DEFAULT 值】;
 
@@ -3159,7 +3159,7 @@ SET SUM=m+n;
 SELECT SUM;
 </code></pre>
 <p>用户变量和局部变量的对比</p>
-<pre><code>            作用域                定义位置                 语法
+<pre class=" language-mysql"><code class="language-mysql">            作用域                定义位置                 语法
 用户变量    当前会话            会话的任何地方          加@符号，不用指定类型
 局部变量    定义它的BEGIN END中     BEGIN END的第一句话     一般不用加@,需要指定类型
 </code></pre>
@@ -3178,7 +3178,7 @@ SELECT SUM;
 <ol>
 <li>创建</li>
 </ol>
-<pre><code>CREATE PROCEDURE 存储过程名(参数列表)
+<pre class=" language-mysql"><code class="language-mysql">CREATE PROCEDURE 存储过程名(参数列表)
 BEGIN
     存储过程体（一组合法的SQL语句）
 END
@@ -3207,7 +3207,7 @@ delimiter $
 <ul>
 <li>语法</li>
 </ul>
-<pre><code>CALL 存储过程名(实参列表);
+<pre class=" language-mysql"><code class="language-mysql">CALL 存储过程名(实参列表);
 
 举例：
 调用in模式的参数：call sp1（‘值’）;
@@ -3217,7 +3217,7 @@ delimiter $
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>#1.空参列表
+<pre class=" language-mysql"><code class="language-mysql">#1.空参列表
 #案例：插入到admin表中五条记录
 
 SELECT * FROM admin;
@@ -3226,7 +3226,7 @@ DELIMITER $
 CREATE PROCEDURE myp1()
 BEGIN
     INSERT INTO admin(username,`password`) 
-    VALUES(&#39;john1&#39;,&#39;0000&#39;),(&#39;lily&#39;,&#39;0000&#39;),(&#39;rose&#39;,&#39;0000&#39;),(&#39;jack&#39;,&#39;0000&#39;),(&#39;tom&#39;,&#39;0000&#39;);
+    VALUES('john1','0000'),('lily','0000'),('rose','0000'),('jack','0000'),('tom','0000');
 END $
 
 #调用
@@ -3245,13 +3245,13 @@ BEGIN
 END $
 
 #调用
-CALL myp2(&#39;柳岩&#39;)$
+CALL myp2('柳岩')$
 
 #案例2 ：创建存储过程实现，用户是否登录成功
 
 CREATE PROCEDURE myp3(IN username VARCHAR(20),IN PASSWORD VARCHAR(20))
 BEGIN
-    DECLARE result VARBINARY(20) DEFAULT &#39;&#39;;#声明并初始化
+    DECLARE result VARBINARY(20) DEFAULT '';#声明并初始化
     
     SELECT COUNT(*) INTO result#赋值
     FROM admin
@@ -3261,7 +3261,7 @@ BEGIN
     SELECT result;#使用
 END $
 
-CALL myp3(&#39;张飞&#39;,&#39;8888&#39;)$
+CALL myp3('张飞','8888')$
 
 CREATE PROCEDURE myp4(IN username VARCHAR(20),IN PASSWORD VARCHAR(20))
 BEGIN
@@ -3272,11 +3272,11 @@ BEGIN
     WHERE admin.username = username
     AND admin.password = PASSWORD;
     
-    SELECT IF(result&gt;0,&#39;成功&#39;,&#39;失败&#39;);#使用
+    SELECT IF(result>0,'成功','失败');#使用
 END $
 
 #调用
-CALL myp4(&#39;张飞&#39;,&#39;8888&#39;)$
+CALL myp4('张飞','8888')$
 
 
 #3.创建out 模式参数的存储过程
@@ -3305,7 +3305,7 @@ BEGIN
 END $
 
 #调用
-CALL myp7(&#39;小昭&#39;,@name,@cp)$
+CALL myp7('小昭',@name,@cp)$
 SELECT @name,@cp$
 
 #4.创建带inout模式参数的存储过程
@@ -3327,7 +3327,7 @@ SELECT @m,@n$
 <li><p>查看</p>
 </li>
 </ol>
-<pre><code>show create procedure 存储过程名;
+<pre class=" language-mysql"><code class="language-mysql">show create procedure 存储过程名;
 
 案例
 DESC myp2;×
@@ -3336,7 +3336,7 @@ SHOW CREATE PROCEDURE  myp2;
 <ol start="4">
 <li>删除</li>
 </ol>
-<pre><code>drop procedure 存储过程名;
+<pre class=" language-mysql"><code class="language-mysql">drop procedure 存储过程名;
 
 案例:
 DROP PROCEDURE p1;
@@ -3353,7 +3353,7 @@ DROP PROCEDURE p2,p3;#×
 <ol>
 <li>创建</li>
 </ol>
-<pre><code>CREATE FUNCTION 函数名(参数列表) RETURNS 返回类型
+<pre class=" language-mysql"><code class="language-mysql">CREATE FUNCTION 函数名(参数列表) RETURNS 返回类型
 BEGIN
     函数体
 END
@@ -3377,7 +3377,7 @@ DELIMITER $
 <li>SELECT 函数名(参数列表);</li>
 <li>案例</li>
 </ul>
-<pre><code>use employees $
+<pre class=" language-mysql"><code class="language-mysql">use employees $
 #1.无参有返回
 #案例：返回公司的员工个数
 CREATE FUNCTION myf1() RETURNS INT
@@ -3404,7 +3404,7 @@ BEGIN
     RETURN @sal;
 END $
 
-SELECT myf2(&#39;kochhor&#39;) $
+SELECT myf2('kochhor') $
 
 #案例2：根据部门名，返回该部门的平均工资
 
@@ -3418,19 +3418,19 @@ BEGIN
     RETURN sal;
 END $
 
-SELECT myf3(&#39;IT&#39;)$
+SELECT myf3('IT')$
 </code></pre>
 <ol start="3">
 <li>查看</li>
 </ol>
-<pre><code>show create function 函数名;
+<pre class=" language-mysql"><code class="language-mysql">show create function 函数名;
 
 SHOW CREATE FUNCTION myf3 $
 </code></pre>
 <ol start="4">
 <li>删除</li>
 </ol>
-<pre><code>drop function 函数名;
+<pre class=" language-mysql"><code class="language-mysql">drop function 函数名;
 
 DROP FUNCTION myf3 $
 </code></pre>
@@ -3453,7 +3453,7 @@ DROP FUNCTION myf3 $
 <ul>
 <li>语法</li>
 </ul>
-<pre><code>情况1：类似于switch，一般用于实现等值判断。
+<pre class=" language-mysql"><code class="language-mysql">情况1：类似于switch，一般用于实现等值判断。
 语法：
 case 变量或表达式
 when 值1 then 语句1;
@@ -3492,16 +3492,16 @@ end
 <li><p>案例</p>
 </li>
 </ul>
-<pre><code>#案例 
+<pre class=" language-mysql"><code class="language-mysql">#案例 
 #创建存储过程，根据传入的成绩，来显示等级，比如传入的成绩：90-100, 显示A，80-90，显示B，60-80，显示c，否则，显示D
 
 CREATE PROCEDURE test_case (IN score INT) 
 BEGIN 
     CASE 
-    WHEN score&gt;=90 AND score&lt;=100 THEN SELECT &#39;A&#39;; 
-    WHEN score&gt;=80 THEN SELECT &#39;B&#39;;
-    WHEN score&gt;=60 THEN SELECT &#39;C&#39;; 
-    ELSE SELECT &#39;D&#39;;
+    WHEN score>=90 AND score<=100 THEN SELECT 'A'; 
+    WHEN score>=80 THEN SELECT 'B';
+    WHEN score>=60 THEN SELECT 'C'; 
+    ELSE SELECT 'D';
     END CASE; 
 END $
 CALL test_case(95)$
@@ -3512,7 +3512,7 @@ CALL test_case(95)$
 <ul>
 <li>语法</li>
 </ul>
-<pre><code>if 条件1 then 语句1;
+<pre class=" language-mysql"><code class="language-mysql">if 条件1 then 语句1;
 elseif 条件2 then 语句2;
 ....
 else 语句n;
@@ -3521,17 +3521,17 @@ end if;
 <ul>
 <li>功能：类似于多重if；只能应用在begin end 中</li>
 </ul>
-<pre><code>#案例1：创建函数，实现传入成绩，如果成绩&gt;90,返回A，如果成绩&gt;80,返回B，如果成绩&gt;60,返回C，否则返回D
+<pre class=" language-mysql"><code class="language-mysql">#案例1：创建函数，实现传入成绩，如果成绩>90,返回A，如果成绩>80,返回B，如果成绩>60,返回C，否则返回D
 
 CREATE FUNCTION test_case(score FLOAT) RETURNS CHAR
 BEGIN 
-    DECLARE ch CHAR DEFAULT &#39;A&#39;;
+    DECLARE ch CHAR DEFAULT 'A';
     
     CASE 
-    WHEN score&gt;90 THEN SET ch=&#39;A&#39;;
-    WHEN score&gt;80 THEN SET ch=&#39;B&#39;;
-    WHEN score&gt;60 THEN SET ch=&#39;C&#39;;
-    ELSE SET ch=&#39;D&#39;;
+    WHEN score>90 THEN SET ch='A';
+    WHEN score>80 THEN SET ch='B';
+    WHEN score>60 THEN SET ch='C';
+    ELSE SET ch='D';
     END CASE;
     
     RETURN ch;
@@ -3544,7 +3544,7 @@ SELECT test_case(56)$
 <li>特点：都能实现循环结构</li>
 <li>语法</li>
 </ul>
-<pre><code>1、while
+<pre class=" language-mysql"><code class="language-mysql">1、while
 语法：
 【名称:】while 循环条件 do
         循环体
@@ -3565,7 +3565,7 @@ end repeat 【名称】;
 <ul>
 <li>对比</li>
 </ul>
-<pre><code>①这三种循环都可以省略名称，但如果循环中添加了循环控制语句（leave或iterate）则必须添加名称
+<pre class=" language-mysql"><code class="language-mysql">①这三种循环都可以省略名称，但如果循环中添加了循环控制语句（leave或iterate）则必须添加名称
 ②
 loop 一般用于实现简单的死循环
 while 先判断后执行
@@ -3574,15 +3574,15 @@ repeat 先执行后判断，无条件至少执行一次
 <ul>
 <li>案例</li>
 </ul>
-<pre><code>#1.没有添加循环控制语句
+<pre class=" language-mysql"><code class="language-mysql">#1.没有添加循环控制语句
 #案例：批量插入，根据次数插入到admin表中多条记录
 USE girls$
 DROP PROCEDURE pro_while1$
 CREATE PROCEDURE pro_while1(IN insertCount INT)
 BEGIN
     DECLARE i INT DEFAULT 1;
-    WHILE i&lt;=insertCount DO
-        INSERT INTO admin(username,`password`) VALUES(CONCAT(&#39;Rose&#39;,i),&#39;666&#39;);
+    WHILE i<=insertCount DO
+        INSERT INTO admin(username,`password`) VALUES(CONCAT('Rose',i),'666');
         SET i=i+1;
     END WHILE;
     
@@ -3593,7 +3593,7 @@ CALL pro_while1(158)$
 select * from admin $
 /*
 int i=1;
-while(i&lt;=insertcount)&#123;
+while(i<=insertcount)&#123;
     //插入
     i++;
 
@@ -3601,15 +3601,15 @@ while(i&lt;=insertcount)&#123;
 */
 
 #2.添加leave语句
-#案例：批量插入，根据次数插入到admin表中多条记录，如果次数&gt;20则停止
+#案例：批量插入，根据次数插入到admin表中多条记录，如果次数>20则停止
 TRUNCATE TABLE admin$
 DROP PROCEDURE test_while1$
 CREATE PROCEDURE test_while1(IN insertCount INT)
 BEGIN
     DECLARE i INT DEFAULT 1;
-    a:WHILE i&lt;=insertCount DO
-        INSERT INTO admin(username,`password`) VALUES(CONCAT(&#39;xiaohua&#39;,i),&#39;0000&#39;);
-        IF i&gt;=20 THEN LEAVE a;
+    a:WHILE i<=insertCount DO
+        INSERT INTO admin(username,`password`) VALUES(CONCAT('xiaohua',i),'0000');
+        IF i>=20 THEN LEAVE a;
         END IF;
         SET i=i+1;
     END WHILE a;
@@ -3626,12 +3626,12 @@ DROP PROCEDURE test_while1$
 CREATE PROCEDURE test_while1(IN insertCount INT)
 BEGIN
     DECLARE i INT DEFAULT 0;
-    a:WHILE i&lt;=insertCount DO
+    a:WHILE i<=insertCount DO
         SET i=i+1;
         IF MOD(i,2)!=0 THEN ITERATE a;
         END IF;
         
-        INSERT INTO admin(username,`password`) VALUES(CONCAT(&#39;xiaohua&#39;,i),&#39;0000&#39;);
+        INSERT INTO admin(username,`password`) VALUES(CONCAT('xiaohua',i),'0000');
         
     END WHILE a;
 END $
@@ -3640,7 +3640,7 @@ CALL test_while1(100)$
 
 /*
 int i=0;
-while(i&lt;=insertCount)&#123;
+while(i<=insertCount)&#123;
     i++;
     if(i%2==0)&#123;
         continue;
@@ -3656,17 +3656,17 @@ select * from admin $
 <li>leave：类似于break，用于跳出所在的循环</li>
 <li>iterate：类似于continue，用于结束本次循环，继续下一次</li>
 </ul>
-<pre><code>#2.添加leave语句
+<pre class=" language-mysql"><code class="language-mysql">#2.添加leave语句
 
-#案例：批量插入，根据次数插入到admin表中多条记录，如果次数&gt;20则停止
+#案例：批量插入，根据次数插入到admin表中多条记录，如果次数>20则停止
 TRUNCATE TABLE admin$
 DROP PROCEDURE test_while1$
 CREATE PROCEDURE test_while1(IN insertCount INT)
 BEGIN
     DECLARE i INT DEFAULT 1;
-    a:WHILE i&lt;=insertCount DO
-        INSERT INTO admin(username,`password`) VALUES(CONCAT(&#39;xiaohua&#39;,i),&#39;0000&#39;);
-        IF i&gt;=20 THEN LEAVE a;
+    a:WHILE i<=insertCount DO
+        INSERT INTO admin(username,`password`) VALUES(CONCAT('xiaohua',i),'0000');
+        IF i>=20 THEN LEAVE a;
         END IF;
         SET i=i+1;
     END WHILE a;
@@ -3684,12 +3684,12 @@ DROP PROCEDURE test_while1$
 CREATE PROCEDURE test_while1(IN insertCount INT)
 BEGIN
     DECLARE i INT DEFAULT 0;
-    a:WHILE i&lt;=insertCount DO
+    a:WHILE i<=insertCount DO
         SET i=i+1;
         IF MOD(i,2)!=0 THEN ITERATE a;
         END IF;
         
-        INSERT INTO admin(username,`password`) VALUES(CONCAT(&#39;xiaohua&#39;,i),&#39;0000&#39;);
+        INSERT INTO admin(username,`password`) VALUES(CONCAT('xiaohua',i),'0000');
         
     END WHILE a;
 END $

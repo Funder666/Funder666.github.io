@@ -435,27 +435,27 @@
 
 <h1 id="第一章-Linux起源"><a href="#第一章-Linux起源" class="headerlink" title="第一章 Linux起源"></a>第一章 Linux起源</h1><p>unix，C语言，TCP-IP 可以看作三胞胎，他们结合在一起相互诞生，其他具体自行可以看：计算机组成原理，计算机网络，以及C语言。可以结合在一起来学习，效果更佳。</p>
 <h1 id="第二章-系统分区"><a href="#第二章-系统分区" class="headerlink" title="第二章 系统分区"></a>第二章 系统分区</h1><p>Linux与Windows一样，它的主分区和拓展分区加起来不能超过四个，而且拓展分区最多一个且不能放入数据文件以及它不能格式化，拓展分区里放的逻辑分区可以放数据和格式化。<br>Linux 硬件全为文件 这一点与Windows不一样，下面介绍一些Linux的主要硬件文件名以及存放路径：</p>
-<pre><code>IDE硬盘 /dev/hd[a-d]
+<pre class=" language-bash"><code class="language-bash">IDE硬盘 /dev/hd<span class="token punctuation">[</span>a-d<span class="token punctuation">]</span>
 
-SCSI/SATA/USB硬盘 /dev/sd[a-p]
+SCSI/SATA/USB硬盘 /dev/sd<span class="token punctuation">[</span>a-p<span class="token punctuation">]</span>
 
 光驱 /dev/cdrom或/dev/sr0
 
-软盘 /dev/fd[0-1]
+软盘 /dev/fd<span class="token punctuation">[</span>0-1<span class="token punctuation">]</span>
 
-打印机（25针） /dev/lp[0-2]
+打印机（25针） /dev/lp<span class="token punctuation">[</span>0-2<span class="token punctuation">]</span>
 
-打印机（USB） /dev/usb/lp[0-15]
+打印机（USB） /dev/usb/lp<span class="token punctuation">[</span>0-15<span class="token punctuation">]</span>
 
 鼠标 /dev/mouse
 </code></pre>
 <p>分区：把大硬盘分为小的逻辑分区<br>格式化：写入文件系统<br>分区设备文件名：给每个分区定义设备文件名<br>挂载：给每个分区分配挂载点<br>注意：根分区 “/ ” 以下的子分区可以单独使用硬盘<br>在虚拟机安装中 swap 的大小为内存的两倍但是超过2G没有意义，建议1000MB合适<br>/boot路径是为了让Linux系统可以顺利运行 里面最好不要存放数据 在虚拟机安装中分配200M左右大小就可以了</p>
 <h1 id="第三章-Linux的目录结构"><a href="#第三章-Linux的目录结构" class="headerlink" title="第三章 Linux的目录结构"></a>第三章 Linux的目录结构</h1><p>在Linux远程登录管理配置IP时，需要的一些简单命令：</p>
-<pre><code>ifconfig  查询当前网卡信息
-ifconfig eth0  配置网卡 
-ifconfig eth0 后+ VmNAT8的网络IP   
-df    查看系统分区
-ls /bin/   里面存放的为Linux命令文件  
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ifconfig</span>  查询当前网卡信息
+<span class="token function">ifconfig</span> eth0  配置网卡 
+<span class="token function">ifconfig</span> eth0 后+ VmNAT8的网络IP   
+<span class="token function">df</span>    查看系统分区
+<span class="token function">ls</span> /bin/   里面存放的为Linux命令文件  
 </code></pre>
 <h2 id="3-1-基本介绍"><a href="#3-1-基本介绍" class="headerlink" title="3.1 基本介绍"></a><strong>3.1 基本介绍</strong></h2><p>linux 的文件系统是采用级层式的树状目录结构，在此结构中的最上层是根目录“/”，然后在此目录下再创建其他的目录。</p>
 <p> 在 Linux 世界里，一切皆文件。</p>
@@ -603,9 +603,9 @@ ls /bin/   里面存放的为Linux命令文件
 <h1 id="第四章Linux常用命令"><a href="#第四章Linux常用命令" class="headerlink" title="第四章Linux常用命令"></a><strong>第四</strong>章<strong>Linux常用命令</strong></h1><h2 id="4-1-文件处理命令"><a href="#4-1-文件处理命令" class="headerlink" title="4.1 文件处理命令"></a><strong>4.1 文件处理命令</strong></h2><h3 id="4-1-1-命令格式与目录处理命令ls"><a href="#4-1-1-命令格式与目录处理命令ls" class="headerlink" title="4.1.1 命令格式与目录处理命令ls"></a><strong>4.1.1 命令格式与目录处理命令ls</strong></h3><p>命令格式 ：命令 [-选项] [参数] </p>
 <p>例 ： ls -la /etc </p>
 <p>说明：1）个别命令使用不遵循此格式</p>
-<pre><code>    2）当有多个选项时，可以写在一起
-   
-    3）简化选项与完整选项-a 等于 --all
+<pre class=" language-bash"><code class="language-bash"> 2）当有多个选项时，可以写在一起
+
+ 3）简化选项与完整选项-a 等于 --all
 </code></pre>
 <p>命令名称：ls </p>
 <p>命令英文原意：list </p>
@@ -630,7 +630,7 @@ ls /bin/   里面存放的为Linux命令文件
 <p>语法：mkdir -p  [目录名] </p>
 <p>功能描述：创建新目录-p  递归创建</p>
 <p>范例： $ mkdir -p /tmp/Japan/boduo </p>
-<pre><code>   $ mkdir /tmp/Japan/longze /tmp/Japan/cangjing
+<pre class=" language-bash"><code class="language-bash">  $ <span class="token function">mkdir</span> /tmp/Japan/longze /tmp/Japan/cangjing
 </code></pre>
 <p>命令名称：cd </p>
 <p>命令英文原意：change directory </p>
@@ -639,7 +639,7 @@ ls /bin/   里面存放的为Linux命令文件
 <p>语法：cd [目录] </p>
 <p>功能描述：切换目录</p>
 <p>范例： $ cd  /tmp/Japan/boduo     切换到指定目录</p>
-<pre><code>   $ cd  ..        回到上一级目录
+<pre class=" language-bash"><code class="language-bash">  $ <span class="token function">cd</span>  <span class="token punctuation">..</span>        回到上一级目录
 </code></pre>
 <p>命令名称：pwd </p>
 <p>命令英文原意： print working directory </p>
@@ -1328,11 +1328,12 @@ ls /bin/   里面存放的为Linux命令文件
 <p>​                 <img src="https://i.loli.net/2021/09/02/l421z7jMIsSucbX.gif" alt="img">        </p>
 <h1 id="第六章-Linux软件安装"><a href="#第六章-Linux软件安装" class="headerlink" title="第六章 Linux软件安装"></a>第六章 Linux软件安装</h1><h2 id="6-1-软件包管理简介"><a href="#6-1-软件包管理简介" class="headerlink" title="6.1 软件包管理简介"></a><strong>6.1 软件包管理简介</strong></h2><p>软件包分类</p>
 <ul>
-<li><p>源码包 </p>
-<p>   脚本安装包 </p>
-</li>
-<li><p>二进制包（RPM包、系统默认包）</p>
-</li>
+<li>源码包 </li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">脚本安装包 
+</code></pre>
+<ul>
+<li>二进制包（RPM包、系统默认包）</li>
 </ul>
 <p>源码包 </p>
 <p>源码包的优点是： </p>
@@ -1516,7 +1517,7 @@ ls /bin/   里面存放的为Linux命令文件
 <li>gpgcheck 如果是1是指RPM的数字证书生效，如果是0则不生效 </li>
 <li>gpgkey 数字证书的公钥文件保存位置。不用修改</li>
 </ul>
-<p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/bccd4338c6aaa00b130a49acc00f0356/0?w=1392&h=276" alt="img">        </p>
+<p>​                 <img src="https://i.loli.net/2021/09/04/d9EfjJavQVhpxDY.png" alt="img">        </p>
 <h3 id="6-3-2-yum命令"><a href="#6-3-2-yum命令" class="headerlink" title="6.3.2 yum命令"></a><strong>6.3.2 yum命令</strong></h3><p><strong>1.常用yum命令</strong> </p>
 <p><strong>1）查询</strong> </p>
 <p>[root@localhost yum.repos.d]# yum list </p>
@@ -1748,7 +1749,7 @@ $ make install
 <p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/cb040a5db8b1671dbc10d755e17e54aa/0?w=888&h=596" alt="img">        </p>
 <p>出现上面情况可能是</p>
 <p>未关闭防火墙：</p>
-<pre><code>$ systemctl stop firewalld
+<pre class=" language-bash"><code class="language-bash">$ systemctl stop firewalld
 </code></pre>
 <p>参考：</p>
 <p><strong>1.启动防火墙</strong></p>
@@ -1801,7 +1802,7 @@ $ make install
 <li><p>第7字段：登录之后的Shell</p>
 </li>
 </ul>
-<p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/0b6c8d228bd401e11794516950624501/0?w=668&h=174" alt="img">        </p>
+<p>​                 <img src="https://i.loli.net/2021/09/04/1PyxYIZopAQBmHz.png" alt="img">        </p>
 <ol start="3">
 <li>初始组和附加组 </li>
 </ol>
@@ -1865,7 +1866,7 @@ $ make install
 <li><p>第9字段：保留</p>
 </li>
 </ul>
-<p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/65cffc655c3262246b47e9d0105fd1a1/0?w=1818&h=914" alt="img">        </p>
+<p>​                 <img src="https://i.loli.net/2021/09/04/ZqjRuHgA7yJe2IW.png" alt="img">        </p>
 <ol start="2">
 <li>时间戳换算 </li>
 </ol>
@@ -2717,7 +2718,7 @@ drwxrwx---+ 2 root zuan 6 4月   1 15:55 /lol
 </ol>
 <p>[root@localhost ~]# echo [选项] [输出内容] </p>
 <p>选项：  -e： 支持反斜线控制的字符转换</p>
-<p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/e4bfda768c1942eb6ef3b817ebe5f1f5/0?w=918&h=564" alt="img">        </p>
+<p>​                 <img src="https://i.loli.net/2021/09/04/wcCJ7g2ap1yFOGe.png" alt="img">        </p>
 <p>[root@localhost ~]# echo -e “ab\bc” </p>
 <p>#删除左侧字符  </p>
 <p>[root@localhost ~]# echo -e “a\tb\tc\nd\te\tf” </p>
@@ -2732,7 +2733,7 @@ drwxrwx---+ 2 root zuan 6 4月   1 15:55 /lol
 <li>第一个脚本 </li>
 </ol>
 <p>[root@localhost sh]# vi hello.sh #!/bin/Bash </p>
-<p>#The first program # Author: shenchao （E-mail: <a href="mailto:&#x73;&#104;&#101;&#110;&#99;&#104;&#x61;&#x6f;&#64;&#108;&#x61;&#x6d;&#x70;&#98;&#114;&#x6f;&#116;&#104;&#101;&#x72;&#46;&#110;&#101;&#116;">&#x73;&#104;&#101;&#110;&#99;&#104;&#x61;&#x6f;&#64;&#108;&#x61;&#x6d;&#x70;&#98;&#114;&#x6f;&#116;&#104;&#101;&#x72;&#46;&#110;&#101;&#116;</a>）   </p>
+<p>#The first program # Author: shenchao （E-mail: <a href="mailto:&#115;&#104;&#101;&#x6e;&#99;&#x68;&#x61;&#111;&#x40;&#108;&#x61;&#x6d;&#112;&#x62;&#114;&#x6f;&#x74;&#x68;&#x65;&#114;&#x2e;&#x6e;&#x65;&#116;">&#115;&#104;&#101;&#x6e;&#99;&#x68;&#x61;&#111;&#x40;&#108;&#x61;&#x6d;&#112;&#x62;&#114;&#x6f;&#x74;&#x68;&#x65;&#114;&#x2e;&#x6e;&#x65;&#116;</a>）   </p>
 <p>echo -e “Mr. Shen Chao is the most honest man in LampBrother”</p>
 <ol start="3">
 <li>脚本执行 </li>
@@ -3464,14 +3465,14 @@ echo &quot;Sex is $gender&quot;
 <h2 id="11-5-流程控制"><a href="#11-5-流程控制" class="headerlink" title="11.5 流程控制"></a><strong>11.5 流程控制</strong></h2><h3 id="11-5-1-if语句"><a href="#11-5-1-if语句" class="headerlink" title="11.5.1  if语句"></a><strong>11.5.1  if语句</strong></h3><ol>
 <li>单分支if条件语句 </li>
 </ol>
-<pre><code>if  [ 条件判断式 ] ; then
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">if</span>  <span class="token punctuation">[</span> 条件判断式 <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
 程序 
-fi  
-#或者
-if  [ 条件判断式 ]  
-    then
+<span class="token keyword">fi</span>  
+<span class="token comment" spellcheck="true">#或者</span>
+<span class="token keyword">if</span>  <span class="token punctuation">[</span> 条件判断式 <span class="token punctuation">]</span>  
+    <span class="token keyword">then</span>
             程序 
-fi 
+<span class="token keyword">fi</span> 
 </code></pre>
 <p>单分支条件语句需要注意几个点</p>
 <ul>
@@ -3480,183 +3481,183 @@ fi
 <li>then后面跟符合条件之后执行的程序，可以放在[]之后，用“；”分割。也可以换行写入，就不需要“；”了</li>
 </ul>
 <p>例子：判断分区使用率 </p>
-<pre><code>#!/bin/basn
-# 统计根分区使用率 
-# Author: shenchao （E-mail: shenchao@qq.com）  
- rate=$(df -h | grep &quot;/dev/sda3&quot; | awk &#39;&#123;print $5&#125;&#39; | cut -d &quot;%&quot; -f 1)  
- # 把根分区使用率作为变量值赋予变量rate  
- if [ $rate -ge 80]
-    then
-        echo &quot;Warning! /dev/sda3 is full!&quot;
- fi
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#!/bin/basn</span>
+<span class="token comment" spellcheck="true"># 统计根分区使用率 </span>
+<span class="token comment" spellcheck="true"># Author: shenchao （E-mail: shenchao@qq.com）  </span>
+ rate<span class="token operator">=</span><span class="token punctuation">$(</span>df -h <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"/dev/sda3"</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&amp;#123;print <span class="token variable">$5</span>&amp;#125;'</span> <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">"%"</span> -f 1<span class="token punctuation">)</span>  
+ <span class="token comment" spellcheck="true"># 把根分区使用率作为变量值赋予变量rate  </span>
+ <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$rate</span> -ge 80<span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"Warning! /dev/sda3 is full!"</span>
+ <span class="token keyword">fi</span>
 </code></pre>
 <p>​                 <img src="https://qqadapt.qpic.cn/txdocpic/0/894b2edf008c6069681da701d9002869/0?w=1020&h=662" alt="img">        </p>
 <ol>
 <li>双分支if条件语句 </li>
 </ol>
-<pre><code>if [ 条件判断式 ] 
-    then   
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span> 条件判断式 <span class="token punctuation">]</span> 
+    <span class="token keyword">then</span>   
         条件成立时，执行的程序  
-    else 
+    <span class="token keyword">else</span> 
         条件不成立时，执行的另一个程序 
-fi
+<span class="token keyword">fi</span>
 </code></pre>
 <p>例子1：备份mysql数据库 </p>
-<pre><code>#!/bin/bash
-#备份mysql数据库。
-# Author:shenchao（E-mail:shenchao@lampbrother.net）
-ntpdateasia.pool.ntp.org&amp;&gt;/dev/null
-#同步系统时间
-date=$(date+%y%m%d)
-#把当前系统时间按照“年月日”格式赋予变量
-datesize=$(du-sh/var/lib/mysql)
-#统计mysql数据库的大小，并把大小赋予size变量
-if [ -d/tmp/dbbak ]
-    then
-        echo&quot;Date:$date!&quot; &gt; /tmp/dbbak/dbinfo.txt
-        echo&quot;Datasize$size&quot;&gt;&gt;/tmp/dbbak/dbinfo.txt
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#备份mysql数据库。</span>
+<span class="token comment" spellcheck="true"># Author:shenchao（E-mail:shenchao@lampbrother.net）</span>
+ntpdateasia.pool.ntp.org<span class="token operator">&amp;</span><span class="token operator">></span>/dev/null
+<span class="token comment" spellcheck="true">#同步系统时间</span>
+date<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>date+%y%m%d<span class="token variable">)</span></span>
+<span class="token comment" spellcheck="true">#把当前系统时间按照“年月日”格式赋予变量</span>
+datesize<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>du-sh/var/lib/mysql<span class="token variable">)</span></span>
+<span class="token comment" spellcheck="true">#统计mysql数据库的大小，并把大小赋予size变量</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -d/tmp/dbbak <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        <span class="token keyword">echo</span><span class="token string">"Date:<span class="token variable">$date!</span>"</span> <span class="token operator">></span> /tmp/dbbak/dbinfo.txt
+        <span class="token keyword">echo</span><span class="token string">"Datasize<span class="token variable">$size</span>"</span><span class="token operator">>></span>/tmp/dbbak/dbinfo.txt
         cd/tmp/dbbak
-        tar -zcf mysql-lib-$date.tar.gz /var/lib/mysql dbinfo.txt &amp;&gt;/dev/null
-        rm -rf /tmp/dbbak/dbinfo.txt
-    else
-        mkdir /tmp/dbbak
-        echo&quot;Date:date!&quot;&gt;/tmp/dbbak/dbinfo.txt
-        echo&quot;Datasize:size&quot;&gt;&gt;/tmp/dbbak/dbinfo.txt
+        <span class="token function">tar</span> -zcf mysql-lib-<span class="token variable">$date</span>.tar.gz /var/lib/mysql dbinfo.txt <span class="token operator">&amp;</span><span class="token operator">></span>/dev/null
+        <span class="token function">rm</span> -rf /tmp/dbbak/dbinfo.txt
+    <span class="token keyword">else</span>
+        <span class="token function">mkdir</span> /tmp/dbbak
+        <span class="token keyword">echo</span><span class="token string">"Date:date!"</span><span class="token operator">></span>/tmp/dbbak/dbinfo.txt
+        <span class="token keyword">echo</span><span class="token string">"Datasize:size"</span><span class="token operator">>></span>/tmp/dbbak/dbinfo.txt
         cd/tmp/dbbak
-        tar -zcf mysql-lib-$date.tar.gz /var/lib/mysql  
-         dbinfo.txt &amp;&gt; /dev/null
-         rm -rf /tmp/dbbak/dbinfo.txt
- fi
+        <span class="token function">tar</span> -zcf mysql-lib-<span class="token variable">$date</span>.tar.gz /var/lib/mysql  
+         dbinfo.txt <span class="token operator">&amp;</span><span class="token operator">></span> /dev/null
+         <span class="token function">rm</span> -rf /tmp/dbbak/dbinfo.txt
+ <span class="token keyword">fi</span>
 </code></pre>
 <p>例子2：判断apache是否启动</p>
-<pre><code>#!/bin/bash
-#Author:shenchao（E-mail:shenchao@lampbrother.net）
-port=$(nmap -sT 192.168.1.156 | grep tcp | grep http |awk&#39;&#123;print$2&#125;&#39;)
-#使用nmap命令扫描服务器，并截取apache服务的状态，赋予变量port
-if [ &quot;$port&quot;==&quot;open&quot; ]
-    then
-        echo“$(date)httpdisok!” &gt;&gt; /tmp/autostart-acc.log
-    else
-        /etc/rc.d/init.d/httpdstart &amp;&gt; /dev/null
-        echo&quot;$(date)restarthttpd!!&quot; &gt;&gt; /tmp/autostart-err.log
-fi
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span>
+port<span class="token operator">=</span><span class="token punctuation">$(</span>nmap -sT 192.168.1.156 <span class="token operator">|</span> <span class="token function">grep</span> tcp <span class="token operator">|</span> <span class="token function">grep</span> http <span class="token operator">|</span><span class="token function">awk</span><span class="token string">'&amp;#123;print<span class="token variable">$2</span>&amp;#125;'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#使用nmap命令扫描服务器，并截取apache服务的状态，赋予变量port</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$port</span>"</span><span class="token operator">==</span><span class="token string">"open"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        echo“<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span><span class="token variable">)</span></span>httpdisok<span class="token operator">!</span>” <span class="token operator">>></span> /tmp/autostart-acc.log
+    <span class="token keyword">else</span>
+        /etc/rc.d/init.d/httpdstart <span class="token operator">&amp;</span><span class="token operator">></span> /dev/null
+        <span class="token keyword">echo</span><span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span><span class="token variable">)</span></span>restarthttpd!!"</span> <span class="token operator">>></span> /tmp/autostart-err.log
+<span class="token keyword">fi</span>
 </code></pre>
 <ol>
 <li>多分支if条件语句</li>
 </ol>
-<pre><code>if [ 条件判断式1 ]
-    then
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span> 条件判断式1 <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
         当条件判断式1成立时，执行程序1
-elif [ 条件判断式2 ]
-    then
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> 条件判断式2 <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
         当条件判断式2成立时，执行程序2
 „省略更多条件…
-else
+<span class="token keyword">else</span>
     当所有条件都不成立时，最后执行此程序
-fi
+<span class="token keyword">fi</span>
 </code></pre>
 <p>例子</p>
-<pre><code>#!/bin/bash
-#判断用户输入的是什么文件
-#Author:shenchao（E-mail:shenchao@lampbrother.net）
-read-p&quot;Pleaseinputafilename:&quot;file
-#接收键盘的输入，并赋予变量file
-if [ -z &quot;$file&quot; ]
-#判断file变量是否为空       
-    then
-        echo &quot;Error,pleaseinputafilename&quot;
-        exit 1
-elif [ ! -e &quot;$file&quot; ]
-#判断file的值是否存在
-    then
-        echo &quot;Yourinputisnotafile!&quot;
-        exit 2
-elif [ -f &quot;$file&quot; ]
-#判断file的值是否为普通文件
-    then 
-    echo &quot;$fileisaregularefile!&quot;
-elif [ -d &quot;$file&quot; ]
-#判断file的值是否为目录文件  
-    then
-        echo &quot;$fileisadirectory!&quot;
-else
-    echo&quot;$fileisanotherfile!&quot;
-fi
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#判断用户输入的是什么文件</span>
+<span class="token comment" spellcheck="true">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span>
+read-p<span class="token string">"Pleaseinputafilename:"</span><span class="token function">file</span>
+<span class="token comment" spellcheck="true">#接收键盘的输入，并赋予变量file</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$file</span>"</span> <span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#判断file变量是否为空       </span>
+    <span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"Error,pleaseinputafilename"</span>
+        <span class="token keyword">exit</span> 1
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token operator">!</span> -e <span class="token string">"<span class="token variable">$file</span>"</span> <span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#判断file的值是否存在</span>
+    <span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"Yourinputisnotafile!"</span>
+        <span class="token keyword">exit</span> 2
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> -f <span class="token string">"<span class="token variable">$file</span>"</span> <span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#判断file的值是否为普通文件</span>
+    <span class="token keyword">then</span> 
+    <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$fileisaregularefile!</span>"</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> -d <span class="token string">"<span class="token variable">$file</span>"</span> <span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#判断file的值是否为目录文件  </span>
+    <span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$fileisadirectory!</span>"</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span><span class="token string">"<span class="token variable">$fileisanotherfile!</span>"</span>
+<span class="token keyword">fi</span>
 </code></pre>
 <h3 id="11-5-2-case语句"><a href="#11-5-2-case语句" class="headerlink" title="11.5.2  case语句"></a><strong>11.5.2  case语句</strong></h3><p><strong>多分支case条件语句</strong> </p>
 <ul>
 <li>case语句和if…elif…else语句一样都是多分支条件语句，不过和if多分支条件语句不同的是，case语句只能判断一种条件关系，而if语句可以判断多种条件关系。</li>
 </ul>
-<pre><code>case $ 变量名 in  
-    &quot; 值1&quot;）   
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">case</span> $ 变量名 <span class="token keyword">in</span>  
+    <span class="token string">" 值1"</span>）   
          如果变量的值等于值1，则执行程序1   
-        ; ;
-     &quot; 值2&quot;）   
+        <span class="token punctuation">;</span> <span class="token punctuation">;</span>
+     <span class="token string">" 值2"</span>）   
          如果变量的值等于值2，则执行程序2  
-          ; ;  
+          <span class="token punctuation">;</span> <span class="token punctuation">;</span>  
       …省略其他分支…  
       * ）   
       如果变量的值都不是以上的值，则执行此程序 
-      ; ;
+      <span class="token punctuation">;</span> <span class="token punctuation">;</span>
 esac 
 </code></pre>
-<pre><code>#!/bin/bash
-#判断用户输入
-#Author:shenchao（E-mail:shenchao@lampbrother.net）
-read -p&quot;Pleasechooseyes/no:&quot; -t 30 cho
-case $cho in
-    &quot;yes&quot;)
-        echo&quot;Yourchooseisyes!&quot;
-        ;;       
-    &quot;no&quot;)
-        echo&quot;Yourchooseisno!&quot;
-        ;;
-    *)
-    echo&quot;Yourchooseiserror!&quot;
-    ;;
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#判断用户输入</span>
+<span class="token comment" spellcheck="true">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span>
+<span class="token function">read</span> -p<span class="token string">"Pleasechooseyes/no:"</span> -t 30 cho
+<span class="token keyword">case</span> <span class="token variable">$cho</span> <span class="token keyword">in</span>
+    <span class="token string">"yes"</span><span class="token punctuation">)</span>
+        <span class="token keyword">echo</span><span class="token string">"Yourchooseisyes!"</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>       
+    <span class="token string">"no"</span><span class="token punctuation">)</span>
+        <span class="token keyword">echo</span><span class="token string">"Yourchooseisno!"</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+    <span class="token keyword">echo</span><span class="token string">"Yourchooseiserror!"</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
 esac
 </code></pre>
 <h3 id="11-5-3-for循环"><a href="#11-5-3-for循环" class="headerlink" title="11.5.3  for循环"></a><strong>11.5.3  for循环</strong></h3><p>语法一</p>
-<pre><code>for 变量 in 值1 值2 值3
-    do 
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">for</span> 变量 <span class="token keyword">in</span> 值1 值2 值3
+    <span class="token keyword">do</span> 
         程序
-    done
+    <span class="token keyword">done</span>
 </code></pre>
-<pre><code>#!/bin/bash
-for city in beijing nanjing shanghai 
-    do
-        echo &quot;this city is $city &quot;
-    done 
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">for</span> city <span class="token keyword">in</span> beijing nanjing shanghai 
+    <span class="token keyword">do</span>
+        <span class="token keyword">echo</span> <span class="token string">"this city is <span class="token variable">$city</span> "</span>
+    <span class="token keyword">done</span> 
 </code></pre>
 <p>输出：</p>
 <p>this city is beijing </p>
 <p>this city is nanjing </p>
 <p>this city is shanghai </p>
-<pre><code>#!/bin/bash
-#批量解压缩脚本
-cd /sh
-ls *.tar.gz -&gt; ls.log
-for i in $(cat ls.log)
-    do
-       tar -zxf $i &amp;&gt; /dev/null
-    done 
-rm -rf /sh/ls.log
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#批量解压缩脚本</span>
+<span class="token function">cd</span> /sh
+<span class="token function">ls</span> *.tar.gz -<span class="token operator">></span> ls.log
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> ls.log<span class="token variable">)</span></span>
+    <span class="token keyword">do</span>
+       <span class="token function">tar</span> -zxf <span class="token variable">$i</span> <span class="token operator">&amp;</span><span class="token operator">></span> /dev/null
+    <span class="token keyword">done</span> 
+<span class="token function">rm</span> -rf /sh/ls.log
 </code></pre>
 <p>语法二</p>
-<pre><code>for((初始值;循环控制条件;变量变化))
-    do
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">for</span><span class="token variable"><span class="token punctuation">((</span>初始值<span class="token punctuation">;</span>循环控制条件<span class="token punctuation">;</span>变量变化<span class="token punctuation">))</span></span>
+    <span class="token keyword">do</span>
         程序
-    done
+    <span class="token keyword">done</span>
 </code></pre>
-<pre><code>#!/bin/bash
-#从1加到100
-#Author
-num=0
-for((i=1;i&lt;=100;i++))
-    do
-        num=$(($num+$i))
-    done
-echo &quot;this sum of 1+2+...+100 is: $num&quot;
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#从1加到100</span>
+<span class="token comment" spellcheck="true">#Author</span>
+num<span class="token operator">=</span>0
+<span class="token keyword">for</span><span class="token variable"><span class="token punctuation">((</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">))</span></span>
+    <span class="token keyword">do</span>
+        num<span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$num<span class="token operator">+</span>$i<span class="token variable">))</span></span>
+    <span class="token keyword">done</span>
+<span class="token keyword">echo</span> <span class="token string">"this sum of 1+2+...+100 is: <span class="token variable">$num</span>"</span>
 </code></pre>
 <h3 id="11-5-4-while循环与until循环"><a href="#11-5-4-while循环与until循环" class="headerlink" title="11.5.4  while循环与until循环"></a><strong>11.5.4  while循环与until循环</strong></h3><ol>
 <li><strong>while循环</strong> </li>
@@ -3664,23 +3665,23 @@ echo &quot;this sum of 1+2+...+100 is: $num&quot;
 <ul>
 <li>while循环是不定循环，也称作条件循环。只要条件判断式成立，循环就会一直继续，直到条件判断式不成立，循环才会停止。这就和for的固定循环不太一样了。</li>
 </ul>
-<pre><code>while [ 条件判断式 ]
-    do
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">while</span> <span class="token punctuation">[</span> 条件判断式 <span class="token punctuation">]</span>
+    <span class="token keyword">do</span>
         程序
-    done
+    <span class="token keyword">done</span>
 </code></pre>
-<pre><code>#!/bin/bash
-#从1加到100
-#Author:shenchao（E-mail:shenchao@lampbrother.net）
-i=1
-s=0
-while [ $i -le 100 ] 
-#如果变量i的值小于等于100，则执行循环
-    do
-        s=$(($s+$i))
-        i=$(($i+1))
-    done
-echo&quot;Thesumis:$s&quot;
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#从1加到100</span>
+<span class="token comment" spellcheck="true">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span>
+i<span class="token operator">=</span>1
+s<span class="token operator">=</span>0
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$i</span> -le 100 <span class="token punctuation">]</span> 
+<span class="token comment" spellcheck="true">#如果变量i的值小于等于100，则执行循环</span>
+    <span class="token keyword">do</span>
+        s<span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$s<span class="token operator">+</span>$i<span class="token variable">))</span></span>
+        i<span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$i<span class="token operator">+</span><span class="token number">1</span><span class="token variable">))</span></span>
+    <span class="token keyword">done</span>
+<span class="token keyword">echo</span><span class="token string">"Thesumis:<span class="token variable">$s</span>"</span>
 </code></pre>
 <ol start="2">
 <li>until循环 </li>
@@ -3688,22 +3689,22 @@ echo&quot;Thesumis:$s&quot;
 <ul>
 <li>until循环，和while循环相反，until循环时只要条件判断式不成立则进行循环，并执行循环程序。一旦循环条件成立，则终止循环。</li>
 </ul>
-<pre><code>until [ 条件判断式 ]
-    do
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">until</span> <span class="token punctuation">[</span> 条件判断式 <span class="token punctuation">]</span>
+    <span class="token keyword">do</span>
         程序
-    done
+    <span class="token keyword">done</span>
 </code></pre>
-<pre><code>#!/bin/bash
-#从1加到100
-#Author:shenchao（E-mail:shenchao@lampbrother.net）
-i=1
-s=0
-until [ $i -gt 100 ]
-#循环直到变量i的值大于100，就停止循环
-    do
-        s=$(($s+$i))i=$(($i+1))
-    done
-echo&quot;Thesumis:$s&quot;
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#从1加到100</span>
+<span class="token comment" spellcheck="true">#Author:shenchao（E-mail:shenchao@lampbrother.net）</span>
+i<span class="token operator">=</span>1
+s<span class="token operator">=</span>0
+<span class="token keyword">until</span> <span class="token punctuation">[</span> <span class="token variable">$i</span> -gt 100 <span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#循环直到变量i的值大于100，就停止循环</span>
+    <span class="token keyword">do</span>
+        s<span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$s<span class="token operator">+</span>$i<span class="token variable">))</span></span>i<span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$i<span class="token operator">+</span><span class="token number">1</span><span class="token variable">))</span></span>
+    <span class="token keyword">done</span>
+<span class="token keyword">echo</span><span class="token string">"Thesumis:<span class="token variable">$s</span>"</span>
 </code></pre>
 <h1 id="第十二讲-Linux服务管理"><a href="#第十二讲-Linux服务管理" class="headerlink" title="第十二讲 Linux服务管理"></a><strong>第十二讲 Linux服务管理</strong></h1><h2 id="12-1-服务简介与分类"><a href="#12-1-服务简介与分类" class="headerlink" title="12.1  服务简介与分类"></a><strong>12.1  服务简介与分类</strong></h2><ol>
 <li>服务的分类</li>
@@ -4380,10 +4381,10 @@ echo&quot;Thesumis:$s&quot;
 </ol>
 <p>[root@localhost ~]# restore [模式选项] [选项]  </p>
 <p>模式选项：restore命令常用的模式有以下四种，这四个模式不能混用。 </p>
-<pre><code>     -C：比较备份数据和实际数据的变化  
+<pre class=" language-bash"><code class="language-bash">    -C：比较备份数据和实际数据的变化  
 </code></pre>
 <p>-i： 进入交互模式，手工选择需要恢复的文件。 </p>
-<pre><code>     -t： 查看模式，用于查看备份文件中拥有哪些数据。 
+<pre class=" language-bash"><code class="language-bash">    -t： 查看模式，用于查看备份文件中拥有哪些数据。 
 </code></pre>
 <p>​             -r： 还原模式，用于数据还原。 </p>
 <p>选项： </p>
