@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客添加Live2D人物, Restart的部落格">
+    <meta name="keywords" content="爬取微信小程序源代码, Restart的部落格">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>博客添加Live2D人物 | Restart的部落格</title>
+    <title>爬取微信小程序源代码 | Restart的部落格</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博客添加Live2D人物</h1>
+                    <h1 class="description center-align post-title">爬取微信小程序源代码</h1>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-03
+                    2021-12-24
                 </div>
                 
 
@@ -406,14 +406,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    550
+                    934
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -428,57 +428,82 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在苦心折腾了数小时之后，终于成功地在博客上添加上了动漫人物。网上的教程实属纷繁复杂，我在这里进行简单的概括总结。</p>
+                <p>​    在看过数篇有错或更新不及时的博客之后，最后将各篇博客中正确的部分记录下来，形成真正有效（目前）的完整篇</p>
 <span id="more"></span>
 
-<h1 id="一-添加官方模型"><a href="#一-添加官方模型" class="headerlink" title="一.添加官方模型"></a>一.添加官方模型</h1><p>官方模型共有21种，感觉耐看的只有三个（koharu,haruto,z16)，模型的预览可以去这个网站，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34321753/article/details/93895440">传送门</a>。</p>
-<p>这里我针对koharu模型进行讲解，也就是我博客主页右下角的小可爱</p>
-<ol>
-<li>进入博客根目录后用git命令安装插件</li>
-</ol>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-helper-live2d
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>​    当我们点开一个微信小程序的时候，其实是微信已经将它的源文件从服务器上下载到了手机，然后再来运行的。所以我们应该可以从<code>手机本地</code>找到到已经下载过的小程序文件（apk包），但用手机自带的文件管理软件一般是找不到的，所以需用到RE管理器进行寻找，找到后放到本地，再借用大神的反编译脚本（配合npm依赖）进行解析即可</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1 node.js 运行环境</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">下载地址</a></p>
+<p>2 反编译的脚本</p>
+<p><a target="_blank" rel="noopener" href="https://72k.us/file/2825762-435029304">下载地址</a></p>
+<p>3 夜神模拟器</p>
+<p><a target="_blank" rel="noopener" href="https://www.yeshen.com/cn/download/fullPackage">下载地址</a></p>
+<p>4.RE管理器（百度下载安卓版，会自动下载进夜神模拟器中）且在夜神模拟器中安装好QQ微信</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><ul>
+<li>登录夜神模拟器，到模拟器内部设置超级用户权限，将自动相应设置为允许（</li>
+</ul>
+<p>这些操作的目的都是为了能让<code>RE管理器</code>顺利的获取到ROOT权限）</p>
+<ul>
+<li><p>在模拟器中登录好QQ微信，接着在微信中搜索想抓取的小程序，小程序运行后，apk包即已下载入手机本地</p>
+</li>
+<li><p>进入RE管理器，进入目标位置：</p>
+<pre><code>根目录/data/data/com.tencent.mm/MicroMsg/&#123;一串16进制字符&#125;/appbrand/pkg/
 </code></pre>
-<ol start="2">
-<li>安装动漫人物库</li>
-</ol>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> live2d-widget-model-koharu <span class="token comment" spellcheck="true">#想添加其他的就改最后的模型名字，名字在模型预览网站可以找到</span>
+<p>会有两个后缀为wxapkg的文件，一般最小的那个就是我们要找的文件（一般小于1M)</p>
+<p>长按该文件，右上角三个点中里选择压缩，再发送至我的电脑（QQ接收）（电脑端的QQ也需开着接收，然后将文件存入电脑端本地），此时回到电脑端本地</p>
+</li>
+<li><p>cmd 进入 反编译脚本的目录，执行npm install </p>
+</li>
+</ul>
+<p><img src="/.io//Users\pc\AppData\Roaming\Typora\typora-user-images\image-20211224144539540.png" alt="image-20211224144539540"></p>
+<blockquote>
+<p>npm install是根据反编译脚本目录中package.json文件指定的依赖进行安装，所以如果你下载的脚本并没有该文件，或者package.json文件内容有误,会导致npm install失败,此时就需手动npm需要的各个依赖,但经过我自己的尝试后发现就算手动安装完,最后反编译时还是会报错,因此我找了很久的能正确npm install的反编译脚本,已附上</p>
+</blockquote>
+<ul>
+<li>依赖安装完后,需修改反编译文件目录下的wuWxss.js文件(这是由于微信升级导致旧版的脚本已经无法翻编译wxss文件了)</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">runVM</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> code<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//let wxAppCode=&amp;#123;&amp;#125;,handle=&amp;#123;cssFile:name&amp;#125;;</span>
+        <span class="token comment" spellcheck="true">//let vm=new VM(&amp;#123;sandbox:Object.assign(new GwxCfg(),&amp;#123;__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&amp;#125;)&amp;#125;);</span>
+        <span class="token comment" spellcheck="true">//vm.run(code);</span>
+        <span class="token comment" spellcheck="true">//for(let name in wxAppCode)if(name.endsWith(".wxss"))&amp;#123;</span>
+            <span class="token comment" spellcheck="true">//handle.cssFile=path.resolve(frameName,"..",name);</span>
+            <span class="token comment" spellcheck="true">//wxAppCode[name]();</span>
+        <span class="token comment" spellcheck="true">//&amp;#125;</span>
+ 
+      <span class="token keyword">let</span> wxAppCode <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> handle <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>cssFile<span class="token punctuation">:</span> name<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> gg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GwxCfg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> tsandbox <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+         $gwx<span class="token punctuation">:</span> GwxCfg<span class="token punctuation">.</span>prototype<span class="token punctuation">[</span><span class="token string">"$gwx"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+         __mainPageFrameReady__<span class="token punctuation">:</span> GwxCfg<span class="token punctuation">.</span>prototype<span class="token punctuation">[</span><span class="token string">"$gwx"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">//解决 $gwx is not defined</span>
+         __vd_version_info__<span class="token punctuation">:</span> GwxCfg<span class="token punctuation">.</span>prototype<span class="token punctuation">[</span><span class="token string">"$gwx"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//解决 __vd_version_info__ is not defined</span>
+         __wxAppCode__<span class="token punctuation">:</span> wxAppCode<span class="token punctuation">,</span>
+         setCssToHead<span class="token punctuation">:</span> cssRebuild<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>handle<span class="token punctuation">)</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+ 
+      <span class="token keyword">let</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VM</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>sandbox<span class="token punctuation">:</span> tsandbox<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      vm<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> name <span class="token keyword">in</span> wxAppCode<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>name<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">".wxss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            handle<span class="token punctuation">.</span>cssFile <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>frameName<span class="token punctuation">,</span> <span class="token string">".."</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            wxAppCode<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
-<ol start="3">
-<li>在博客根目录下的_config.yml配置文件中添加如下代码</li>
-</ol>
-<pre class=" language-bash"><code class="language-bash">live2d: 
-  enable: <span class="token boolean">true</span> 
-  scriptFrom: local 
-  pluginRootPath: live2dw/ 
-  pluginJsPath: lib/ 
-  pluginModelPath: assets/ 
-  tagMode: <span class="token boolean">false</span> 
-  log: <span class="token boolean">false</span> 
-  model: 
-    use: live2d-widget-model-koharu <span class="token comment" spellcheck="true">#填加你想用的模型 </span>
-  display: 
-    position: right 
-    width: 150 
-    height: 300 
-  mobile: 
-    show: <span class="token boolean">true</span> 
-    react: 
-      opacity: 0.7
+<ul>
+<li>最后就是进行反编译了,cmd下执行如下命令:</li>
+</ul>
+<pre><code>node  wuWxapkg.js  filepath
+我的是 node wuWxapkg D:\CrawlApplet\_-884074022_1.wxapkg
 </code></pre>
-<p>最后hexo g -d 后，刷新一下博客就能出来了</p>
-<h1 id="二-添加大佬们自己定制的模型"><a href="#二-添加大佬们自己定制的模型" class="headerlink" title="二. 添加大佬们自己定制的模型"></a>二. 添加大佬们自己定制的模型</h1><p>我这里找到的是添加恶魔小萝莉的模型</p>
-<h2 id="2-1-添加固定样式的模型"><a href="#2-1-添加固定样式的模型" class="headerlink" title="2.1 添加固定样式的模型"></a>2.1 添加固定样式的模型</h2><p>首先找到head.ejs文件，我的在 E:\blogtest\themes\matery\layout_partial\head.ejs</p>
-<p>不同主题位置可能不一样，这里针对matery主题</p>
-<p>接着添加如下两行代码:</p>
-<pre class=" language-bash"><code class="language-bash">    <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"stylesheet"</span> type<span class="token operator">=</span><span class="token string">"text/css"</span> href<span class="token operator">=</span><span class="token string">"//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"//cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>    
-</code></pre>
-<p>保存配置文件，最后hexo g -d 后，刷新一下博客就能出来了。</p>
-<h2 id="2-2-添加定制化的模型"><a href="#2-2-添加定制化的模型" class="headerlink" title="2.2 添加定制化的模型"></a>2.2 添加定制化的模型</h2><p>上面的方法添加的模型样式大小位置语言等都是固定的，想要更换模型可以调用其他的API，想要完全自定义模型，需要自行研究后端API，太难了，希望有人能教教。</p>
-<p>可参考以下网址，我表示没整明白，但的确有人根据他们的方法整好的。</p>
-<p>大佬可以将各种游戏的2d人物提取出来，变成自己博客的看板娘，羡慕~</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">传送门1</a></p>
-<p><a target="_blank" rel="noopener" href="https://nocilol.me/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-01/">传送门2</a></p>
+<p>如下就是我得到的小程序的文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Funder666/Blog-imgs/images/image-20211224150231485.png" alt="image-20211224150231485"></p>
+<blockquote>
+<p>依赖安装出问题的话会导致html-&gt;wxml失败，wxss缺失等问题</p>
+<p>因此正确的反编译脚本、依赖安装正确、wuWxss.js文件的正确修改是成功的关键</p>
+</blockquote>
 
                 
             </div>
@@ -505,7 +530,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Funder666.github.io/2021/09/03/%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0Live2D%E4%BA%BA%E7%89%A9/">http://Funder666.github.io/2021/09/03/%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0Live2D%E4%BA%BA%E7%89%A9/</a>
+                    <a href="http://Funder666.github.io/2021/12/24/%E7%88%AC%E5%8F%96%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%BA%90%E4%BB%A3%E7%A0%81/">http://Funder666.github.io/2021/12/24/%E7%88%AC%E5%8F%96%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%BA%90%E4%BB%A3%E7%A0%81/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,9 +615,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/12/24/%E7%88%AC%E5%8F%96%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%BA%90%E4%BB%A3%E7%A0%81/">
                     <div class="card-image">
@@ -610,9 +636,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -621,6 +647,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -639,24 +666,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/02/git%E7%AC%94%E8%AE%B0/">
+                <a href="/2021/09/03/%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0Live2D%E4%BA%BA%E7%89%A9/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="git学习笔记">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="博客添加Live2D人物">
                         
-                        <span class="card-title">git学习笔记</span>
+                        <span class="card-title">博客添加Live2D人物</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Git是一个版本控制工具，有着类似快照的作用，对于从事IT行业的人是必须要掌握的。而git的学习是比较轻松的，在B站上花费数个小时便能掌握
+                            在苦心折腾了数小时之后，终于成功地在博客上添加上了动漫人物。网上的教程实属纷繁复杂，我在这里进行简单的概括总结。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-03
                             </span>
                         <span class="publish-author">
                             
@@ -669,8 +696,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>
